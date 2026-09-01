@@ -17,7 +17,7 @@ export default defineConfig({
         description: "Pflanzenpflege, Erinnerungen und Frostwarnungen für die eigene Sammlung",
         start_url: "/",
         display: "standalone",
-        background_color: "#1b1b1b",
+        background_color: "#f3f1e7",
         theme_color: "#2e7d32",
         icons: [
           {

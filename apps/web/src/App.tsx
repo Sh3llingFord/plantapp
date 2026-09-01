@@ -5,6 +5,17 @@ interface User {
   username: string;
 }
 
+function Brand() {
+  return (
+    <div className="brand">
+      <span className="brand__leaf" aria-hidden="true">
+        🌱
+      </span>
+      <span className="brand__title">Plants vs. Mella</span>
+    </div>
+  );
+}
+
 function AuthForm({ onAuthenticated }: { onAuthenticated: (user: User) => void }) {
   const [mode, setMode] = useState<"login" | "register">("login");
   const [username, setUsername] = useState("");
@@ -40,73 +51,74 @@ function AuthForm({ onAuthenticated }: { onAuthenticated: (user: User) => void }
   }
 
   return (
-    <main>
-      <h1>Plants vs. Mella</h1>
-      <nav>
-        <button type="button" disabled={mode === "login"} onClick={() => setMode("login")}>
-          Einloggen
-        </button>
-        <button
-          type="button"
-          disabled={mode === "register"}
-          onClick={() => setMode("register")}
-        >
-          Konto erstellen
-        </button>
-      </nav>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>
-            Benutzername
+    <div className="page">
+      <Brand />
+      <div className="card">
+        <div className="tabs">
+          <button type="button" disabled={mode === "login"} onClick={() => setMode("login")}>
+            Einloggen
+          </button>
+          <button
+            type="button"
+            disabled={mode === "register"}
+            onClick={() => setMode("register")}
+          >
+            Konto erstellen
+          </button>
+        </div>
+        <form onSubmit={handleSubmit}>
+          <div className="field">
+            <label htmlFor="username">Benutzername</label>
             <input
+              id="username"
               type="text"
+              autoComplete="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
             />
-          </label>
-        </div>
-        <div>
-          <label>
-            Passwort
+          </div>
+          <div className="field">
+            <label htmlFor="password">Passwort</label>
             <input
+              id="password"
               type="password"
+              autoComplete={mode === "login" ? "current-password" : "new-password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-          </label>
-        </div>
-        {mode === "register" && (
-          <div>
-            <label>
-              Setup-Code
+          </div>
+          {mode === "register" && (
+            <div className="field">
+              <label htmlFor="setupCode">Setup-Code</label>
               <input
+                id="setupCode"
                 type="text"
                 value={setupCode}
                 onChange={(e) => setSetupCode(e.target.value)}
                 required
               />
-            </label>
-          </div>
-        )}
-        {error && <p role="alert">{error}</p>}
-        <button type="submit" disabled={loading}>
-          {loading ? "…" : mode === "login" ? "Einloggen" : "Konto erstellen"}
-        </button>
-      </form>
-    </main>
+            </div>
+          )}
+          {error && <p className="alert alert--error">{error}</p>}
+          <button className="btn btn--primary" type="submit" disabled={loading}>
+            {loading ? "…" : mode === "login" ? "Einloggen" : "Konto erstellen"}
+          </button>
+        </form>
+      </div>
+    </div>
   );
 }
 
 function Settings({ user, onLoggedOut }: { user: User; onLoggedOut: () => void }) {
-  const [health, setHealth] = useState("prüfe...");
+  const [health, setHealth] = useState<"prüfe…" | "ok" | "nicht erreichbar">("prüfe…");
   const [pushStatus, setPushStatus] = useState<string | null>(null);
 
   useEffect(() => {
     fetch("/api/health")
       .then((res) => res.json())
-      .then((data) => setHealth(data.status))
+      .then((data) => setHealth(data.status === "ok" ? "ok" : "nicht erreichbar"))
       .catch(() => setHealth("nicht erreichbar"));
   }, []);
 
@@ -136,18 +148,40 @@ function Settings({ user, onLoggedOut }: { user: User; onLoggedOut: () => void }
   }
 
   return (
-    <main>
-      <h1>Plants vs. Mella</h1>
-      <p>Eingeloggt als {user.username}</p>
-      <p>API-Status: {health}</p>
-      <section>
-        <h2>Benachrichtigungen</h2>
-        <button onClick={handleEnableNotifications}>Benachrichtigungen aktivieren</button>
-        <button onClick={handleTestNotification}>Testbenachrichtigung senden</button>
-        {pushStatus && <p>{pushStatus}</p>}
-      </section>
-      <button onClick={handleLogout}>Ausloggen</button>
-    </main>
+    <div className="page">
+      <Brand />
+      <div className="card">
+        <div className="settings-header">
+          <p className="settings-header__welcome">
+            Eingeloggt als <strong>{user.username}</strong>
+          </p>
+          <span className={`tag ${health === "ok" ? "tag--ok" : "tag--muted"}`}>
+            {health === "ok" ? "● online" : health === "prüfe…" ? "…" : "● offline"}
+          </span>
+        </div>
+
+        <div className="section">
+          <p className="section__title">
+            <span aria-hidden="true">🔔</span> Benachrichtigungen
+          </p>
+          <div className="btn-row">
+            <button className="btn btn--primary" onClick={handleEnableNotifications}>
+              Benachrichtigungen aktivieren
+            </button>
+            <button className="btn btn--secondary" onClick={handleTestNotification}>
+              Testbenachrichtigung senden
+            </button>
+          </div>
+          {pushStatus && <p className="section__status">{pushStatus}</p>}
+        </div>
+
+        <div className="section">
+          <button className="btn btn--ghost" onClick={handleLogout}>
+            Ausloggen
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }
 
