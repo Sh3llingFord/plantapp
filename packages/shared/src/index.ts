@@ -1,0 +1,1 @@
+export const PLANTAPP_SCHEMA_VERSION = 0;

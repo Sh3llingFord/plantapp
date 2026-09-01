@@ -5,7 +5,7 @@
 > Alternativen. Eine neue Claude-Code-Session braucht nichts weiter als diese Datei.
 >
 > **Startsatz für eine neue Session:**
-> „Lies `docs/ROADMAP.md`. Wir bauen M0. Branch `claude/plant-care-pwa-roadmap-8eyks5`.
+> „Lies `docs/ROADMAP.md`. Wir bauen M0a. Branch `claude/plant-care-pwa-roadmap-8eyks5`.
 > Nicht neu planen — umsetzen."
 
 ---
@@ -32,7 +32,7 @@ vorschlägt.
 | Thema | Entscheidung | Verworfen — warum |
 |---|---|---|
 | Deployment | **Portainer-Stack, Typ „Repository"** — Portainer klont das Repo auf den Docker-Host und baut das Image dort selbst | GitHub Actions + GHCR (externes CI unerwünscht); lokales `docker compose` (es soll nur ein Stack-YAML sein) |
-| Erreichbarkeit | **Cloudflare Tunnel**, proxied DNS-Record `plantsvsmella.inmc.info` → `cloudflared` → Container. Gleiches Muster wie beim vorhandenen HA-Zugriff | Port-Forwarding, eigenes Let's-Encrypt/Caddy-Setup — unnötig |
+| Erreichbarkeit | **Bestehenden Cloudflare Tunnel wiederverwenden** (gleicher Tunnel wie beim HA-Zugriff): eine zusätzliche Ingress-Regel `plantsvsmella.inmc.info` → `http://192.168.86.7:9100` (Host-IP:Port) in dessen Config. `plantapp` published Port 9100 auf dem Host. Kein eigener `cloudflared`-Service in `infra/stack.yaml` — der Stack enthält nur den einen `plantapp`-Container | Eigener `cloudflared`-Container pro App (unnötige Duplikation, ein Tunnel kann mehrere Hostnamen routen); gemeinsames Docker-Netz mit dem Tunnel-Container (Host-Port ist einfacher, da der Tunnel-Container nicht zwingend auf demselben Host/Netz läuft); Port-Forwarding am Router, eigenes Let's-Encrypt/Caddy-Setup — unnötig |
 | Edge-Auth | **Kein Cloudflare Access.** App-eigener Login | Access beantwortet Service-Worker- und Push-Requests mit Login-Redirects und bricht damit PWA-Installation und Push |
 | Datenhaltung | **SQLite-Datei**, `/data` als **Bind-Mount** auf selbst gewählten Host-Pfad | Azure Table Storage (kein SQL/Joins/Volltext, Latenz, wäre trotzdem Betrieb); Docker-Volume (explizit nicht gewollt) |
 | Backup | Nächtlicher **`VACUUM INTO`**-Snapshot nach `/data/backups/`, 14 Generationen; die vorhandene lokale Sicherung nimmt sie mit | Litestream → Cloudflare R2 — kein externer Dienst gewünscht |
@@ -44,7 +44,7 @@ vorschlägt.
 | Extras in Scope | Wetter/Frostwarnung | Foto-Erkennung, QR-Etiketten — abgewählt, siehe Backlog |
 
 **Noch offen, wird zur Umsetzung gebraucht:**
-Host-Pfad für den `/data`-Bind-Mount · Cloudflare-Tunnel-Token · n8n-Webhook-URL ·
+Host-Pfad für den `/data`-Bind-Mount · n8n-Webhook-URL ·
 GitHub-PAT mit Repo-Lesezugriff für Portainer · welches AI-Modell in n8n hängt.
 
 ---
@@ -85,11 +85,49 @@ Offline-Schreibkonflikte. Dazu ein Meilenstein 0 „Walking Skeleton" in Woche 1
    Reichhaltigkeit des Schemas nicht durch Experimentieren, sondern indem man 50 echte
    Pflanzen dagegen validiert — und diesen Seed-Datensatz braucht man ohnehin.
 
-### Iteration 3 — final
+### Iteration 3 — Zwischenstand
 
 **Leitprinzip: Jeder Meilenstein endet mit etwas, das seine Frau auf dem Handy öffnen und
 tatsächlich benutzen kann.** Die Risiken bleiben vorne, werden aber mit echtem Produktcode
 bewiesen statt mit Prototypen.
+
+**Verworfen, weil:**
+
+1. **M0 ist selbst schon überladen für "Woche 1" bei 8 h/Woche.** Gebündelt: Monorepo-Setup,
+   mehrstufiges Dockerfile, `infra/stack.yaml`, Cloudflare-DNS+Tunnel, SQLite+
+   Drizzle-Migrationen, Login (argon2id, Sessions), PWA-Manifest+Service-Worker, kompletter
+   VAPID-Push-Flow, Health-Endpoint. Realistisch eher 1,5–2 Wochen statt einer.
+2. **Zwei verschiedene Risiken stecken ungetrennt in M0.** Infrastruktur-Risiko (kommt der
+   Container über Portainer/Tunnel überhaupt online?) und Produkt-Risiko (kommt Push auf
+   Android an?). Scheitert der Test in Woche 1, ist unklar, welches der beiden Probleme
+   vorliegt — große Debugging-Fläche für ein Feierabendprojekt.
+3. **Datenverlust-Risiko bleibt 8 Wochen lang unadressiert.** Backup (`VACUUM INTO`, Rotation)
+   ist erst M6 (Woche 9), obwohl ab M1 (Woche 2–3) bereits echte Nutzerdaten
+   (Pflanzensammlung) existieren, die ohne Sicherung wären.
+4. **n8n-Erreichbarkeit ist ein weiteres, unabgesichertes Infrastruktur-Risiko**, das erst in
+   M2 (Woche 4) zum ersten Mal getestet wird — analog zum Cloudflare-Tunnel-Risiko in M0,
+   aber ohne frühen Konnektivitäts-Check.
+5. **Die "noch offene" Liste (Host-Pfad, Tunnel-Token, n8n-Webhook-URL, GitHub-PAT,
+   AI-Modell) blockiert den Start von M0 komplett**, bekommt aber keinen eigenen expliziten
+   Vorbereitungsschritt mit Verantwortlichkeit (Mensch vs. Session).
+
+### Iteration 4 — final
+
+**Leitprinzip: gleiche Grundstruktur wie Iteration 3, aber Infrastruktur-Risiko und
+Produkt-Risiko in M0 entkoppelt, Basis-Backup vorgezogen, n8n-Konnektivität früh geprüft,
+Vorbereitungs-Blocker explizit benannt statt am Ende beiläufig aufgelistet.**
+
+- **M0 wird zu M0a (Infra-Kette) und M0b (Push-Beweis) gesplittet.** Scheitert M0a, liegt es
+  an Portainer/Tunnel/DNS — noch ohne Login, DB oder Push im Spiel. Scheitert erst M0b, ist
+  die Infra bewiesenermaßen sauber und das Problem liegt im Push-Flow selbst.
+- **Ein Basis-Backup zieht von M6 nach M1**, sobald die erste echte Pflanze in der DB steht.
+  Die volle Politur (14-Generationen-Rotation, echter Restore-Test) bleibt in M6.
+- **M2 bekommt einen n8n-Konnektivitäts-Check als ersten Schritt**, bevor der volle
+  Async-Job-Flow gebaut wird — dieselbe Logik wie der frühe Push-Beweis in M0b, nur kleiner.
+- **Eine explizite "Vorbereitung"-Checkliste vor M0a** macht die Blocker sichtbar und benennt,
+  dass es Nutzeraufgabe ist (Secrets/Zugänge), nicht Teil einer Coding-Session.
+- M3, M4, M5 bleiben strukturell unverändert — dort wurden keine vergleichbaren Probleme
+  gefunden.
 
 Zeitangaben: Kalenderwochen bei ca. 8 h/Woche, mit Claude Code als Schreibkraft.
 
@@ -97,19 +135,46 @@ Zeitangaben: Kalenderwochen bei ca. 8 h/Woche, mit Claude Code als Schreibkraft.
 
 ## Meilensteine
 
-### M0 — Walking Skeleton + Push-Beweis (Woche 1)
+### Vorbereitung (vor Woche 1)
 
-Das riskanteste Stück zuerst, aber als echter Code.
+Keine Coding-Aufgabe, sondern Zugänge/Secrets, die nur der Nutzer beschaffen kann — blockiert
+sonst den Start von M0a:
+
+- Host-Pfad für den `/data`-Bind-Mount festlegen
+- Ingress-Regel `plantsvsmella.inmc.info` → `http://192.168.86.7:9100` in der Config des
+  **bestehenden** cloudflared-Tunnels (gleicher wie beim HA-Zugriff) ergänzen (macht der
+  Nutzer selbst, außerhalb dieses Repos) — `plantapp` published Port 9100 auf dem Docker-Host
+- n8n-Erreichbarkeit vom Docker-Host aus **per einfachem Health-Check** prüfen (reicht ein
+  `curl` auf die n8n-Instanz vom Host — noch keine Workflow-Integration, nur "ist das Netz
+  offen")
+- n8n-Webhook-URL (bzw. deren Basis-URL im lokalen Netz)
+- GitHub-PAT mit Lesezugriff auf das Repo, einmalig in Portainer hinterlegt
+- AI-Modell für n8n auswählen — beeinflusst Prompt-Design in M2, daher besser vor M0 klären
+  als erst als Nachgedanke in M2
+
+### M0a — Infra-Kette beweisen (Anfang Woche 1)
+
+Reines Infrastruktur-Risiko, isoliert von allem, was mit Login, Daten oder Push zu tun hat.
 
 - Monorepo (`pnpm` workspaces): `apps/web`, `apps/api`, `packages/shared`
 - **`Dockerfile`** im Repo-Root, mehrstufig: pnpm-Install → PWA-Build → schlankes
   Node-Runtime-Image. Weil Portainer auf dem Host baut, braucht die VM nichts außer Docker —
   Node und pnpm leben nur in der Build-Stage.
-- **`infra/stack.yaml`** — Services `plantapp` (mit `build: .`) und `cloudflared` (fertiges
-  Image). Alle Secrets kommen als Stack-Umgebungsvariablen aus Portainer, nicht aus einer
-  Datei auf dem Host.
-- Cloudflare: proxied DNS-Record `plantsvsmella.inmc.info` → Tunnel → `plantapp:3000`.
-  Tunnel-Token als Portainer-Env-Variable, kein offener Port am Router.
+- **`infra/stack.yaml`** — ein einziger Service, `plantapp` (mit `build: .`), published Port
+  `9100` auf dem Host (`9100:3000`). **Kein eigener `cloudflared`-Service** — der Tunnel
+  läuft schon (HA-Zugriff), er bekommt nur eine weitere Ingress-Regel auf
+  `192.168.86.7:9100`. Alle Secrets kommen als Stack-Umgebungsvariablen aus Portainer, nicht
+  aus einer Datei auf dem Host.
+- `/api/health` — noch ohne DB-Zugriff, reiner Prozess-Health-Check
+
+**Definition of Done:** `https://plantsvsmella.inmc.info/api/health` ist **aus dem
+Mobilfunknetz** erreichbar. Damit ist bewiesen, dass Portainer baut, der Tunnel routet und
+die Domain lebt — bevor überhaupt Login, DB oder Push ins Spiel kommen.
+
+### M0b — Push-Beweis (Rest Woche 1)
+
+Das eigentliche Produkt-Risiko, jetzt auf einer bewiesenermaßen funktionierenden Infra-Kette.
+
 - SQLite in `/data/plantapp.db` (WAL-Modus), Drizzle-Migrationen beim Containerstart.
   `/data` ist ein **Bind-Mount** auf einen selbst gewählten Host-Pfad
   (`- /dein/pfad/plantapp:/data`), damit die Datei direkt in der Backup-Routine liegt.
@@ -120,11 +185,11 @@ Das riskanteste Stück zuerst, aber als echter Code.
   **„Testbenachrichtigung senden"**, die real auf dem Android ankommt.
   **Die VAPID-Keys erzeugt die App beim ersten Start selbst nach `/data`** — kein manuelles
   Key-Handling, und sie überleben jeden Redeploy.
-- `/api/health`
 
 **Definition of Done:** Beide Handys haben die App über den Tunnel installiert und empfangen
 eine Testbenachrichtigung bei **geschlossener** App. Damit ist R1 erledigt. Kommt sie nicht
-an, wird nichts weiter gebaut, bis sie ankommt.
+an, wird nichts weiter gebaut, bis sie ankommt — und dank M0a ist klar, dass es an Push
+selbst liegt, nicht an der Infra-Kette.
 
 > **Fallstrick:** Kein Cloudflare Access vor die App. Access beantwortet Service-Worker- und
 > Push-Requests mit Login-Redirects und bricht damit Installation und Push. Absicherung
@@ -154,9 +219,14 @@ Der Katalog — nützlich, noch ganz ohne AI.
   Notizen; dazu Filter für Standort, Licht, Winterhärte, Giftigkeit für Haustiere
 - Detailansicht mit allen Pflegedaten
 - Offline-Lesen (Workbox: App-Shell precache, API stale-while-revalidate)
+- **Basis-Backup, vorgezogen aus M6:** Sobald die erste eigene Pflanze in der DB steht, gibt
+  es echte Nutzerdaten, die ohne Sicherung wären. Ein einfacher nächtlicher `VACUUM INTO`-
+  Snapshot nach `/data/backups/` reicht hier — noch **ohne** 14-Generationen-Rotation und
+  ohne durchgespielten Restore-Test, das kommt erst mit der vollen Politur in M6. Ziel ist
+  nur: kein 8 Wochen langes Fenster ganz ohne Sicherung.
 
 **DoD:** Die 50 Seeds sind durchsuchbar, eine eigene Pflanze lässt sich anlegen und
-wiederfinden.
+wiederfinden. Nach einer Nacht liegt mindestens ein Snapshot in `/data/backups/`.
 
 ### M2 — AI-Anreicherung über n8n (Woche 4)
 
@@ -168,6 +238,12 @@ App ──POST /webhook/plant-enrich──► n8n ──► AI (Structured Outpu
 
 Bewusst **asynchron**: AI-Antworten brauchen 10–60 s, ein synchroner Request läuft in
 Cloudflare- und Browser-Timeouts.
+
+**Erster Schritt, vor dem vollen Job-Flow:** ein einfacher Konnektivitäts-Check gegen den
+n8n-Health-Endpoint von der VM aus. Derselbe Gedanke wie der Infra-Beweis in M0a, nur kleiner
+— besser jetzt scheitern, an einem einzelnen `curl`, als mitten im Aufbau des Job-Flows
+festzustellen, dass n8n vom Docker-Host aus gar nicht erreichbar ist (Netzwerk-Segmentierung,
+Firewall).
 
 1. Neue Pflanze → Lookup in `species_cache` (Schlüssel: normalisierter botanischer Name +
    Schema-Version + Prompt-Version). Treffer → sofort fertig, **kein AI-Call, keine Kosten**.
@@ -258,13 +334,14 @@ Open-Meteo, kein API-Key, kein Konto.
 
 - **Offline-Schreiben:** IndexedDB-Outbox + Background Sync, serverseitige Idempotenz-Keys
   (R4)
-- **Backup:** kein externer Dienst. Nächtlich schreibt der Scheduler einen konsistenten
-  Snapshot per `VACUUM INTO` nach `/data/backups/plantapp-YYYY-MM-DD.db` und hält die letzten
-  14 Stück. Weil `/data` ein Bind-Mount ist, nimmt die bestehende lokale Sicherung die
-  Snapshots automatisch mit.
+- **Backup — Politur der Basis aus M1:** Der einfache nächtliche `VACUUM INTO`-Snapshot
+  existiert bereits seit M1. Hier kommt die **14-Generationen-Rotation** dazu
+  (`/data/backups/plantapp-YYYY-MM-DD.db`, älteste Datei löschen sobald mehr als 14 vorhanden
+  sind). Weil `/data` ein Bind-Mount ist, nimmt die bestehende lokale Sicherung die Snapshots
+  automatisch mit.
   Der `VACUUM INTO`-Weg ist wichtig: Eine laufende SQLite-Datei im WAL-Modus einfach zu
   kopieren kann einen inkonsistenten Stand ergeben, der Snapshot dagegen ist immer sauber.
-  Der Restore wird einmal echt durchgespielt — ein ungetestetes Backup ist keins.
+  Der Restore wird jetzt **einmal echt durchgespielt** — ein ungetestetes Backup ist keins.
 - Export/Import der kompletten Sammlung als JSON
 - Rate-Limits, strukturiertes Logging
 - **Update-Pfad:** `git push` → in Portainer „Pull and redeploy". Rollback durch Setzen des
@@ -282,10 +359,12 @@ Handy (Android, PWA installiert)
 Cloudflare Edge — proxied DNS "plantsvsmella.inmc.info"
    │ Tunnel
    ▼
-cloudflared (Container)
-   │ docker-Netz
+cloudflared (bestehender Container, gleicher Tunnel wie beim HA-Zugriff — nicht Teil
+             von infra/stack.yaml; bekommt nur eine zusätzliche Ingress-Regel
+             → http://192.168.86.7:9100)
+   │ Host-Netz, Port 9100
    ▼
-plantapp (ein Node-Container)
+plantapp (ein Node-Container — der einzige Service in infra/stack.yaml, published 9100:3000)
 ├─ Fastify: API + statisches PWA-Build
 ├─ Scheduler (croner): Occurrences, Wetter, Push, Nacht-Snapshot
 ├─ web-push (VAPID)
@@ -297,9 +376,11 @@ plantapp ──► n8n (lokal) ──► AI
         ──► Open-Meteo (Geocoding + Prognose + Archiv)
 ```
 
-Kein Port-Forwarding, keine eingehende Firewall-Regel: `cloudflared` baut die Verbindung von
-innen nach außen auf. TLS terminiert Cloudflare, die PWA sieht ein gültiges Zertifikat —
-Voraussetzung für Installation und Web-Push.
+Kein Port-Forwarding am Router, keine eingehende Firewall-Regel von außen: `cloudflared`
+baut die Verbindung von innen nach außen auf. TLS terminiert Cloudflare, die PWA sieht ein
+gültiges Zertifikat — Voraussetzung für Installation und Web-Push. `plantapp` selbst spricht
+kein TLS; Port 9100 ist nur im lokalen Netz erreichbar, `cloudflared` greift von dort darauf
+zu.
 
 ### Warum SQLite und nicht Azure Table Storage
 
@@ -325,7 +406,8 @@ apps/web/            React + Vite + vite-plugin-pwa, TanStack Query, Tailwind
 data/seeds/          plants.seed.json (50 Pflanzen) + Validierungstest
 docs/ROADMAP.md      dieses Dokument
 Dockerfile           mehrstufig: pnpm-Build → Node-Runtime
-infra/stack.yaml     Portainer-Stack (plantapp mit build:, cloudflared)
+infra/stack.yaml     Portainer-Stack, einziger Service: plantapp (mit build:),
+                     published Port 9100 auf dem Host (9100:3000)
                      + n8n-Workflow-Export
 ```
 
@@ -392,16 +474,19 @@ Drei Dinge, die daraus folgen:
 
 | Risiko | Wo adressiert | Absicherung |
 |---|---|---|
-| Android-Push kommt nicht an | M0 | Echter Push-Test in Woche 1, bevor irgendwas anderes gebaut wird |
-| Cloudflare Access bricht Service Worker | M0 | Access bewusst nicht davor; App-Login statt Edge-Auth |
+| Infra-Kette (Portainer/Tunnel/DNS) kommt nicht online | M0a | Reiner Health-Endpoint-Test aus dem Mobilfunknetz, bevor Login/DB/Push dazukommen |
+| Android-Push kommt nicht an | M0b | Echter Push-Test in Woche 1, auf bewiesenermaßen funktionierender Infra-Kette |
+| Cloudflare Access bricht Service Worker | M0a/M0b | Access bewusst nicht davor; App-Login statt Edge-Auth |
 | AI halluziniert / liefert unbrauchbares JSON | M2 | Structured Output + Zod-Validierung + `null` erlaubt + Quellen + manuelle Korrektur mit Sperre |
 | AI-Kosten und Latenz | M2 | `species_cache` — jede Art wird genau einmal abgefragt |
-| n8n nicht erreichbar | M2 | Async-Job, Pflanze wird trotzdem angelegt, Retry mit Backoff |
+| n8n vom Docker-Host nicht erreichbar | M2 | Kurzer Konnektivitäts-Check gegen n8n-Health-Endpoint als erster Schritt, vor dem vollen Job-Flow |
+| n8n während Betrieb nicht erreichbar | M2 | Async-Job, Pflanze wird trotzdem angelegt, Retry mit Backoff |
 | Schema trägt Kalender nicht | M1 | 50 Seeds validieren das Schema, bevor Aufgaben-Code entsteht |
 | Benachrichtigungs-Müdigkeit | M4 | Tagesbündelung + Ruhezeiten statt Push je Aufgabe |
-| Datenverlust (eine Datei) | M6 | Nächtlicher `VACUUM INTO`-Snapshot, 14 Generationen, einmal echt getesteter Restore |
+| Datenverlust (eine Datei), erste Wochen | M1 | Einfacher nächtlicher `VACUUM INTO`-Snapshot ab der ersten echten Pflanze, noch ohne Rotation |
+| Datenverlust (eine Datei), volle Absicherung | M6 | 14-Generationen-Rotation, einmal echt getesteter Restore |
 | Offline-Schreibkonflikte | M6 | Outbox + Idempotenz-Keys |
-| Langsamer Rebuild auf der VM | M0 | Dockerfile-Layering, Tests außerhalb des Builds |
+| Langsamer Rebuild auf der VM | M0a | Dockerfile-Layering, Tests außerhalb des Builds |
 
 ---
 
@@ -429,16 +514,20 @@ Abgewählt oder zurückgestellt, damit die 9 Wochen halten:
 
 Pro Meilenstein, nicht erst am Ende:
 
-**M0** — In Portainer einen Repository-Stack auf `infra/stack.yaml` anlegen, Env-Variablen
-setzen, deployen; Build läuft durch, Container ist gesund. `https://plantsvsmella.inmc.info`
-**aus dem Mobilfunknetz** (nicht nur im WLAN) aufrufen; PWA auf beiden Handys installieren;
-Testbenachrichtigung bei **geschlossener** App empfangen. Kommt sie nicht an, wird nichts
-weiter gebaut, bis sie ankommt.
+**M0a** — In Portainer einen Repository-Stack auf `infra/stack.yaml` anlegen, Env-Variablen
+setzen, deployen; Build läuft durch, Container ist gesund. `https://plantsvsmella.inmc.info/api/health`
+**aus dem Mobilfunknetz** (nicht nur im WLAN) aufrufen — Antwort kommt an. Noch kein Login,
+keine PWA-Installation nötig.
+
+**M0b** — PWA auf beiden Handys installieren; Testbenachrichtigung bei **geschlossener** App
+empfangen. Kommt sie nicht an, wird nichts weiter gebaut, bis sie ankommt.
 
 **M1** — `pnpm test` validiert alle 50 Seeds gegen das Zod-Schema; Suche nach „Monstera",
 „Fensterblatt" und einem Tippfehler liefert Treffer; Flugmodus → App öffnen → Liste ist da.
+Nach einer Nacht liegt ein `VACUUM INTO`-Snapshot in `/data/backups/`.
 
-**M2** — n8n-Workflow importieren, 10 reale Pflanzennamen durchschicken, Trefferquote und
+**M2** — Erst n8n-Health-Endpoint von der VM aus per `curl` prüfen (Konnektivitäts-Check);
+dann n8n-Workflow importieren, 10 reale Pflanzennamen durchschicken, Trefferquote und
 Schema-Konformität protokollieren; n8n stoppen → Pflanze lässt sich trotzdem anlegen;
 Callback mit falscher HMAC-Signatur wird abgelehnt.
 
@@ -460,21 +549,26 @@ online gehen, Sync prüfen.
 
 ## Nächster Schritt
 
-Umsetzung beginnt mit **M0** auf Branch `claude/plant-care-pwa-roadmap-8eyks5`.
+Umsetzung beginnt mit der **Vorbereitung-Checkliste**, danach **M0a** auf Branch
+`claude/plant-care-pwa-roadmap-8eyks5`.
 
-Dafür gebraucht:
+Vorbereitung, bevor M0a startet (siehe [Meilensteine](#meilensteine), Abschnitt
+"Vorbereitung"):
 
 - der Host-Pfad für den `/data`-Bind-Mount
-- Cloudflare-Tunnel-Token für `plantsvsmella.inmc.info`
+- Ingress-Regel `plantsvsmella.inmc.info` → `http://192.168.86.7:9100` im bestehenden
+  cloudflared-Tunnel ergänzt
+- n8n-Erreichbarkeit vom Docker-Host aus per einfachem Health-Check geprüft
 - die n8n-Webhook-URL (bzw. deren Basis-URL im lokalen Netz)
 - in Portainer einmalig ein GitHub-PAT mit Lesezugriff auf das Repo (für den
   Repository-Stack)
+- Wahl des AI-Modells für n8n
 
 Der Standort für M5 wird in der App selbst per Ortsname gesetzt — dafür braucht es vorab
 nichts.
 
 **Arbeitsteilung:** Eine Claude-Code-Session in der Cloud hat keine Verbindung ins Heimnetz —
 Portainer, n8n und die VM sind von dort nicht erreichbar. Sie kann Code schreiben und pushen;
-Deploy und Verifikation der M0-Kette (Tunnel, Push aufs Handy) passieren auf der eigenen
+Deploy und Verifikation der M0a/M0b-Kette (Tunnel, Push aufs Handy) passieren auf der eigenen
 Seite. Eine Session, die direkt auf der VM läuft (Claude Code als CLI im Repo-Verzeichnis),
 hat Docker, Portainer und n8n im selben Netz und kann die Kette selbst schließen.

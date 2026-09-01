@@ -1,0 +1,14 @@
+{
+  "name": "plantapp",
+  "private": true,
+  "packageManager": "pnpm@10.15.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "pnpm --filter shared build && pnpm --filter web build && pnpm --filter api build",
+    "dev:api": "pnpm --filter api dev",
+    "dev:web": "pnpm --filter web dev",
+    "typecheck": "pnpm -r typecheck"
+  }
+}
