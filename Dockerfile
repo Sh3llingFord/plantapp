@@ -27,6 +27,7 @@ COPY --from=build /app/apps/api/package.json apps/api/package.json
 COPY --from=build /app/packages/shared/package.json packages/shared/package.json
 RUN pnpm install --frozen-lockfile --prod --filter @plantapp/api...
 COPY --from=build /app/apps/api/dist apps/api/dist
+COPY --from=build /app/apps/api/drizzle apps/api/drizzle
 COPY --from=build /app/packages/shared/dist packages/shared/dist
 COPY --from=build /app/apps/web/dist apps/web/dist
 
