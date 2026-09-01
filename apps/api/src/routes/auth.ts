@@ -1,8 +1,9 @@
+import { randomUUID, timingSafeEqual } from "node:crypto";
 import type { FastifyInstance } from "fastify";
 import { eq } from "drizzle-orm";
 import { db } from "../db/client.js";
 import { users } from "../db/schema.js";
-import { verifyPassword } from "../auth/password.js";
+import { hashPassword, verifyPassword } from "../auth/password.js";
 import { createSession, deleteSession, SESSION_COOKIE_NAME } from "../auth/session.js";
 
 const COOKIE_OPTIONS = {
@@ -12,16 +13,62 @@ const COOKIE_OPTIONS = {
   path: "/",
 };
 
+function setupCodeMatches(candidate: string): boolean {
+  const expected = process.env.PLANTAPP_SETUP_CODE;
+  if (!expected) return false; // ohne konfigurierten Code ist Registrierung deaktiviert
+
+  const a = Buffer.from(candidate);
+  const b = Buffer.from(expected);
+  // Buffer-Längen müssen für timingSafeEqual übereinstimmen; ungleiche Länge ist ohnehin falsch.
+  if (a.length !== b.length) return false;
+  return timingSafeEqual(a, b);
+}
+
 export async function authRoutes(app: FastifyInstance) {
-  app.post<{ Body: { email?: string; password?: string } }>(
-    "/api/auth/login",
+  app.post<{ Body: { username?: string; password?: string; setupCode?: string } }>(
+    "/api/auth/register",
     async (request, reply) => {
-      const { email, password } = request.body ?? {};
-      if (!email || !password) {
-        return reply.code(400).send({ error: "email und password erforderlich" });
+      const { username, password, setupCode } = request.body ?? {};
+      if (!username || !password || !setupCode) {
+        return reply
+          .code(400)
+          .send({ error: "username, password und setupCode erforderlich" });
+      }
+      if (!setupCodeMatches(setupCode)) {
+        return reply.code(403).send({ error: "ungültiger Setup-Code" });
+      }
+      if (password.length < 8) {
+        return reply.code(400).send({ error: "Passwort muss mindestens 8 Zeichen haben" });
       }
 
-      const user = db.select().from(users).where(eq(users.email, email)).get();
+      const existing = db.select().from(users).where(eq(users.username, username)).get();
+      if (existing) {
+        return reply.code(409).send({ error: "Benutzername bereits vergeben" });
+      }
+
+      const passwordHash = await hashPassword(password);
+      const id = randomUUID();
+      db.insert(users).values({ id, username, passwordHash, createdAt: new Date() }).run();
+
+      const session = createSession(id);
+      reply.setCookie(SESSION_COOKIE_NAME, session.id, {
+        ...COOKIE_OPTIONS,
+        expires: session.expiresAt,
+      });
+
+      return { username };
+    },
+  );
+
+  app.post<{ Body: { username?: string; password?: string } }>(
+    "/api/auth/login",
+    async (request, reply) => {
+      const { username, password } = request.body ?? {};
+      if (!username || !password) {
+        return reply.code(400).send({ error: "username und password erforderlich" });
+      }
+
+      const user = db.select().from(users).where(eq(users.username, username)).get();
       if (!user || !(await verifyPassword(user.passwordHash, password))) {
         return reply.code(401).send({ error: "ungültige Zugangsdaten" });
       }
@@ -32,7 +79,7 @@ export async function authRoutes(app: FastifyInstance) {
         expires: session.expiresAt,
       });
 
-      return { email: user.email };
+      return { username: user.username };
     },
   );
 
@@ -45,6 +92,6 @@ export async function authRoutes(app: FastifyInstance) {
 
   app.get("/api/auth/me", async (request, reply) => {
     if (!request.user) return reply.code(401).send({ error: "nicht eingeloggt" });
-    return { email: request.user.email };
+    return { username: request.user.username };
   });
 }

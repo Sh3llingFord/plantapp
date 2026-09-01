@@ -40,7 +40,7 @@ vorschlägt.
 | AI | **Ausschließlich über n8n**, asynchron mit Callback | Direkter AI-Call aus der App (n8n ist gesetzt); synchroner Request (läuft in Timeouts) |
 | Wetter | **Open-Meteo** (Geocoding + Prognose + Archiv), kein API-Key | Wettervorhersage aus Home Assistant — koppelt die Frostwarnung an HA-Verfügbarkeit und liefert keine historischen Daten |
 | Home Assistant | **Nicht in dieser Roadmap**, eigener Meilenstein danach | — bewusste Vertagung; Vorbereitung steckt in M3 |
-| Nutzer | Genau zwei, E-Mail + Passwort (argon2id), Langzeit-Session-Cookie | OAuth/SSO — Overkill für zwei Personen |
+| Nutzer | Benutzername + Passwort (argon2id), Langzeit-Session-Cookie. Selbst-Registrierung über die App, abgesichert durch einen Setup-Code (Umgebungsvariable) — kein CLI/SSH-Zugriff nötig, aber auch kein offenes Registrierungsformular für Dritte | E-Mail als Identifikator (unnötig für ein internes Zwei-Personen-Tool); OAuth/SSO — Overkill; offene Registrierung ohne Code — jeder mit der Tunnel-URL könnte sich einen Account anlegen |
 | Extras in Scope | Wetter/Frostwarnung | Foto-Erkennung, QR-Etiketten — abgewählt, siehe Backlog |
 
 **Noch offen, wird zur Umsetzung gebraucht:**
@@ -178,8 +178,11 @@ Das eigentliche Produkt-Risiko, jetzt auf einer bewiesenermaßen funktionierende
 - SQLite in `/data/plantapp.db` (WAL-Modus), Drizzle-Migrationen beim Containerstart.
   `/data` ist ein **Bind-Mount** auf einen selbst gewählten Host-Pfad
   (`- /dein/pfad/plantapp:/data`), damit die Datei direkt in der Backup-Routine liegt.
-- Login: E-Mail + Passwort (argon2id), HttpOnly-Session-Cookie mit langer Laufzeit (1 Jahr) —
-  die installierte PWA soll sich nie ausloggen.
+- Login: Benutzername + Passwort (argon2id), HttpOnly-Session-Cookie mit langer Laufzeit
+  (1 Jahr) — die installierte PWA soll sich nie ausloggen. Selbst-Registrierung
+  (`POST /api/auth/register`) verlangt zusätzlich einen Setup-Code
+  (Umgebungsvariable `PLANTAPP_SETUP_CODE`); ohne gesetzten Code ist die Registrierung
+  deaktiviert.
 - PWA-Manifest, maskable Icons, `display: standalone`, Service Worker via `vite-plugin-pwa`
 - Einstellungsseite mit genau einem Button: **„Benachrichtigungen aktivieren"** → VAPID-Abo →
   **„Testbenachrichtigung senden"**, die real auf dem Android ankommt.

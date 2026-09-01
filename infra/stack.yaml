@@ -11,8 +11,12 @@ services:
       - "9100:3000"
     environment:
       PORT: "3000"
-      # weitere Secrets (Session-Secret, n8n-Webhook-URL, ...) kommen ab M0b/M2
-      # als Portainer-Stack-Umgebungsvariablen dazu, nicht als Datei.
+      # Setup-Code für die Selbst-Registrierung (POST /api/auth/register). Ohne
+      # gesetzten Wert ist die Registrierung deaktiviert. Frei wählbarer, langer
+      # String — separat pro Umgebung setzen, nicht ins Repo.
+      PLANTAPP_SETUP_CODE: ${PLANTAPP_SETUP_CODE}
+      # weitere Secrets (n8n-Webhook-URL, ...) kommen ab M2 als
+      # Portainer-Stack-Umgebungsvariablen dazu, nicht als Datei.
     volumes:
       # Host-Pfad aus der Vorbereitung-Checkliste eintragen, siehe docs/ROADMAP.md
       - ${PLANTAPP_DATA_PATH}:/data

@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { enableNotifications, sendTestNotification } from "./push";
 
 interface User {
-  email: string;
+  username: string;
 }
 
-function LoginForm({ onLoggedIn }: { onLoggedIn: (user: User) => void }) {
-  const [email, setEmail] = useState("");
+function AuthForm({ onAuthenticated }: { onAuthenticated: (user: User) => void }) {
+  const [mode, setMode] = useState<"login" | "register">("login");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [setupCode, setSetupCode] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -16,18 +18,22 @@ function LoginForm({ onLoggedIn }: { onLoggedIn: (user: User) => void }) {
     setError(null);
     setLoading(true);
     try {
-      const res = await fetch("/api/auth/login", {
+      const url = mode === "login" ? "/api/auth/login" : "/api/auth/register";
+      const body =
+        mode === "login" ? { username, password } : { username, password, setupCode };
+
+      const res = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify(body),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        throw new Error(data.error ?? "Login fehlgeschlagen");
+        throw new Error(data.error ?? "Fehlgeschlagen");
       }
-      onLoggedIn(await res.json());
+      onAuthenticated(await res.json());
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Login fehlgeschlagen");
+      setError(err instanceof Error ? err.message : "Fehlgeschlagen");
     } finally {
       setLoading(false);
     }
@@ -36,14 +42,26 @@ function LoginForm({ onLoggedIn }: { onLoggedIn: (user: User) => void }) {
   return (
     <main>
       <h1>Plants vs. Mella</h1>
+      <nav>
+        <button type="button" disabled={mode === "login"} onClick={() => setMode("login")}>
+          Einloggen
+        </button>
+        <button
+          type="button"
+          disabled={mode === "register"}
+          onClick={() => setMode("register")}
+        >
+          Konto erstellen
+        </button>
+      </nav>
       <form onSubmit={handleSubmit}>
         <div>
           <label>
-            E-Mail
+            Benutzername
             <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               required
             />
           </label>
@@ -59,9 +77,22 @@ function LoginForm({ onLoggedIn }: { onLoggedIn: (user: User) => void }) {
             />
           </label>
         </div>
+        {mode === "register" && (
+          <div>
+            <label>
+              Setup-Code
+              <input
+                type="text"
+                value={setupCode}
+                onChange={(e) => setSetupCode(e.target.value)}
+                required
+              />
+            </label>
+          </div>
+        )}
         {error && <p role="alert">{error}</p>}
         <button type="submit" disabled={loading}>
-          {loading ? "Einloggen…" : "Einloggen"}
+          {loading ? "…" : mode === "login" ? "Einloggen" : "Konto erstellen"}
         </button>
       </form>
     </main>
@@ -107,7 +138,7 @@ function Settings({ user, onLoggedOut }: { user: User; onLoggedOut: () => void }
   return (
     <main>
       <h1>Plants vs. Mella</h1>
-      <p>Eingeloggt als {user.email}</p>
+      <p>Eingeloggt als {user.username}</p>
       <p>API-Status: {health}</p>
       <section>
         <h2>Benachrichtigungen</h2>
@@ -131,6 +162,6 @@ export function App() {
   }, []);
 
   if (user === undefined) return null;
-  if (user === null) return <LoginForm onLoggedIn={setUser} />;
+  if (user === null) return <AuthForm onAuthenticated={setUser} />;
   return <Settings user={user} onLoggedOut={() => setUser(null)} />;
 }

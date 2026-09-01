@@ -20,7 +20,7 @@ export function getUserBySessionId(sessionId: string) {
   const row = db
     .select({
       id: users.id,
-      email: users.email,
+      username: users.username,
       expiresAt: sessions.expiresAt,
     })
     .from(sessions)
@@ -34,7 +34,7 @@ export function getUserBySessionId(sessionId: string) {
     return null;
   }
 
-  return { id: row.id, email: row.email };
+  return { id: row.id, username: row.username };
 }
 
 export function deleteSession(sessionId: string) {

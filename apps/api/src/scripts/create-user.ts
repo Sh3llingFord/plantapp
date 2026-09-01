@@ -5,24 +5,24 @@ import { users } from "../db/schema.js";
 import { hashPassword } from "../auth/password.js";
 import { runMigrations } from "../db/migrate.js";
 
-const [email, password] = process.argv.slice(2);
+const [username, password] = process.argv.slice(2);
 
-if (!email || !password) {
-  console.error("Nutzung: node dist/scripts/create-user.js <email> <password>");
+if (!username || !password) {
+  console.error("Nutzung: node dist/scripts/create-user.js <username> <password>");
   process.exit(1);
 }
 
 runMigrations();
 
-const existing = db.select().from(users).where(eq(users.email, email)).get();
+const existing = db.select().from(users).where(eq(users.username, username)).get();
 if (existing) {
-  console.error(`Nutzer ${email} existiert bereits.`);
+  console.error(`Nutzer ${username} existiert bereits.`);
   process.exit(1);
 }
 
 const passwordHash = await hashPassword(password);
 db.insert(users)
-  .values({ id: randomUUID(), email, passwordHash, createdAt: new Date() })
+  .values({ id: randomUUID(), username, passwordHash, createdAt: new Date() })
   .run();
 
-console.log(`Nutzer ${email} angelegt.`);
+console.log(`Nutzer ${username} angelegt.`);
