@@ -3,7 +3,7 @@ import { eq, gte } from "drizzle-orm";
 import { db } from "../db/client.js";
 import { appSettings, weatherCache } from "../db/schema.js";
 import { geocodeLocation } from "../weather/openmeteo.js";
-import { refreshWeatherAndWarn } from "../weather/refresh.js";
+import { refreshWeatherAndWarn, computeFrostWarning, computeHeatWarning, computeRainInfo } from "../weather/refresh.js";
 
 interface LocationBody {
   query: string;
@@ -66,5 +66,28 @@ export async function weatherRoutes(app: FastifyInstance) {
       .orderBy(weatherCache.date)
       .all();
     return rows;
+  });
+
+  // M8 — Dashboard: aktive Warnungen ohne Seiteneffekt (kein Push, kein "schon gesendet"-Flag).
+  app.get("/api/weather/warnings", async (request, reply) => {
+    if (!request.user) return reply.code(401).send({ error: "nicht eingeloggt" });
+    const rows = db
+      .select()
+      .from(weatherCache)
+      .where(gte(weatherCache.date, todayStr()))
+      .orderBy(weatherCache.date)
+      .all();
+    const days = rows.map((r) => ({
+      date: r.date,
+      tempMinC: r.tempMinC,
+      tempMaxC: r.tempMaxC,
+      precipitationSumMm: r.precipitationSumMm,
+    }));
+
+    return {
+      frost: computeFrostWarning(days),
+      heat: computeHeatWarning(days),
+      rain: computeRainInfo(days),
+    };
   });
 }

@@ -6,9 +6,9 @@ import { appSettings, plants, species, taskOccurrences, users, weatherCache } fr
 import { sendPushToUser } from "../push/send.js";
 import { fetchForecast, type DailyForecastDay } from "./openmeteo.js";
 
-const FROST_THRESHOLD_C = 3;
-const HEAT_THRESHOLD_C = 30;
-const RAIN_THRESHOLD_MM = 5;
+export const FROST_THRESHOLD_C = 3;
+export const HEAT_THRESHOLD_C = 30;
+export const RAIN_THRESHOLD_MM = 5;
 
 function todayStr(): string {
   return new Date().toISOString().slice(0, 10);
@@ -20,13 +20,13 @@ function addDays(date: Date, days: number): Date {
   return d;
 }
 
-interface OutdoorPlant {
+export interface OutdoorPlant {
   id: string;
   nickname: string;
   care: CareProfile;
 }
 
-function getOutdoorPlants(): OutdoorPlant[] {
+export function getOutdoorPlants(): OutdoorPlant[] {
   const rows = db
     .select({
       id: plants.id,
@@ -60,26 +60,64 @@ async function notifyAllUsers(payload: { title: string; body: string }) {
   }
 }
 
+export interface FrostWarningInfo {
+  active: boolean;
+  tempMinC: number | null;
+  atRiskPlants: { id: string; nickname: string }[];
+}
+
+/** Reine Berechnung, ohne Seiteneffekt — auch vom Dashboard (M8) genutzt. */
+export function computeFrostWarning(days: DailyForecastDay[]): FrostWarningInfo {
+  // "in den nächsten 48h" = heute + morgen.
+  const next48h = days.slice(0, 2);
+  if (next48h.length === 0) return { active: false, tempMinC: null, atRiskPlants: [] };
+  const tempMinC = Math.min(...next48h.map((d) => d.tempMinC));
+
+  const atRiskPlants =
+    tempMinC < FROST_THRESHOLD_C
+      ? getOutdoorPlants()
+          .filter((p) => p.care.placement?.hardyToC != null && tempMinC < p.care.placement.hardyToC)
+          .map((p) => ({ id: p.id, nickname: p.nickname }))
+      : [];
+
+  return { active: atRiskPlants.length > 0, tempMinC, atRiskPlants };
+}
+
+export interface HeatWarningInfo {
+  active: boolean;
+  tempMaxC: number | null;
+}
+
+export function computeHeatWarning(days: DailyForecastDay[]): HeatWarningInfo {
+  const today = days[0];
+  if (!today) return { active: false, tempMaxC: null };
+  const active = today.tempMaxC > HEAT_THRESHOLD_C && getOutdoorPlants().length > 0;
+  return { active, tempMaxC: today.tempMaxC };
+}
+
+export interface RainInfo {
+  active: boolean;
+  mm: number | null;
+}
+
+export function computeRainInfo(days: DailyForecastDay[]): RainInfo {
+  const today = days[0];
+  if (!today) return { active: false, mm: null };
+  return { active: today.precipitationSumMm >= RAIN_THRESHOLD_MM, mm: today.precipitationSumMm };
+}
+
 async function checkFrostWarning(days: DailyForecastDay[]) {
   const settings = db.select().from(appSettings).where(eq(appSettings.id, "default")).get();
   if (settings?.lastFrostWarningDate === todayStr()) return;
 
-  // "in den nächsten 48h" = heute + morgen.
-  const next48h = days.slice(0, 2);
-  if (next48h.length === 0) return;
-  const minForecast = Math.min(...next48h.map((d) => d.tempMinC));
-  if (minForecast >= FROST_THRESHOLD_C) return;
+  const { active, tempMinC, atRiskPlants } = computeFrostWarning(days);
+  if (!active || tempMinC === null) return;
 
-  const atRisk = getOutdoorPlants().filter(
-    (p) => p.care.placement?.hardyToC !== null && p.care.placement?.hardyToC !== undefined && minForecast < p.care.placement.hardyToC,
-  );
-  if (atRisk.length === 0) return;
-
-  const names = atRisk.map((p) => p.nickname);
+  const names = atRiskPlants.map((p) => p.nickname);
   const body =
     names.length <= 3
-      ? `${names.join(", ")} vor Frost schützen oder reinholen (Tiefstwert ${minForecast.toFixed(0)}°C in 48h).`
-      : `${names.slice(0, 3).join(", ")} und ${names.length - 3} weitere vor Frost schützen (Tiefstwert ${minForecast.toFixed(0)}°C in 48h).`;
+      ? `${names.join(", ")} vor Frost schützen oder reinholen (Tiefstwert ${tempMinC.toFixed(0)}°C in 48h).`
+      : `${names.slice(0, 3).join(", ")} und ${names.length - 3} weitere vor Frost schützen (Tiefstwert ${tempMinC.toFixed(0)}°C in 48h).`;
 
   await notifyAllUsers({ title: "🥶 Frostwarnung", body });
 
@@ -93,15 +131,12 @@ async function checkHeatWarning(days: DailyForecastDay[]) {
   const settings = db.select().from(appSettings).where(eq(appSettings.id, "default")).get();
   if (settings?.lastHeatWarningDate === todayStr()) return;
 
-  const today = days[0];
-  if (!today || today.tempMaxC <= HEAT_THRESHOLD_C) return;
-
-  const outdoorCount = getOutdoorPlants().length;
-  if (outdoorCount === 0) return;
+  const { active, tempMaxC } = computeHeatWarning(days);
+  if (!active || tempMaxC === null) return;
 
   await notifyAllUsers({
     title: "☀️ Hitzewarnung",
-    body: `Heute bis zu ${today.tempMaxC.toFixed(0)}°C — Kübelpflanzen im Freien ggf. zusätzlich gießen und beschatten.`,
+    body: `Heute bis zu ${tempMaxC.toFixed(0)}°C — Kübelpflanzen im Freien ggf. zusätzlich gießen und beschatten.`,
   });
 
   db.insert(appSettings)

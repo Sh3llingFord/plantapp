@@ -11,6 +11,7 @@ import { SettingsPage } from "./pages/SettingsPage";
 import { CalendarPage } from "./pages/CalendarPage";
 import { GardenPlansPage } from "./pages/GardenPlansPage";
 import { GardenPlanEditorPage } from "./pages/GardenPlanEditorPage";
+import { DashboardPage } from "./pages/DashboardPage";
 
 interface User {
   username: string;
@@ -32,11 +33,12 @@ function titleFor(tab: Tab, view: View): string {
   if (tab === "calendar") return "Kalender";
   if (tab === "catalog") return "Katalog";
   if (tab === "garden") return "Meine Beetpläne";
+  if (tab === "home") return "Übersicht";
   return "Einstellungen";
 }
 
 function AppShell({ user, onLoggedOut }: { user: User; onLoggedOut: () => void }) {
-  const [tab, setTab] = useState<Tab>("plants");
+  const [tab, setTab] = useState<Tab>("home");
   const [view, setView] = useState<View>({ name: "list" });
 
   function handleTabChange(next: Tab) {
@@ -55,6 +57,8 @@ function AppShell({ user, onLoggedOut }: { user: User; onLoggedOut: () => void }
   return (
     <div className="app-shell">
       <AppBar title={titleFor(tab, view)} onBack={view.name !== "list" ? handleBack : undefined} />
+
+      {tab === "home" && <DashboardPage />}
 
       {tab === "plants" && view.name === "list" && (
         <PlantsPage onOpenPlant={(id) => setView({ name: "plant-detail", id })} />

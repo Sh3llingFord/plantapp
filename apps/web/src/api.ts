@@ -132,6 +132,7 @@ export const api = {
     setLocation: (query: string) =>
       request<WeatherLocation>("/api/weather/location", { method: "POST", body: JSON.stringify({ query }) }),
     forecast: () => request<WeatherDay[]>("/api/weather/forecast"),
+    warnings: () => request<WeatherWarnings>("/api/weather/warnings"),
   },
   gardenPlans: {
     list: () => request<GardenPlan[]>("/api/garden-plans"),
@@ -183,6 +184,12 @@ export interface WeatherDay {
   tempMinC: number;
   tempMaxC: number;
   precipitationSumMm: number;
+}
+
+export interface WeatherWarnings {
+  frost: { active: boolean; tempMinC: number | null; atRiskPlants: { id: string; nickname: string }[] };
+  heat: { active: boolean; tempMaxC: number | null };
+  rain: { active: boolean; mm: number | null };
 }
 
 export interface UserSettings {
