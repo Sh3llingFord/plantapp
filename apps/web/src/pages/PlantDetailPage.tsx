@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { api, LIGHT_LABELS, type PlantDetail, type Location } from "../api";
 import { ToxicityBanner } from "../toxicity";
+import { LocationMatchCard } from "../location-match";
 
 export function PlantDetailPage({
   id,
@@ -143,6 +144,8 @@ export function PlantDetailPage({
           )}
         </dl>
       </div>
+
+      <LocationMatchCard care={care} location={location} />
 
       {plant.notes && (
         <div className="detail-card">

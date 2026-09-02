@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { api, type Location, type Species } from "../api";
+import { locationOptionPrefix } from "../location-match";
 
 interface Props {
   plantId: string | null; // null = neue Pflanze
@@ -160,10 +161,17 @@ export function PlantFormPage({ plantId, onSaved, onCancel }: Props) {
             <option value="">– kein Standort –</option>
             {locations.map((loc) => (
               <option key={loc.id} value={loc.id}>
+                {locationOptionPrefix(selectedSpecies?.careProfile ?? null, loc)}
                 {loc.name}
               </option>
             ))}
           </select>
+          {selectedSpecies && (
+            <p className="section__status">
+              🟢 passt gut · 🟡 passt bedingt · 🔴 passt nicht — Standort-Vorschau für{" "}
+              {selectedSpecies.careProfile.identity.commonNamesDe?.[0] ?? selectedSpecies.botanicalName}
+            </p>
+          )}
           <div style={{ display: "flex", gap: 8, marginTop: 6 }}>
             <input
               placeholder="Neuer Standort…"

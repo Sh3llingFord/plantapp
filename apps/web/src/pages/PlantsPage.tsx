@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
-import { api, type Plant } from "../api";
+import { api, type Plant, type Location } from "../api";
 import { ToxicityBadges } from "../toxicity";
+import { LocationMatchBadge } from "../location-match";
 
 export function PlantsPage({ onOpenPlant }: { onOpenPlant: (id: string) => void }) {
   const [plants, setPlants] = useState<Plant[] | null>(null);
+  const [locations, setLocations] = useState<Location[]>([]);
   const [q, setQ] = useState("");
+
+  useEffect(() => {
+    api.locations.list().then(setLocations);
+  }, []);
 
   useEffect(() => {
     const handle = setTimeout(() => {
@@ -68,6 +74,10 @@ export function PlantsPage({ onOpenPlant }: { onOpenPlant: (id: string) => void 
                 )}
               </div>
               <ToxicityBadges toxicity={plant.speciesCareProfile?.toxicity} />
+              <LocationMatchBadge
+                care={plant.speciesCareProfile}
+                location={locations.find((l) => l.id === plant.locationId) ?? null}
+              />
             </button>
           ))}
         </div>
