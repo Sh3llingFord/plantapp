@@ -15,9 +15,11 @@ import { enrichmentRoutes } from "./routes/enrichment.js";
 import { taskRoutes } from "./routes/tasks.js";
 import { calendarRoutes } from "./routes/calendar.js";
 import { settingsRoutes } from "./routes/settings.js";
+import { weatherRoutes } from "./routes/weather.js";
 import { startBackupSchedule } from "./backup.js";
 import { startTaskSchedule } from "./tasks/schedule.js";
 import { startDigestSchedule } from "./push/schedule.js";
+import { startWeatherSchedule } from "./weather/schedule.js";
 import { DATA_DIR } from "./db/paths.js";
 import "./vapid.js"; // erzeugt/lädt VAPID-Keys beim Start
 
@@ -25,6 +27,7 @@ runMigrations();
 startBackupSchedule();
 startTaskSchedule();
 startDigestSchedule();
+startWeatherSchedule();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const webDist = path.resolve(__dirname, "../../web/dist");
@@ -68,6 +71,7 @@ await app.register(enrichmentRoutes);
 await app.register(taskRoutes);
 await app.register(calendarRoutes);
 await app.register(settingsRoutes);
+await app.register(weatherRoutes);
 
 await app.register(fastifyStatic, {
   root: uploadsDir,

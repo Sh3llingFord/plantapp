@@ -314,6 +314,11 @@ umschalten, Erledigen verschiebt korrekt.
 
 Open-Meteo, kein API-Key, kein Konto.
 
+> **Status:** Standort-Setup, nächtlicher Prognose-Abruf, Frost-, Regen- und Hitzewarnung sind
+> umgesetzt und deployed. Die historischen Frostdaten für „Auspflanzen möglich ab" (Open-Meteo-
+> Archiv-API, mehrjährige Auswertung) sind bewusst zurückgestellt — geringerer Sicherheitswert
+> als die drei akuten Warnungen, kann später ergänzt werden.
+
 - **Standort einmalig im Setup:** Ortsname eintippen, Open-Meteo-Geocoding liefert die
   Koordinaten. Kein manuelles Nachschlagen von Lat/Lon.
 - Nächtlicher Abruf der 7-Tage-Prognose, gecacht in `weather_cache`

@@ -31,6 +31,7 @@ export async function taskRoutes(app: FastifyInstance) {
         dueDate: taskOccurrences.dueDate,
         status: taskOccurrences.status,
         completedDate: taskOccurrences.completedDate,
+        note: taskOccurrences.note,
         plantNickname: plants.nickname,
         plantPhotoPath: plants.photoPath,
       })

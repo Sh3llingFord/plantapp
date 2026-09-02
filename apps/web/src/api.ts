@@ -127,7 +127,26 @@ export const api = {
     update: (body: Partial<UserSettings>) =>
       request<UserSettings>("/api/settings", { method: "PATCH", body: JSON.stringify(body) }),
   },
+  weather: {
+    getLocation: () => request<WeatherLocation>("/api/weather/location"),
+    setLocation: (query: string) =>
+      request<WeatherLocation>("/api/weather/location", { method: "POST", body: JSON.stringify({ query }) }),
+    forecast: () => request<WeatherDay[]>("/api/weather/forecast"),
+  },
 };
+
+export interface WeatherLocation {
+  locationName: string | null;
+  latitude: number | null;
+  longitude: number | null;
+}
+
+export interface WeatherDay {
+  date: string;
+  tempMinC: number;
+  tempMaxC: number;
+  precipitationSumMm: number;
+}
 
 export interface UserSettings {
   userId: string;
@@ -153,6 +172,7 @@ export interface Task {
   dueDate: string;
   status: "pending" | "done" | "skipped";
   completedDate: string | null;
+  note: string | null;
   plantNickname: string;
   plantPhotoPath: string | null;
 }

@@ -1,4 +1,4 @@
-import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
+import { sqliteTable, text, integer, real } from "drizzle-orm/sqlite-core";
 
 export const users = sqliteTable("users", {
   id: text("id").primaryKey(),
@@ -104,6 +104,7 @@ export const taskOccurrences = sqliteTable("task_occurrences", {
   dueDate: integer("due_date", { mode: "timestamp" }).notNull(),
   status: text("status").notNull().default("pending"), // pending | done | skipped
   completedDate: integer("completed_date", { mode: "timestamp" }),
+  note: text("note"), // z.B. automatische Begründung "wegen Regen verschoben"
   createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
 });
 
@@ -124,4 +125,24 @@ export const userSettings = sqliteTable("user_settings", {
   quietHoursStart: text("quiet_hours_start").notNull().default("08:00"), // "HH:MM", lokale Serverzeit
   quietHoursEnd: text("quiet_hours_end").notNull().default("21:00"),
   lastDigestSentDate: text("last_digest_sent_date"), // "YYYY-MM-DD", verhindert Doppelversand am selben Tag
+});
+
+// M5 — Wetter und Frostwarnung. Ein gemeinsamer Standort für den ganzen Haushalt
+// (nicht pro Nutzer), da sich das Wetter auf die geteilte Pflanzensammlung bezieht.
+export const appSettings = sqliteTable("app_settings", {
+  id: text("id").primaryKey(), // fest "default", genau eine Zeile
+  locationName: text("location_name"),
+  latitude: real("latitude"),
+  longitude: real("longitude"),
+  lastFrostWarningDate: text("last_frost_warning_date"), // "YYYY-MM-DD", verhindert Doppelversand
+  lastHeatWarningDate: text("last_heat_warning_date"),
+  updatedAt: integer("updated_at", { mode: "timestamp" }),
+});
+
+export const weatherCache = sqliteTable("weather_cache", {
+  date: text("date").primaryKey(), // "YYYY-MM-DD", lokale Zeit des Standorts
+  tempMinC: real("temp_min_c").notNull(),
+  tempMaxC: real("temp_max_c").notNull(),
+  precipitationSumMm: real("precipitation_sum_mm").notNull(),
+  fetchedAt: integer("fetched_at", { mode: "timestamp" }).notNull(),
 });

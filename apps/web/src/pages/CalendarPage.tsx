@@ -134,7 +134,10 @@ export function CalendarPage() {
                 )}
                 <div className="list-item__body">
                   <div className="list-item__title">{task.plantNickname}</div>
-                  <div className="list-item__subtitle">{TASK_LABELS[task.type]}</div>
+                  <div className="list-item__subtitle">
+                    {TASK_LABELS[task.type]}
+                    {task.note && <span> · {task.note}</span>}
+                  </div>
                 </div>
                 <div style={{ display: "flex", gap: 4 }}>
                   <button
