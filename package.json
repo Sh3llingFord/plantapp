@@ -9,6 +9,10 @@
     "build": "pnpm --filter shared build && pnpm --filter web build && pnpm --filter api build",
     "dev:api": "pnpm --filter api dev",
     "dev:web": "pnpm --filter web dev",
-    "typecheck": "pnpm -r typecheck"
+    "typecheck": "pnpm -r typecheck",
+    "test": "tsx --test data/seeds/*.test.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0"
   }
 }

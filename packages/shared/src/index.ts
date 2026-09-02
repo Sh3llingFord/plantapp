@@ -1,1 +1,2 @@
-export const PLANTAPP_SCHEMA_VERSION = 0;
+export * from "./care-profile.js";
+export * from "./merge-care-profile.js";

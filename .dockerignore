@@ -4,5 +4,4 @@ node_modules
 .git
 .claude
 docs
-data
 *.log

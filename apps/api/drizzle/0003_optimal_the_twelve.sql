@@ -1,0 +1,1 @@
+ALTER TABLE `plants` ADD `care_profile_overrides` text;

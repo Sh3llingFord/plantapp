@@ -1,0 +1,6714 @@
+[
+  {
+    "identity": {
+      "botanicalName": "Monstera deliciosa",
+      "commonNamesDe": [
+        "Fensterblatt",
+        "Monstera"
+      ],
+      "commonNamesEn": [
+        "Swiss cheese plant",
+        "Split-leaf philodendron"
+      ],
+      "family": "Araceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "bright_indirect",
+      "indoor": true,
+      "outdoor": false,
+      "recommendedDirection": [
+        "E",
+        "W"
+      ],
+      "humidityMinPct": 50,
+      "humidityMaxPct": 60,
+      "temperatureMinC": 15,
+      "temperatureOptimalC": 24,
+      "temperatureMaxC": 29,
+      "hardy": false,
+      "hardyToC": null,
+      "winterProtection": null
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 10,
+        "summer": 7,
+        "autumn": 10,
+        "winter": 14
+      },
+      "amount": "Durchdringend gießen, bis Wasser aus dem Topfboden austritt; überschüssiges Wasser abgießen",
+      "method": "gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Torffreies, luftiges Aroid-Substrat mit Rinde und Perlit",
+      "phMin": 5.5,
+      "phMax": 6.5,
+      "drainage": "Sehr gute Drainage, Staunässe vermeiden"
+    },
+    "fertilizer": {
+      "npk": "Ausgewogener Flüssigdünger, z. B. 3-1-2",
+      "rhythm": "Monatlich in der Wachstumsphase",
+      "seasonWindow": [
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August",
+        "September"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "März",
+            "April"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": null,
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Kopfstecklinge mit Luftwurzel",
+        "Luftableger"
+      ],
+      "bestMonths": [
+        "April",
+        "Mai",
+        "Juni",
+        "Juli"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Enthält unlösliche Calciumoxalat-Kristalle; führt bei Katzen und Hunden zu Reizungen von Maul und Rachen, Speicheln, Erbrechen. Schwere Vergiftungen sind selten (ASPCA).",
+      "childrenToxic": true,
+      "childrenNotes": "Bei Verzehr Reizung von Mundschleimhaut und Rachen möglich; außer Reichweite von Kleinkindern aufbewahren."
+    },
+    "size": {
+      "heightMinCm": 100,
+      "heightMaxCm": 300,
+      "widthMinCm": 100,
+      "widthMaxCm": 200,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Spinnmilben",
+        "symptoms": "Feine Gespinste, gesprenkelte Blätter bei trockener Luft",
+        "remedy": "Luftfeuchtigkeit erhöhen, Blätter abduschen, bei Befall Neempräparate einsetzen"
+      },
+      {
+        "name": "Wurzelfäule",
+        "symptoms": "Welke, gelbe Blätter trotz feuchtem Substrat, fauliger Geruch",
+        "remedy": "Staunässe vermeiden, betroffene Wurzeln entfernen, in frisches Substrat umtopfen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "placement": 0.6,
+        "water": 0.6,
+        "size": 0.5,
+        "bloom": 0.7
+      },
+      "sources": [
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/swiss-cheese-plant",
+        "https://bloomscape.com/plant-care-guide/monstera/"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Epipremnum aureum",
+      "commonNamesDe": [
+        "Efeutute",
+        "Goldene Efeutute"
+      ],
+      "commonNamesEn": [
+        "Golden pothos",
+        "Devil's ivy"
+      ],
+      "family": "Araceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "bright_indirect",
+      "indoor": true,
+      "outdoor": false,
+      "recommendedDirection": [
+        "E",
+        "W"
+      ],
+      "humidityMinPct": 40,
+      "humidityMaxPct": 60,
+      "temperatureMinC": 15,
+      "temperatureOptimalC": 21,
+      "temperatureMaxC": 27,
+      "hardy": false,
+      "hardyToC": null,
+      "winterProtection": null
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 10,
+        "summer": 7,
+        "autumn": 10,
+        "winter": 14
+      },
+      "amount": "Mäßig gießen; obere 2 cm des Substrats antrocknen lassen",
+      "method": "gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Torffreies, lehmbasiertes Substrat",
+      "phMin": 6.0,
+      "phMax": 6.5,
+      "drainage": "Gute Drainage"
+    },
+    "fertilizer": {
+      "npk": "Ausgewogener Flüssigdünger",
+      "rhythm": "Monatlich in der Wachstumsphase",
+      "seasonWindow": [
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August",
+        "September"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "März",
+            "April"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": null,
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Stecklinge in Wasser bewurzeln",
+        "Stecklinge direkt in Erde"
+      ],
+      "bestMonths": [
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Enthält unlösliche Calciumoxalate; verursacht bei Katzen, Hunden und Pferden Reizungen von Maul und Rachen, Speicheln, Erbrechen (ASPCA).",
+      "childrenToxic": true,
+      "childrenNotes": "Bei Verzehr Reizung der Mundschleimhaut möglich; außer Reichweite von Kindern aufbewahren."
+    },
+    "size": {
+      "heightMinCm": 30,
+      "heightMaxCm": 300,
+      "widthMinCm": 30,
+      "widthMaxCm": 100,
+      "growthRate": "fast"
+    },
+    "problems": [
+      {
+        "name": "Blattläuse",
+        "symptoms": "Klebrige Beläge, verkrüppelte Triebspitzen",
+        "remedy": "Mit Wasserstrahl abspülen, bei starkem Befall Schmierseifenlösung anwenden"
+      },
+      {
+        "name": "Wurzelfäule",
+        "symptoms": "Gelbe, welke Blätter bei dauerfeuchtem Substrat",
+        "remedy": "Gießmenge reduzieren, gut durchlässiges Substrat verwenden"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "placement": 0.6,
+        "size": 0.5
+      },
+      "sources": [
+        "https://www.rhs.org.uk/plants/epipremnum/growing-guide",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/golden-pothos"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Dracaena trifasciata",
+      "commonNamesDe": [
+        "Bogenhanf",
+        "Schwiegermutterzunge"
+      ],
+      "commonNamesEn": [
+        "Snake plant",
+        "Mother-in-law's tongue"
+      ],
+      "family": "Asparagaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "bright_indirect",
+      "indoor": true,
+      "outdoor": false,
+      "recommendedDirection": [
+        "E",
+        "W"
+      ],
+      "humidityMinPct": 30,
+      "humidityMaxPct": 50,
+      "temperatureMinC": 15,
+      "temperatureOptimalC": 21,
+      "temperatureMaxC": 27,
+      "hardy": false,
+      "hardyToC": null,
+      "winterProtection": null
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 21,
+        "summer": 14,
+        "autumn": 21,
+        "winter": 35
+      },
+      "amount": "Sparsam gießen, Substrat zwischen den Wassergaben vollständig austrocknen lassen",
+      "method": "gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Kakteen- oder Sukkulentenerde, sehr durchlässig",
+      "phMin": 5.5,
+      "phMax": 7.5,
+      "drainage": "Sehr gute Drainage, unbedingt Staunässe vermeiden"
+    },
+    "fertilizer": {
+      "npk": "Kakteen-/Sukkulentendünger, stark verdünnt",
+      "rhythm": "Monatlich von März bis September, im Winter keine Düngung",
+      "seasonWindow": [
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August",
+        "September"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "thinning",
+          "months": [
+            "April"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 3,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": null,
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Blattstecklinge",
+        "Teilung des Wurzelballens"
+      ],
+      "bestMonths": [
+        "April",
+        "Mai",
+        "Juni"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Enthält Saponine; führt bei Katzen und Hunden zu Übelkeit, Erbrechen und Durchfall. Toxizität gilt als gering bis mäßig (ASPCA).",
+      "childrenToxic": true,
+      "childrenNotes": "Bei Verzehr können Übelkeit und Magen-Darm-Beschwerden auftreten."
+    },
+    "size": {
+      "heightMinCm": 30,
+      "heightMaxCm": 120,
+      "widthMinCm": 20,
+      "widthMaxCm": 60,
+      "growthRate": "slow"
+    },
+    "problems": [
+      {
+        "name": "Wurzelfäule",
+        "symptoms": "Weiche, matschige Blattbasis bei Überwässerung",
+        "remedy": "Gießmenge reduzieren, durchlässiges Substrat verwenden, faule Teile entfernen"
+      },
+      {
+        "name": "Schildläuse",
+        "symptoms": "Braune Schildchen auf Blättern, klebrige Ausscheidungen",
+        "remedy": "Mechanisch entfernen, bei Bedarf Ölpräparate einsetzen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "placement": 0.6,
+        "water": 0.6,
+        "size": 0.5
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Dracaena_trifasciata",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/snake-plant",
+        "https://soltech.com/products/snake-plant-care"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Phalaenopsis",
+      "commonNamesDe": [
+        "Schmetterlingsorchidee"
+      ],
+      "commonNamesEn": [
+        "Moth orchid"
+      ],
+      "family": "Orchidaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "bright_indirect",
+      "indoor": true,
+      "outdoor": false,
+      "recommendedDirection": [
+        "E",
+        "W"
+      ],
+      "humidityMinPct": 50,
+      "humidityMaxPct": 70,
+      "temperatureMinC": 15,
+      "temperatureOptimalC": 22,
+      "temperatureMaxC": 29,
+      "hardy": false,
+      "hardyToC": null,
+      "winterProtection": null
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 7,
+        "autumn": 10,
+        "winter": 10
+      },
+      "amount": "Wöchentlich tauchen oder gießen, keine Staunässe im Übertopf, Wasser nicht in die Blattachseln geben",
+      "method": "tauchen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Spezielles Orchideensubstrat aus Rinde und Sphagnum, sehr durchlässig",
+      "phMin": 5.5,
+      "phMax": 6.5,
+      "drainage": "Sehr gute Drainage, transparenter Topf mit Löchern"
+    },
+    "fertilizer": {
+      "npk": "Spezieller Orchideendünger",
+      "rhythm": "Alle 2 Wochen während der Wachstumsphase, im Winter reduziert",
+      "seasonWindow": [
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August",
+        "September",
+        "Oktober"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "deadheading",
+          "months": [
+            "April",
+            "Mai"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "Januar",
+        "Februar",
+        "März",
+        "April"
+      ],
+      "color": "weiß, rosa, gelb oder gemustert",
+      "fragrant": null,
+      "deadheadSpentBlooms": true
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Kindel (Ableger) am Blütenstiel abtrennen"
+      ],
+      "bestMonths": [
+        "April",
+        "Mai"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": false,
+      "petNotes": "Laut ASPCA ungiftig für Hunde, Katzen und Pferde.",
+      "childrenToxic": false,
+      "childrenNotes": "Gilt als unbedenklich; größere Mengen jeglicher Pflanzenteile können dennoch leichte Magenbeschwerden verursachen."
+    },
+    "size": {
+      "heightMinCm": 30,
+      "heightMaxCm": 60,
+      "widthMinCm": 20,
+      "widthMaxCm": 40,
+      "growthRate": "slow"
+    },
+    "problems": [
+      {
+        "name": "Wurzelfäule",
+        "symptoms": "Braune, weiche Wurzeln bei Staunässe",
+        "remedy": "Nur tauchen wenn Wurzeln silbrig-grau sind, durchlässiges Substrat verwenden"
+      },
+      {
+        "name": "Schildläuse",
+        "symptoms": "Braune Schildchen an Blattunterseiten und Blütenstielen",
+        "remedy": "Mechanisch entfernen, bei Bedarf Ölpräparate einsetzen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "bloom": 0.5,
+        "size": 0.5
+      },
+      "sources": [
+        "https://www.rhs.org.uk/plants/phalaenopsis/growing-guide",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/phalaenopsis-orchid"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Spathiphyllum",
+      "commonNamesDe": [
+        "Einblatt",
+        "Friedenslilie"
+      ],
+      "commonNamesEn": [
+        "Peace lily"
+      ],
+      "family": "Araceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "bright_indirect",
+      "indoor": true,
+      "outdoor": false,
+      "recommendedDirection": [
+        "E",
+        "N",
+        "W"
+      ],
+      "humidityMinPct": 50,
+      "humidityMaxPct": 70,
+      "temperatureMinC": 16,
+      "temperatureOptimalC": 21,
+      "temperatureMaxC": 27,
+      "hardy": false,
+      "hardyToC": null,
+      "winterProtection": null
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 5,
+        "summer": 4,
+        "autumn": 7,
+        "winter": 10
+      },
+      "amount": "Substrat gleichmäßig feucht halten, keine Staunässe; bevorzugt Regenwasser",
+      "method": "gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Torfarme, humusreiche Blumenerde",
+      "phMin": 5.5,
+      "phMax": 6.5,
+      "drainage": "Gute Drainage"
+    },
+    "fertilizer": {
+      "npk": "Ausgewogener Flüssigdünger",
+      "rhythm": "Alle 4-6 Wochen von Frühjahr bis Herbst",
+      "seasonWindow": [
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August",
+        "September"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "deadheading",
+          "months": [
+            "Mai",
+            "Juni",
+            "Juli",
+            "August",
+            "September"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "Mai",
+        "Juni",
+        "Juli",
+        "August",
+        "September"
+      ],
+      "color": "weiß",
+      "fragrant": true,
+      "deadheadSpentBlooms": true
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Teilung beim Umtopfen"
+      ],
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Enthält unlösliche Calciumoxalate; verursacht bei Katzen und Hunden Reizungen von Maul und Rachen, Speicheln, Erbrechen. Schwerwiegende Fälle sind selten (ASPCA).",
+      "childrenToxic": true,
+      "childrenNotes": "Bei Verzehr Reizung der Mundschleimhaut möglich, außer Reichweite von Kindern aufbewahren."
+    },
+    "size": {
+      "heightMinCm": 40,
+      "heightMaxCm": 100,
+      "widthMinCm": 40,
+      "widthMaxCm": 70,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Braune Blattspitzen",
+        "symptoms": "Vertrocknete Blattränder durch trockene Luft oder hartes Leitungswasser",
+        "remedy": "Luftfeuchtigkeit erhöhen, mit Regenwasser gießen"
+      },
+      {
+        "name": "Schildläuse",
+        "symptoms": "Braune Schildchen an Blättern",
+        "remedy": "Mechanisch entfernen, bei Bedarf Ölpräparate einsetzen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "bloom": 0.6,
+        "size": 0.5
+      },
+      "sources": [
+        "https://www.rhs.org.uk/plants/peace-lilies",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/peace-lily"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Zamioculcas zamiifolia",
+      "commonNamesDe": [
+        "Glücksfeder",
+        "Zamie"
+      ],
+      "commonNamesEn": [
+        "ZZ plant",
+        "Zanzibar gem"
+      ],
+      "family": "Araceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "bright_indirect",
+      "indoor": true,
+      "outdoor": false,
+      "recommendedDirection": [
+        "E",
+        "N",
+        "W"
+      ],
+      "humidityMinPct": 30,
+      "humidityMaxPct": 50,
+      "temperatureMinC": 10,
+      "temperatureOptimalC": 21,
+      "temperatureMaxC": 29,
+      "hardy": false,
+      "hardyToC": null,
+      "winterProtection": null
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 21,
+        "summer": 14,
+        "autumn": 28,
+        "winter": 35
+      },
+      "amount": "Substrat vollständig austrocknen lassen, dann durchdringend gießen",
+      "method": "gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Durchlässiges Substrat mit Perlit oder Sand, torfbasiert",
+      "phMin": 6.0,
+      "phMax": 7.0,
+      "drainage": "Sehr gute Drainage"
+    },
+    "fertilizer": {
+      "npk": "Ausgewogener Flüssigdünger, stark verdünnt",
+      "rhythm": "Monatlich in der Wachstumsphase, im Winter keine Düngung",
+      "seasonWindow": [
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August",
+        "September"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "thinning",
+          "months": [
+            "April"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 3,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": null,
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Blattstecklinge",
+        "Teilung der Rhizome"
+      ],
+      "bestMonths": [
+        "April",
+        "Mai",
+        "Juni"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Enthält Calciumoxalat-Raphiden; kann bei Katzen und Hunden zu Speicheln, Pfoten am Maul reiben, Erbrechen führen. Reaktion bleibt meist lokal begrenzt (ASPCA).",
+      "childrenToxic": true,
+      "childrenNotes": "Bei Verzehr Reizung von Mund und Rachen möglich; außer Reichweite von Kindern aufbewahren."
+    },
+    "size": {
+      "heightMinCm": 45,
+      "heightMaxCm": 90,
+      "widthMinCm": 45,
+      "widthMaxCm": 60,
+      "growthRate": "slow"
+    },
+    "problems": [
+      {
+        "name": "Wurzelfäule",
+        "symptoms": "Weiche, gelbe Rhizome bei Überwässerung",
+        "remedy": "Gießmenge reduzieren, durchlässiges Substrat verwenden"
+      },
+      {
+        "name": "Gelbe Blätter",
+        "symptoms": "Vergilbung einzelner Fiederblätter",
+        "remedy": "Meist normales Blattaltern oder Überwässerung; Gießverhalten prüfen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "placement": 0.6,
+        "size": 0.5
+      },
+      "sources": [
+        "https://hgic.clemson.edu/factsheet/zz-plant-zamioculcas-zamiifolia-indoor-care-growing-tips-plant-guide/",
+        "https://www.aspca.org/news/these-houseplants-can-cause-trouble-your-pets"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Ficus elastica",
+      "commonNamesDe": [
+        "Gummibaum"
+      ],
+      "commonNamesEn": [
+        "Rubber plant",
+        "Rubber fig"
+      ],
+      "family": "Moraceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "bright_indirect",
+      "indoor": true,
+      "outdoor": false,
+      "recommendedDirection": [
+        "E",
+        "W"
+      ],
+      "humidityMinPct": 40,
+      "humidityMaxPct": 60,
+      "temperatureMinC": 15,
+      "temperatureOptimalC": 21,
+      "temperatureMaxC": 27,
+      "hardy": false,
+      "hardyToC": null,
+      "winterProtection": null
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 10,
+        "summer": 7,
+        "autumn": 10,
+        "winter": 14
+      },
+      "amount": "Mäßig gießen, oberstes Viertel des Substrats antrocknen lassen, im Winter sparsam",
+      "method": "gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Torffreie, durchlässige Blumenerde",
+      "phMin": 5.5,
+      "phMax": 6.5,
+      "drainage": "Gute Drainage"
+    },
+    "fertilizer": {
+      "npk": "Dünger mit hohem Stickstoffanteil",
+      "rhythm": "Monatlich in der Wachstumsphase",
+      "seasonWindow": [
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August",
+        "September"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "März",
+            "April"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": null,
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Kopfstecklinge",
+        "Luftableger (Moosableger)"
+      ],
+      "bestMonths": [
+        "April",
+        "Mai",
+        "Juni",
+        "Juli"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Milchsaft enthält Ficin und Ficusin; verursacht bei Katzen und Hunden Reizungen von Maul und Haut, Speicheln, Erbrechen (ASPCA).",
+      "childrenToxic": true,
+      "childrenNotes": "Milchsaft kann Haut- und Schleimhautreizungen verursachen; Kontakt vermeiden."
+    },
+    "size": {
+      "heightMinCm": 100,
+      "heightMaxCm": 300,
+      "widthMinCm": 60,
+      "widthMaxCm": 150,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Schildläuse",
+        "symptoms": "Braune Schildchen, klebrige Ausscheidungen an Blättern",
+        "remedy": "Mechanisch entfernen, bei Bedarf Ölpräparate einsetzen"
+      },
+      {
+        "name": "Blattfall",
+        "symptoms": "Abwurf von Blättern nach Standortwechsel oder Zugluft",
+        "remedy": "Festen Standort ohne Zugluft wählen, Temperaturschwankungen vermeiden"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "size": 0.5
+      },
+      "sources": [
+        "https://www.rhs.org.uk/plants/95720/ficus-elastica/details",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/indian-rubber-plant"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Aloe vera",
+      "commonNamesDe": [
+        "Echte Aloe"
+      ],
+      "commonNamesEn": [
+        "Aloe vera",
+        "True aloe"
+      ],
+      "family": "Asphodelaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "full_sun",
+      "indoor": true,
+      "outdoor": true,
+      "recommendedDirection": [
+        "S",
+        "W"
+      ],
+      "humidityMinPct": 30,
+      "humidityMaxPct": 40,
+      "temperatureMinC": 13,
+      "temperatureOptimalC": 21,
+      "temperatureMaxC": 27,
+      "hardy": false,
+      "hardyToC": null,
+      "winterProtection": "Nicht winterhart; bei Sommerfrische im Freien vor den ersten Frösten frostfrei und hell überwintern."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 14,
+        "summer": 10,
+        "autumn": 21,
+        "winter": 35
+      },
+      "amount": "Durchdringend gießen, Substrat zwischen den Wassergaben vollständig austrocknen lassen",
+      "method": "gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Kakteen- oder Sukkulentenerde mit hohem Sandanteil",
+      "phMin": 7.0,
+      "phMax": 8.5,
+      "drainage": "Sehr gute Drainage"
+    },
+    "fertilizer": {
+      "npk": "Kakteendünger",
+      "rhythm": "Alle 4-6 Wochen im Sommer",
+      "seasonWindow": [
+        "Mai",
+        "Juni",
+        "Juli",
+        "August"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "thinning",
+          "months": [
+            "April"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "Juni",
+        "Juli"
+      ],
+      "color": "gelb-orange",
+      "fragrant": false,
+      "deadheadSpentBlooms": true
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Ableger (Kindel) abtrennen"
+      ],
+      "bestMonths": [
+        "April",
+        "Mai"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Der gelbe Latex unter der Blattschale enthält Saponine und Anthrachinone; verursacht bei Katzen und Hunden Erbrechen, Lethargie und Durchfall (ASPCA). Das klare Blattgel gilt als weniger bedenklich.",
+      "childrenToxic": true,
+      "childrenNotes": "Latexschicht kann abführend wirken und Magenreizungen verursachen; das reine Blattgel wird häufig kosmetisch verwendet, sollte aber bei Kindern nicht unbeaufsichtigt konsumiert werden."
+    },
+    "size": {
+      "heightMinCm": 30,
+      "heightMaxCm": 60,
+      "widthMinCm": 30,
+      "widthMaxCm": 60,
+      "growthRate": "slow"
+    },
+    "problems": [
+      {
+        "name": "Wurzelfäule",
+        "symptoms": "Weiche, bräunliche Blattbasis bei Staunässe",
+        "remedy": "Gießmenge reduzieren, durchlässiges Substrat verwenden"
+      },
+      {
+        "name": "Schildläuse",
+        "symptoms": "Braune Schildchen an der Blattunterseite",
+        "remedy": "Mechanisch entfernen, bei Bedarf Ölpräparate einsetzen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "bloom": 0.4,
+        "size": 0.5
+      },
+      "sources": [
+        "https://www.rhs.org.uk/shows-events/rhs-urban-show/houseplant-profiles/houseplants-for-sunlight",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/aloe"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Calathea orbifolia",
+      "commonNamesDe": [
+        "Korbmarante"
+      ],
+      "commonNamesEn": [
+        "Calathea"
+      ],
+      "family": "Marantaceae",
+      "cultivar": "orbifolia"
+    },
+    "placement": {
+      "light": "bright_indirect",
+      "indoor": true,
+      "outdoor": false,
+      "recommendedDirection": [
+        "N",
+        "E"
+      ],
+      "humidityMinPct": 60,
+      "humidityMaxPct": 80,
+      "temperatureMinC": 18,
+      "temperatureOptimalC": 22,
+      "temperatureMaxC": 27,
+      "hardy": false,
+      "hardyToC": null,
+      "winterProtection": null
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 5,
+        "autumn": 7,
+        "winter": 10
+      },
+      "amount": "Gleichmäßig feucht halten mit destilliertem Wasser oder Regenwasser, keine Staunässe",
+      "method": "gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Torfhaltige, humusreiche, durchlässige Erde",
+      "phMin": 6.0,
+      "phMax": 6.5,
+      "drainage": "Gute Drainage"
+    },
+    "fertilizer": {
+      "npk": "Ausgewogener Flüssigdünger, verdünnt",
+      "rhythm": "Alle 4 Wochen von Frühjahr bis Sommer",
+      "seasonWindow": [
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "thinning",
+          "months": [
+            "April",
+            "Mai"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 1,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": null,
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Teilung beim Umtopfen"
+      ],
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": false,
+      "petNotes": "Laut ASPCA sind Calathea-Arten ungiftig für Hunde und Katzen; große Mengen können mechanisch leichte Magen-Darm-Beschwerden verursachen.",
+      "childrenToxic": false,
+      "childrenNotes": "Gilt als unbedenklich."
+    },
+    "size": {
+      "heightMinCm": 40,
+      "heightMaxCm": 70,
+      "widthMinCm": 40,
+      "widthMaxCm": 70,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Braune Blattränder",
+        "symptoms": "Vertrocknete, knusprige Blattränder durch niedrige Luftfeuchtigkeit oder hartes Wasser",
+        "remedy": "Luftfeuchtigkeit erhöhen, mit destilliertem Wasser oder Regenwasser gießen"
+      },
+      {
+        "name": "Spinnmilben",
+        "symptoms": "Feine Gespinste und gesprenkelte Blätter bei trockener Luft",
+        "remedy": "Luftfeuchtigkeit erhöhen, Blätter regelmäßig abduschen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "size": 0.5,
+        "fertilizer": 0.5
+      },
+      "sources": [
+        "https://gardenbetty.com/calathea-orbifolia/",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/calathea-lancifolia-3"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Dracaena fragrans",
+      "commonNamesDe": [
+        "Duftende Dracaene",
+        "Drachenbaum"
+      ],
+      "commonNamesEn": [
+        "Corn plant"
+      ],
+      "family": "Asparagaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "bright_indirect",
+      "indoor": true,
+      "outdoor": false,
+      "recommendedDirection": [
+        "E",
+        "W"
+      ],
+      "humidityMinPct": 40,
+      "humidityMaxPct": 60,
+      "temperatureMinC": 15,
+      "temperatureOptimalC": 21,
+      "temperatureMaxC": 27,
+      "hardy": false,
+      "hardyToC": null,
+      "winterProtection": null
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 7,
+        "autumn": 14,
+        "winter": 21
+      },
+      "amount": "Mäßig gießen in der Wachstumsphase, oberste 2-5 cm des Substrats antrocknen lassen, im Winter sparsam",
+      "method": "gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Torffreie, durchlässige Blumenerde",
+      "phMin": 6.0,
+      "phMax": 6.5,
+      "drainage": "Gute Drainage"
+    },
+    "fertilizer": {
+      "npk": "Ausgewogener Flüssigdünger",
+      "rhythm": "Monatlich von Frühjahr bis Sommer",
+      "seasonWindow": [
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "März",
+            "April"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 3,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": null,
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Stängelstecklinge"
+      ],
+      "bestMonths": [
+        "April",
+        "Mai"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Enthält Saponine; führt bei Katzen und Hunden zu Erbrechen (gelegentlich mit Blut), Appetitlosigkeit, Speicheln, bei Katzen erweiterten Pupillen (ASPCA).",
+      "childrenToxic": true,
+      "childrenNotes": "Bei Verzehr Magen-Darm-Beschwerden möglich."
+    },
+    "size": {
+      "heightMinCm": 100,
+      "heightMaxCm": 250,
+      "widthMinCm": 60,
+      "widthMaxCm": 100,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Braune Blattspitzen",
+        "symptoms": "Vertrocknete Blattspitzen durch Fluorid im Leitungswasser",
+        "remedy": "Mit abgestandenem oder destilliertem Wasser gießen"
+      },
+      {
+        "name": "Schildläuse",
+        "symptoms": "Braune Schildchen an Blättern und Stamm",
+        "remedy": "Mechanisch entfernen, bei Bedarf Ölpräparate einsetzen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "size": 0.5
+      },
+      "sources": [
+        "https://www.rhs.org.uk/plants/6093/dracaena-fragrans/details",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/corn-plant"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Chlorophytum comosum",
+      "commonNamesDe": [
+        "Grünlilie"
+      ],
+      "commonNamesEn": [
+        "Spider plant"
+      ],
+      "family": "Asparagaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "bright_indirect",
+      "indoor": true,
+      "outdoor": true,
+      "recommendedDirection": [
+        "E",
+        "W"
+      ],
+      "humidityMinPct": 40,
+      "humidityMaxPct": 60,
+      "temperatureMinC": 10,
+      "temperatureOptimalC": 20,
+      "temperatureMaxC": 27,
+      "hardy": false,
+      "hardyToC": null,
+      "winterProtection": null
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 5,
+        "autumn": 7,
+        "winter": 10
+      },
+      "amount": "Gleichmäßig feucht halten, oberste Schicht des Substrats antrocknen lassen; empfindlich gegen Fluorid im Leitungswasser",
+      "method": "gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Durchlässige, humusreiche Blumenerde",
+      "phMin": 6.0,
+      "phMax": 7.2,
+      "drainage": "Gute Drainage"
+    },
+    "fertilizer": {
+      "npk": "Ausgewogener Flüssigdünger",
+      "rhythm": "Alle 2-4 Wochen von Frühjahr bis Sommer",
+      "seasonWindow": [
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "deadheading",
+          "months": [
+            "Juni",
+            "Juli",
+            "August"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "Mai",
+        "Juni",
+        "Juli"
+      ],
+      "color": "weiß",
+      "fragrant": false,
+      "deadheadSpentBlooms": false
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Ableger (Kindel) an Ausläufern",
+        "Teilung"
+      ],
+      "bestMonths": [
+        "April",
+        "Mai",
+        "Juni"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": false,
+      "petNotes": "Laut offizieller ASPCA-Pflanzenliste ungiftig für Hunde und Katzen; einzelne ASPCA-Quellen nennen leichte Reizwirkung bei größeren Mengen mit Erbrechen/Durchfall als mögliche milde Reaktion.",
+      "childrenToxic": false,
+      "childrenNotes": "Gilt allgemein als unbedenklich."
+    },
+    "size": {
+      "heightMinCm": 30,
+      "heightMaxCm": 60,
+      "widthMinCm": 30,
+      "widthMaxCm": 60,
+      "growthRate": "fast"
+    },
+    "problems": [
+      {
+        "name": "Braune Blattspitzen",
+        "symptoms": "Vertrocknete Spitzen durch Fluorid oder hartes Wasser",
+        "remedy": "Mit abgestandenem oder destilliertem Wasser gießen"
+      },
+      {
+        "name": "Wurzelfäule",
+        "symptoms": "Weiche, braune Wurzelknollen bei Staunässe",
+        "remedy": "Gießmenge reduzieren, durchlässiges Substrat verwenden"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "bloom": 0.5,
+        "toxicity": 0.6
+      },
+      "sources": [
+        "https://bloomscape.com/plant-care-guide/spider-plant/",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/spider-plant",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/ribbon-plant-chlorophytum-comosum"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Ficus benjamina",
+      "commonNamesDe": [
+        "Birkenfeige"
+      ],
+      "commonNamesEn": [
+        "Weeping fig"
+      ],
+      "family": "Moraceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "bright_indirect",
+      "indoor": true,
+      "outdoor": false,
+      "recommendedDirection": [
+        "E",
+        "W"
+      ],
+      "humidityMinPct": 40,
+      "humidityMaxPct": 60,
+      "temperatureMinC": 16,
+      "temperatureOptimalC": 21,
+      "temperatureMaxC": 27,
+      "hardy": false,
+      "hardyToC": null,
+      "winterProtection": null
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 5,
+        "autumn": 10,
+        "winter": 14
+      },
+      "amount": "Mäßig gießen, oberste Schicht antrocknen lassen, keine Staunässe",
+      "method": "gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Torffreie, durchlässige Blumenerde",
+      "phMin": 6.0,
+      "phMax": 6.5,
+      "drainage": "Gute Drainage"
+    },
+    "fertilizer": {
+      "npk": "Ausgewogener Flüssigdünger",
+      "rhythm": "Monatlich von Frühjahr bis Sommer",
+      "seasonWindow": [
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "März",
+            "April"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": null,
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Kopfstecklinge"
+      ],
+      "bestMonths": [
+        "April",
+        "Mai",
+        "Juni"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Milchsaft enthält das Enzym Ficin und Ficusin (Psoralen); verursacht bei Katzen, Hunden und Pferden Reizungen von Maul und Haut, Speicheln, Erbrechen, Durchfall (ASPCA).",
+      "childrenToxic": true,
+      "childrenNotes": "Milchsaft kann Haut- und Schleimhautreizungen verursachen; Kontakt vermeiden."
+    },
+    "size": {
+      "heightMinCm": 100,
+      "heightMaxCm": 300,
+      "widthMinCm": 60,
+      "widthMaxCm": 150,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Blattfall",
+        "symptoms": "Plötzlicher Abwurf von Blättern nach Standortwechsel oder Zugluft",
+        "remedy": "Festen, zugluftfreien Standort wählen, Umzüge vermeiden"
+      },
+      {
+        "name": "Schildläuse",
+        "symptoms": "Braune Schildchen, klebriger Belag auf Blättern",
+        "remedy": "Mechanisch entfernen, bei Bedarf Ölpräparate einsetzen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "size": 0.5
+      },
+      "sources": [
+        "https://plantura.garden/uk/houseplants/ficus-benjamina/ficus-benjamina-care",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/weeping-fig"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Alocasia zebrina",
+      "commonNamesDe": [
+        "Zebra-Pfeilblatt"
+      ],
+      "commonNamesEn": [
+        "Zebra plant"
+      ],
+      "family": "Araceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "bright_indirect",
+      "indoor": true,
+      "outdoor": false,
+      "recommendedDirection": [
+        "E",
+        "W"
+      ],
+      "humidityMinPct": 60,
+      "humidityMaxPct": 80,
+      "temperatureMinC": 18,
+      "temperatureOptimalC": 23,
+      "temperatureMaxC": 29,
+      "hardy": false,
+      "hardyToC": null,
+      "winterProtection": null
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 4,
+        "summer": 4,
+        "autumn": 7,
+        "winter": 10
+      },
+      "amount": "Gleichmäßig feucht halten mit destilliertem Wasser oder Regenwasser, oberste 2-3 cm antrocknen lassen",
+      "method": "gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Sehr durchlässiges Aroid-Substrat mit Rinde und Perlit",
+      "phMin": 5.5,
+      "phMax": 6.5,
+      "drainage": "Sehr gute Drainage"
+    },
+    "fertilizer": {
+      "npk": "Verdünnter, ausgewogener Flüssigdünger",
+      "rhythm": "Alle 4 Wochen von Frühjahr bis Sommer",
+      "seasonWindow": [
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "thinning",
+          "months": [
+            "April",
+            "Mai"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 1,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": null,
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Rhizomteilung"
+      ],
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Enthält Calciumoxalat-Raphiden in allen Pflanzenteilen; verursacht bei Katzen und Hunden starke Reizungen von Maul und Rachen, Speicheln, Erbrechen, Schwellungen (ASPCA).",
+      "childrenToxic": true,
+      "childrenNotes": "Bei Verzehr schmerzhafte Reizung von Mund und Rachen möglich; außer Reichweite von Kindern aufbewahren."
+    },
+    "size": {
+      "heightMinCm": 60,
+      "heightMaxCm": 150,
+      "widthMinCm": 40,
+      "widthMaxCm": 90,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Spinnmilben",
+        "symptoms": "Feine Gespinste, gesprenkelte Blätter bei zu trockener Luft",
+        "remedy": "Luftfeuchtigkeit erhöhen, Blätter regelmäßig besprühen"
+      },
+      {
+        "name": "Wurzelfäule",
+        "symptoms": "Weiche, braune Rhizome bei Staunässe",
+        "remedy": "Gießmenge reduzieren, durchlässiges Substrat verwenden"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "placement": 0.55,
+        "size": 0.5,
+        "water": 0.5
+      },
+      "sources": [
+        "https://www.quirkyplants.co.uk/blogs/plant-care-guides/zara-the-alocasia-zebrina",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/alocasia"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Philodendron hederaceum",
+      "commonNamesDe": [
+        "Baumfreund",
+        "Herzblatt-Philodendron"
+      ],
+      "commonNamesEn": [
+        "Heartleaf philodendron"
+      ],
+      "family": "Araceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "bright_indirect",
+      "indoor": true,
+      "outdoor": false,
+      "recommendedDirection": [
+        "E",
+        "W"
+      ],
+      "humidityMinPct": 40,
+      "humidityMaxPct": 60,
+      "temperatureMinC": 15,
+      "temperatureOptimalC": 22,
+      "temperatureMaxC": 29,
+      "hardy": false,
+      "hardyToC": null,
+      "winterProtection": null
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 7,
+        "autumn": 10,
+        "winter": 14
+      },
+      "amount": "Gleichmäßig feucht halten, oberste Schicht des Substrats antrocknen lassen",
+      "method": "gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Torffreie, durchlässige Blumenerde",
+      "phMin": 5.5,
+      "phMax": 6.5,
+      "drainage": "Gute Drainage"
+    },
+    "fertilizer": {
+      "npk": "Ausgewogener Flüssigdünger",
+      "rhythm": "Monatlich von Frühjahr bis Sommer",
+      "seasonWindow": [
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "März",
+            "April"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": null,
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Stecklinge in Wasser",
+        "Stecklinge direkt in Erde"
+      ],
+      "bestMonths": [
+        "April",
+        "Mai",
+        "Juni",
+        "Juli"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Enthält unlösliche Calciumoxalate; verursacht bei Katzen und Hunden Reizungen von Maul und Rachen, Speicheln, Erbrechen (ASPCA).",
+      "childrenToxic": true,
+      "childrenNotes": "Bei Verzehr Reizung der Mundschleimhaut möglich; außer Reichweite von Kindern aufbewahren."
+    },
+    "size": {
+      "heightMinCm": 30,
+      "heightMaxCm": 300,
+      "widthMinCm": 30,
+      "widthMaxCm": 60,
+      "growthRate": "fast"
+    },
+    "problems": [
+      {
+        "name": "Blattläuse",
+        "symptoms": "Klebrige Beläge an Triebspitzen",
+        "remedy": "Mit Wasserstrahl abspülen, bei Bedarf Schmierseifenlösung"
+      },
+      {
+        "name": "Wurzelfäule",
+        "symptoms": "Gelbe, welke Blätter bei dauerhafter Staunässe",
+        "remedy": "Gießmenge reduzieren, durchlässiges Substrat verwenden"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "size": 0.5
+      },
+      "sources": [
+        "https://soltech.com/products/heartleaf-philodendron-care",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/heartleaf-philodendron"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Dypsis lutescens",
+      "commonNamesDe": [
+        "Goldfruchtpalme",
+        "Areca-Palme"
+      ],
+      "commonNamesEn": [
+        "Areca palm",
+        "Golden cane palm"
+      ],
+      "family": "Arecaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "bright_indirect",
+      "indoor": true,
+      "outdoor": true,
+      "recommendedDirection": [
+        "E",
+        "W"
+      ],
+      "humidityMinPct": 40,
+      "humidityMaxPct": 60,
+      "temperatureMinC": 15,
+      "temperatureOptimalC": 21,
+      "temperatureMaxC": 29,
+      "hardy": false,
+      "hardyToC": null,
+      "winterProtection": null
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 5,
+        "autumn": 10,
+        "winter": 14
+      },
+      "amount": "Gleichmäßig feucht halten, am besten mit destilliertem Wasser, oberste 2-5 cm antrocknen lassen",
+      "method": "gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Durchlässige, torfbasierte Palmenerde",
+      "phMin": 6.0,
+      "phMax": 6.5,
+      "drainage": "Gute Drainage"
+    },
+    "fertilizer": {
+      "npk": "Palmendünger",
+      "rhythm": "Alle 4-6 Wochen von Frühjahr bis Sommer",
+      "seasonWindow": [
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "thinning",
+          "months": [
+            "April"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 3,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": null,
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Teilung von Horsten"
+      ],
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": false,
+      "petNotes": "Laut ASPCA ungiftig für Hunde, Katzen und Pferde. Verwechslungsgefahr besteht mit der stark giftigen Sagopalme (Cycas revoluta), die einen ähnlichen Namen trägt, aber botanisch nicht verwandt ist.",
+      "childrenToxic": false,
+      "childrenNotes": "Gilt als unbedenklich."
+    },
+    "size": {
+      "heightMinCm": 150,
+      "heightMaxCm": 250,
+      "widthMinCm": 100,
+      "widthMaxCm": 150,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Spinnmilben",
+        "symptoms": "Feine Gespinste bei trockener Heizungsluft",
+        "remedy": "Luftfeuchtigkeit erhöhen, Wedel regelmäßig abduschen"
+      },
+      {
+        "name": "Braune Blattspitzen",
+        "symptoms": "Vertrocknete Spitzen durch hartes Wasser oder Fluorid",
+        "remedy": "Mit destilliertem Wasser oder Regenwasser gießen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "size": 0.5
+      },
+      "sources": [
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/areca-palm",
+        "https://thestem.co.uk/plant-academy/a-z-of-plants/dypsis-lutescens-plant-care-guide"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Hedera helix",
+      "commonNamesDe": [
+        "Efeu"
+      ],
+      "commonNamesEn": [
+        "English ivy"
+      ],
+      "family": "Araliaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "bright_indirect",
+      "indoor": true,
+      "outdoor": true,
+      "recommendedDirection": [
+        "N",
+        "E",
+        "W"
+      ],
+      "humidityMinPct": 40,
+      "humidityMaxPct": 60,
+      "temperatureMinC": 10,
+      "temperatureOptimalC": 18,
+      "temperatureMaxC": 24,
+      "hardy": true,
+      "hardyToC": -15,
+      "winterProtection": "Als Kübelpflanze auf Balkon/Terrasse Wurzelballen vor Frost schützen (z. B. mit Vlies oder Luftpolsterfolie einwickeln), da Topfpflanzen frostempfindlicher sind als im Gartenboden ausgepflanzte Exemplare."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 5,
+        "autumn": 7,
+        "winter": 10
+      },
+      "amount": "Gleichmäßig feucht halten, oberste Schicht leicht antrocknen lassen",
+      "method": "gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Durchlässige, humusreiche Blumenerde",
+      "phMin": 6.0,
+      "phMax": 7.5,
+      "drainage": "Gute Drainage"
+    },
+    "fertilizer": {
+      "npk": "Ausgewogener Flüssigdünger",
+      "rhythm": "Monatlich von Frühjahr bis Sommer",
+      "seasonWindow": [
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "März",
+            "April"
+          ]
+        },
+        {
+          "type": "thinning",
+          "months": [
+            "Februar",
+            "März"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "September",
+        "Oktober"
+      ],
+      "color": "grünlich-gelb",
+      "fragrant": false,
+      "deadheadSpentBlooms": false
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Kopfstecklinge in Wasser oder Erde"
+      ],
+      "bestMonths": [
+        "April",
+        "Mai",
+        "Juni",
+        "Juli"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Enthält Triterpensaponine (u. a. Hederagenin); verursacht bei Katzen, Hunden und Pferden Erbrechen, Bauchschmerzen, Speicheln, Durchfall (ASPCA). Die Blätter sind giftiger als die Beeren.",
+      "childrenToxic": true,
+      "childrenNotes": "Blätter und vor allem die schwarzen Beeren sind bei Verzehr giftig; außer Reichweite von Kindern aufbewahren."
+    },
+    "size": {
+      "heightMinCm": 30,
+      "heightMaxCm": 200,
+      "widthMinCm": 30,
+      "widthMaxCm": 60,
+      "growthRate": "fast"
+    },
+    "problems": [
+      {
+        "name": "Spinnmilben",
+        "symptoms": "Feine Gespinste, gesprenkelte Blätter durch trockene Heizungsluft",
+        "remedy": "Luftfeuchtigkeit erhöhen, Blätter regelmäßig abduschen"
+      },
+      {
+        "name": "Schildläuse",
+        "symptoms": "Braune Schildchen an Blättern und Trieben",
+        "remedy": "Mechanisch entfernen, bei Bedarf Ölpräparate einsetzen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "bloom": 0.4,
+        "placement": 0.6
+      },
+      "sources": [
+        "https://gardenerspath.com/plants/houseplants/english-ivy-indoors/",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/english-ivy"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Guzmania lingulata",
+      "commonNamesDe": [
+        "Guzmanie",
+        "Zungen-Guzmanie"
+      ],
+      "commonNamesEn": [
+        "Scarlet star"
+      ],
+      "family": "Bromeliaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "bright_indirect",
+      "indoor": true,
+      "outdoor": false,
+      "recommendedDirection": [
+        "E",
+        "W"
+      ],
+      "humidityMinPct": 50,
+      "humidityMaxPct": 70,
+      "temperatureMinC": 16,
+      "temperatureOptimalC": 21,
+      "temperatureMaxC": 27,
+      "hardy": false,
+      "hardyToC": null,
+      "winterProtection": null
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 7,
+        "autumn": 7,
+        "winter": 10
+      },
+      "amount": "In den Trichter (Blattrosette) gießen und regelmäßig austauschen, Substrat nur leicht feucht halten, destilliertes Wasser oder abgestandenes Wasser verwenden",
+      "method": "in die Blattrosette (Trichter) gießen",
+      "letTopLayerDryOut": false
+    },
+    "soil": {
+      "substrate": "Durchlässiges, torfarmes Bromeliensubstrat (z. B. Orchideenerde-Mix)",
+      "phMin": 5.0,
+      "phMax": 6.0,
+      "drainage": "Sehr gute Drainage"
+    },
+    "fertilizer": {
+      "npk": "Stark verdünnter Flüssigdünger",
+      "rhythm": "Monatlich in den Trichter oder ins Substrat, Frühjahr bis Sommer",
+      "seasonWindow": [
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "deadheading",
+          "months": [
+            "ganzjährig nach der Blüte"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": null,
+      "bestMonths": [
+        "April",
+        "Mai"
+      ]
+    },
+    "bloom": {
+      "months": null,
+      "color": "rot bis orange (Hochblätter)",
+      "fragrant": false,
+      "deadheadSpentBlooms": true
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Kindel (Ableger) nach der Blüte der Mutterpflanze abtrennen"
+      ],
+      "bestMonths": [
+        "April",
+        "Mai",
+        "Juni"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": false,
+      "petNotes": "Laut ASPCA ungiftig für Hunde und Katzen (gilt für Guzmania lingulata minor / 'Orange Star'); raue Blattränder können mechanische Reizung verursachen.",
+      "childrenToxic": false,
+      "childrenNotes": "Gilt als unbedenklich."
+    },
+    "size": {
+      "heightMinCm": 30,
+      "heightMaxCm": 45,
+      "widthMinCm": 30,
+      "widthMaxCm": 40,
+      "growthRate": "slow"
+    },
+    "problems": [
+      {
+        "name": "Wurzelfäule",
+        "symptoms": "Weiche Blattbasis bei zu nassem Substrat",
+        "remedy": "Substrat nur leicht feucht halten, Wasser hauptsächlich in den Trichter geben"
+      },
+      {
+        "name": "Schildläuse",
+        "symptoms": "Braune Schildchen an Blättern",
+        "remedy": "Mechanisch entfernen, bei Bedarf Ölpräparate einsetzen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "bloom": 0.4,
+        "repotting": 0.4,
+        "size": 0.5
+      },
+      "sources": [
+        "https://lifetips.alibaba.com/plant-care/guzmania-bromeliad",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/orange-star"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Echinocactus grusonii",
+      "commonNamesDe": [
+        "Goldkugelkaktus",
+        "Schwiegermutterstuhl"
+      ],
+      "commonNamesEn": [
+        "Golden barrel cactus"
+      ],
+      "family": "Cactaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "full_sun",
+      "indoor": true,
+      "outdoor": true,
+      "recommendedDirection": [
+        "S"
+      ],
+      "humidityMinPct": 20,
+      "humidityMaxPct": 40,
+      "temperatureMinC": 10,
+      "temperatureOptimalC": 24,
+      "temperatureMaxC": 35,
+      "hardy": false,
+      "hardyToC": null,
+      "winterProtection": "Nicht winterhart im deutschen Klima; bei Sommeraufenthalt im Freien vor ersten Nachtfrösten frostfrei, hell und kühl (ca. 5-10 °C) überwintern."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 30,
+        "summer": 21,
+        "autumn": 45,
+        "winter": 60
+      },
+      "amount": "Sparsam, aber durchdringend gießen; Substrat vollständig austrocknen lassen",
+      "method": "gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Mineralisches Kakteensubstrat mit hohem Sand-/Kies-/Bimsanteil (ca. 70-80%)",
+      "phMin": 6.0,
+      "phMax": 7.5,
+      "drainage": "Sehr gute Drainage"
+    },
+    "fertilizer": {
+      "npk": "Kaliumbetonter Kakteendünger",
+      "rhythm": "Alle 4-6 Wochen im Sommer",
+      "seasonWindow": [
+        "Mai",
+        "Juni",
+        "Juli",
+        "August"
+      ]
+    },
+    "pruning": {
+      "windows": null
+    },
+    "repotting": {
+      "everyYears": 3,
+      "bestMonths": [
+        "April",
+        "Mai"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "Juni",
+        "Juli",
+        "August"
+      ],
+      "color": "gelb",
+      "fragrant": false,
+      "deadheadSpentBlooms": false
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Aussaat"
+      ],
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": false,
+      "petNotes": "Kakteen wie Echinocactus grusonii gelten laut ASPCA chemisch als ungiftig; die scharfen Dornen stellen jedoch eine physische Verletzungsgefahr für Haustiere dar.",
+      "childrenToxic": false,
+      "childrenNotes": "Chemisch unbedenklich, aber die Dornen können zu schmerzhaften Stichverletzungen führen; außer Reichweite kleiner Kinder aufstellen."
+    },
+    "size": {
+      "heightMinCm": 20,
+      "heightMaxCm": 100,
+      "widthMinCm": 20,
+      "widthMaxCm": 80,
+      "growthRate": "slow"
+    },
+    "problems": [
+      {
+        "name": "Wurzelfäule",
+        "symptoms": "Weiche, dunkle Stellen am Fuß der Pflanze durch Staunässe oder kalte Nässe",
+        "remedy": "Gießmenge reduzieren, sehr durchlässiges Substrat verwenden"
+      },
+      {
+        "name": "Wollläuse",
+        "symptoms": "Weiße, wollige Beläge zwischen den Dornen",
+        "remedy": "Mechanisch entfernen, bei Bedarf Alkohol-Wattestäbchen oder Ölpräparate einsetzen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "bloom": 0.4,
+        "size": 0.5,
+        "placement": 0.6
+      },
+      "sources": [
+        "https://mountaincrestgardens.com/echinocactus-grusonii-golden-barrel-cactus/",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Saintpaulia ionantha",
+      "commonNamesDe": [
+        "Usambaraveilchen"
+      ],
+      "commonNamesEn": [
+        "African violet"
+      ],
+      "family": "Gesneriaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "bright_indirect",
+      "indoor": true,
+      "outdoor": false,
+      "recommendedDirection": [
+        "E",
+        "N"
+      ],
+      "humidityMinPct": 40,
+      "humidityMaxPct": 60,
+      "temperatureMinC": 16,
+      "temperatureOptimalC": 21,
+      "temperatureMaxC": 27,
+      "hardy": false,
+      "hardyToC": null,
+      "winterProtection": null
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 5,
+        "autumn": 7,
+        "winter": 10
+      },
+      "amount": "Von unten gießen (anstauen), Blätter nicht benetzen, Substrat zwischen den Wassergaben leicht antrocknen lassen",
+      "method": "von unten gießen / tauchen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Spezielle, lockere Usambaraveilchen-Erde",
+      "phMin": 6.0,
+      "phMax": 6.5,
+      "drainage": "Gute Drainage"
+    },
+    "fertilizer": {
+      "npk": "Kaliumbetonter Flüssigdünger",
+      "rhythm": "Alle 2 Wochen während der Wachstumsphase",
+      "seasonWindow": [
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August",
+        "September"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "deadheading",
+          "months": [
+            "ganzjährig"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 1,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": {
+      "months": null,
+      "color": "violett, blau, rosa oder weiß",
+      "fragrant": false,
+      "deadheadSpentBlooms": true
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Blattstecklinge"
+      ],
+      "bestMonths": [
+        "April",
+        "Mai",
+        "Juni"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": false,
+      "petNotes": "Laut ASPCA ungiftig für Hunde, Katzen und Pferde.",
+      "childrenToxic": false,
+      "childrenNotes": "Gilt als unbedenklich; Pflanzenschutzmittel auf gekauften Pflanzen können unabhängig davon ein Risiko darstellen."
+    },
+    "size": {
+      "heightMinCm": 10,
+      "heightMaxCm": 20,
+      "widthMinCm": 15,
+      "widthMaxCm": 30,
+      "growthRate": "slow"
+    },
+    "problems": [
+      {
+        "name": "Grauschimmel (Botrytis)",
+        "symptoms": "Graue Schimmelbeläge bei nasser Blattoberfläche und hoher Luftfeuchtigkeit",
+        "remedy": "Blätter beim Gießen trocken halten, für Luftzirkulation sorgen"
+      },
+      {
+        "name": "Echter Mehltau",
+        "symptoms": "Weißer, mehliger Belag auf Blättern",
+        "remedy": "Befallene Blätter entfernen, Luftfeuchtigkeit regulieren"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "bloom": 0.5,
+        "size": 0.5
+      },
+      "sources": [
+        "https://www.rhs.org.uk/plants/16203/saintpaulia-ionantha/details",
+        "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=b567",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/african-violet"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Howea forsteriana",
+      "commonNamesDe": [
+        "Kentiapalme"
+      ],
+      "commonNamesEn": [
+        "Kentia palm"
+      ],
+      "family": "Arecaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "bright_indirect",
+      "indoor": true,
+      "outdoor": true,
+      "recommendedDirection": [
+        "E",
+        "N",
+        "W"
+      ],
+      "humidityMinPct": 40,
+      "humidityMaxPct": 60,
+      "temperatureMinC": 13,
+      "temperatureOptimalC": 21,
+      "temperatureMaxC": 27,
+      "hardy": false,
+      "hardyToC": null,
+      "winterProtection": null
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 5,
+        "autumn": 10,
+        "winter": 14
+      },
+      "amount": "Gleichmäßig feucht halten, oberste Schicht antrocknen lassen, keine Staunässe",
+      "method": "gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Durchlässige, torfbasierte Palmenerde",
+      "phMin": 6.0,
+      "phMax": 6.5,
+      "drainage": "Gute Drainage"
+    },
+    "fertilizer": {
+      "npk": "Ausgewogener Palmendünger",
+      "rhythm": "Alle 4-6 Wochen von Frühjahr bis Sommer",
+      "seasonWindow": [
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "thinning",
+          "months": [
+            "April"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 4,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": null,
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Aussaat (kommerziell, für Hobbygärtner schwierig)"
+      ],
+      "bestMonths": null
+    },
+    "toxicity": {
+      "petsToxic": false,
+      "petNotes": "Laut ASPCA ungiftig für Hunde, Katzen und Pferde.",
+      "childrenToxic": false,
+      "childrenNotes": "Gilt als unbedenklich."
+    },
+    "size": {
+      "heightMinCm": 150,
+      "heightMaxCm": 300,
+      "widthMinCm": 100,
+      "widthMaxCm": 200,
+      "growthRate": "slow"
+    },
+    "problems": [
+      {
+        "name": "Spinnmilben",
+        "symptoms": "Feine Gespinste bei trockener Luft",
+        "remedy": "Luftfeuchtigkeit erhöhen, Wedel regelmäßig abduschen"
+      },
+      {
+        "name": "Braune Blattspitzen",
+        "symptoms": "Vertrocknete Spitzen durch hartes Leitungswasser",
+        "remedy": "Mit abgestandenem oder destilliertem Wasser gießen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "size": 0.5
+      },
+      "sources": [
+        "https://www.rhs.org.uk/plants/8845/howea-forsteriana/details",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/kentia-palm"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Anthurium andraeanum",
+      "commonNamesDe": [
+        "Flamingoblume"
+      ],
+      "commonNamesEn": [
+        "Flamingo flower"
+      ],
+      "family": "Araceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "bright_indirect",
+      "indoor": true,
+      "outdoor": false,
+      "recommendedDirection": [
+        "E",
+        "W"
+      ],
+      "humidityMinPct": 60,
+      "humidityMaxPct": 80,
+      "temperatureMinC": 18,
+      "temperatureOptimalC": 24,
+      "temperatureMaxC": 30,
+      "hardy": false,
+      "hardyToC": null,
+      "winterProtection": null
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 5,
+        "autumn": 7,
+        "winter": 10
+      },
+      "amount": "Gießen, wenn 50-75% des Substratvolumens abgetrocknet ist; bevorzugt Regenwasser, keine Staunässe",
+      "method": "gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Durchlässiges, torfarmes Aroid-Substrat mit Rinde und Perlit",
+      "phMin": 5.5,
+      "phMax": 6.5,
+      "drainage": "Sehr gute Drainage"
+    },
+    "fertilizer": {
+      "npk": "Verdünnter, ausgewogener Flüssigdünger",
+      "rhythm": "Alle 4 Wochen von Frühjahr bis Herbst",
+      "seasonWindow": [
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August",
+        "September"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "deadheading",
+          "months": [
+            "ganzjährig"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": {
+      "months": null,
+      "color": "rot, rosa oder weiß (Hochblatt)",
+      "fragrant": false,
+      "deadheadSpentBlooms": true
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Teilung",
+        "Stecklinge"
+      ],
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Enthält unlösliche Calciumoxalate; verursacht bei Katzen und Hunden Reizungen von Maul und Rachen, Speicheln, Erbrechen, Schluckbeschwerden (ASPCA).",
+      "childrenToxic": true,
+      "childrenNotes": "Bei Verzehr Reizung von Mund und Rachen möglich; außer Reichweite von Kindern aufbewahren."
+    },
+    "size": {
+      "heightMinCm": 30,
+      "heightMaxCm": 60,
+      "widthMinCm": 30,
+      "widthMaxCm": 50,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Blattfleckenkrankheit",
+        "symptoms": "Braune oder schwarze Flecken auf den Blättern bei zu nasser Belaubung",
+        "remedy": "Blätter beim Gießen trocken halten, für Luftzirkulation sorgen"
+      },
+      {
+        "name": "Schildläuse",
+        "symptoms": "Braune Schildchen an Blättern und Stielen",
+        "remedy": "Mechanisch entfernen, bei Bedarf Ölpräparate einsetzen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "bloom": 0.5,
+        "size": 0.5
+      },
+      "sources": [
+        "https://www.rhs.org.uk/plants/anthuriums/how-to-grow-anthuriums",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/tail-flower"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Peperomia obtusifolia",
+      "commonNamesDe": [
+        "Gummi-Peperomie",
+        "Stumpfblättrige Peperomie"
+      ],
+      "commonNamesEn": [
+        "Baby rubber plant"
+      ],
+      "family": "Piperaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "bright_indirect",
+      "indoor": true,
+      "outdoor": false,
+      "recommendedDirection": [
+        "E",
+        "W"
+      ],
+      "humidityMinPct": 40,
+      "humidityMaxPct": 60,
+      "temperatureMinC": 16,
+      "temperatureOptimalC": 21,
+      "temperatureMaxC": 27,
+      "hardy": false,
+      "hardyToC": null,
+      "winterProtection": null
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 10,
+        "summer": 7,
+        "autumn": 10,
+        "winter": 14
+      },
+      "amount": "Sparsam gießen, obere 2-3 cm des Substrats vollständig antrocknen lassen, Blätter nicht benetzen",
+      "method": "gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Durchlässige, leicht sandige Blumenerde",
+      "phMin": 6.0,
+      "phMax": 6.5,
+      "drainage": "Gute Drainage"
+    },
+    "fertilizer": {
+      "npk": "Ausgewogener Flüssigdünger, verdünnt",
+      "rhythm": "Alle 4-6 Wochen von Frühjahr bis Sommer",
+      "seasonWindow": [
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "März",
+            "April"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": null,
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Blattstecklinge",
+        "Stängelstecklinge"
+      ],
+      "bestMonths": [
+        "April",
+        "Mai",
+        "Juni",
+        "Juli"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": false,
+      "petNotes": "Laut ASPCA ungiftig für Hunde und Katzen.",
+      "childrenToxic": false,
+      "childrenNotes": "Gilt als unbedenklich."
+    },
+    "size": {
+      "heightMinCm": 20,
+      "heightMaxCm": 30,
+      "widthMinCm": 20,
+      "widthMaxCm": 30,
+      "growthRate": "slow"
+    },
+    "problems": [
+      {
+        "name": "Wurzelfäule",
+        "symptoms": "Weiche, welke Blätter und Stängel bei Überwässerung",
+        "remedy": "Gießmenge reduzieren, durchlässiges Substrat verwenden"
+      },
+      {
+        "name": "Schildläuse",
+        "symptoms": "Braune Schildchen an Blättern und Stängeln",
+        "remedy": "Mechanisch entfernen, bei Bedarf Ölpräparate einsetzen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "size": 0.5
+      },
+      "sources": [
+        "https://www.joyusgarden.com/peperomia-obtusifolia-care/",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/blunt-leaf-peperomia"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Rosa",
+      "commonNamesDe": [
+        "Rose",
+        "Gartenrose"
+      ],
+      "commonNamesEn": [
+        "Rose",
+        "Garden rose"
+      ],
+      "family": "Rosaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "full_sun",
+      "indoor": false,
+      "outdoor": true,
+      "recommendedDirection": null,
+      "humidityMinPct": null,
+      "humidityMaxPct": null,
+      "temperatureMinC": null,
+      "temperatureOptimalC": null,
+      "temperatureMaxC": null,
+      "hardy": true,
+      "hardyToC": null,
+      "winterProtection": "Veredelte Sorten profitieren vom Anhäufeln der Veredelungsstelle mit Erde im Herbst; die meisten Gartenrosen sind ansonsten winterhart."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 7,
+        "autumn": 10,
+        "winter": null
+      },
+      "amount": "5-10 Liter pro Pflanze bei Trockenheit",
+      "method": "Direkt an der Basis gießen, Blätter nicht benetzen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Reicher, feuchter, aber gut durchlässiger Boden",
+      "phMin": null,
+      "phMax": null,
+      "drainage": "gut durchlässig, nicht staunass"
+    },
+    "fertilizer": {
+      "npk": "Ausgewogener Rosendünger, später kaliumbetonter Dünger (z. B. Tomatendünger)",
+      "rhythm": "Zweimal jährlich: im Frühjahr vor dem Austrieb und im Frühsommer nach der ersten Blüte",
+      "seasonWindow": [
+        "März",
+        "April",
+        "Juni"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "März",
+            "April"
+          ]
+        },
+        {
+          "type": "deadheading",
+          "months": [
+            "Juni",
+            "Juli",
+            "August",
+            "September"
+          ]
+        }
+      ]
+    },
+    "repotting": null,
+    "bloom": {
+      "months": [
+        "Juni",
+        "Juli",
+        "August",
+        "September"
+      ],
+      "color": "vielfältig (rot, rosa, weiß, gelb, orange)",
+      "fragrant": true,
+      "deadheadSpentBlooms": true
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Weichholzstecklinge im Frühjahr",
+        "Hartholzstecklinge im Spätherbst/Winter",
+        "Veredelung"
+      ],
+      "bestMonths": [
+        "April",
+        "Mai",
+        "November"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": false,
+      "petNotes": "Laut ASPCA ungiftig für Hunde, Katzen und Pferde; Dornen bergen jedoch Verletzungsrisiko.",
+      "childrenToxic": false,
+      "childrenNotes": "Nicht giftig; Dornen können mechanische Verletzungen verursachen."
+    },
+    "size": {
+      "heightMinCm": 30,
+      "heightMaxCm": 300,
+      "widthMinCm": 60,
+      "widthMaxCm": 150,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Blattläuse",
+        "symptoms": "Klebrige Blätter, verkrüppelte Triebspitzen",
+        "remedy": "Absammeln, Nützlinge fördern, bei Bedarf Insektizid"
+      },
+      {
+        "name": "Sternrußtau",
+        "symptoms": "Schwarze Flecken auf Blättern, vorzeitiger Blattfall",
+        "remedy": "Befallene Blätter entfernen, für Luftzirkulation sorgen, ggf. Fungizid"
+      }
+    ],
+    "meta": {
+      "confidence": null,
+      "sources": [
+        "https://www.rhs.org.uk/plants/roses/growing-guide",
+        "https://www.rhs.org.uk/plants/roses",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/rose"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Hydrangea macrophylla",
+      "commonNamesDe": [
+        "Bauernhortensie",
+        "Gartenhortensie"
+      ],
+      "commonNamesEn": [
+        "Bigleaf hydrangea",
+        "Hortensia",
+        "Mophead hydrangea"
+      ],
+      "family": "Hydrangeaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "partial_sun",
+      "indoor": false,
+      "outdoor": true,
+      "recommendedDirection": null,
+      "humidityMinPct": null,
+      "humidityMaxPct": null,
+      "temperatureMinC": null,
+      "temperatureOptimalC": null,
+      "temperatureMaxC": null,
+      "hardy": true,
+      "hardyToC": -15,
+      "winterProtection": "Wurzelbereich mit Laub oder Mulch (mind. 5 cm) im Spätherbst/Winter vor Frost schützen; Blütenknospen können bei Spätfrost geschädigt werden."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 5,
+        "autumn": 10,
+        "winter": null
+      },
+      "amount": "Regelmäßig und reichlich gießen, Erde nie ganz austrocknen lassen",
+      "method": "Gießen an der Basis, mulchen",
+      "letTopLayerDryOut": false
+    },
+    "soil": {
+      "substrate": "Humusreicher, feuchter, gut durchlässiger Boden; Boden-pH beeinflusst die Blütenfarbe (sauer = blau, alkalisch/neutral = rosa)",
+      "phMin": null,
+      "phMax": null,
+      "drainage": "gut durchlässig, staunässeempfindlich"
+    },
+    "fertilizer": {
+      "npk": "Hortensiendünger oder ausgewogener Volldünger; für blaue Blüten spezieller Dünger mit Aluminiumsulfat",
+      "rhythm": "Alle 4-6 Wochen von Frühjahr bis Hochsommer, ab August nicht mehr düngen",
+      "seasonWindow": [
+        "April",
+        "Mai",
+        "Juni",
+        "Juli"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "deadheading",
+          "months": [
+            "Februar",
+            "März"
+          ]
+        }
+      ]
+    },
+    "repotting": null,
+    "bloom": {
+      "months": [
+        "Juli",
+        "August"
+      ],
+      "color": "rosa oder blau (abhängig vom Boden-pH), auch weiß",
+      "fragrant": false,
+      "deadheadSpentBlooms": true
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Weichholzstecklinge im Frühsommer",
+        "Hartholzstecklinge im Winter"
+      ],
+      "bestMonths": [
+        "Juni",
+        "Dezember",
+        "Januar"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Laut ASPCA giftig für Hunde, Katzen und Pferde (cyanogenes Glykosid); Symptome: Erbrechen, Durchfall, Mattigkeit.",
+      "childrenToxic": true,
+      "childrenNotes": "Alle Pflanzenteile enthalten cyanogene Glykoside; Verzehr kann zu Übelkeit und Erbrechen führen."
+    },
+    "size": {
+      "heightMinCm": 150,
+      "heightMaxCm": 250,
+      "widthMinCm": 150,
+      "widthMaxCm": 250,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Blattläuse",
+        "symptoms": "Verkrüppelte Triebspitzen, klebriger Honigtau",
+        "remedy": "Nützlinge fördern, absammeln, bei starkem Befall Insektizid"
+      },
+      {
+        "name": "Echter Mehltau",
+        "symptoms": "Weißer, mehliger Belag auf Blättern",
+        "remedy": "Für Luftzirkulation sorgen, befallene Blätter entfernen"
+      }
+    ],
+    "meta": {
+      "confidence": null,
+      "sources": [
+        "https://www.rhs.org.uk/plants/hydrangea/shrubby/growing-guide",
+        "https://www.rhs.org.uk/plants/40792/hydrangea-macrophylla-(h)-hortensia-mophead-hydrangea/details",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/hydrangea"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Lavandula angustifolia",
+      "commonNamesDe": [
+        "Echter Lavendel",
+        "Schmalblättriger Lavendel"
+      ],
+      "commonNamesEn": [
+        "English lavender",
+        "Common lavender"
+      ],
+      "family": "Lamiaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "full_sun",
+      "indoor": false,
+      "outdoor": true,
+      "recommendedDirection": null,
+      "humidityMinPct": null,
+      "humidityMaxPct": null,
+      "temperatureMinC": null,
+      "temperatureOptimalC": null,
+      "temperatureMaxC": null,
+      "hardy": true,
+      "hardyToC": -15,
+      "winterProtection": "In kalten, nassen Regionen keinen Herbstschnitt vornehmen; Kübelpflanzen an geschützte Stelle stellen und vor Winternässe schützen."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 10,
+        "summer": 7,
+        "autumn": 14,
+        "winter": null
+      },
+      "amount": "Sparsam gießen, sehr trockenheitsverträglich sobald etabliert",
+      "method": "Mäßig gießen, Staunässe unbedingt vermeiden",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Karger, sandiger bis kalkhaltiger, sehr durchlässiger Boden, neutral bis alkalisch bevorzugt",
+      "phMin": null,
+      "phMax": null,
+      "drainage": "sehr gut durchlässig, staunässeempfindlich"
+    },
+    "fertilizer": {
+      "npk": "Kaliumbetonter Dünger; keine stickstoffreichen Dünger oder Mist (führt zu schlaffem Wuchs)",
+      "rhythm": "Sparsam, einmal im Frühjahr",
+      "seasonWindow": [
+        "April"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "deadheading",
+          "months": [
+            "Juli",
+            "August"
+          ]
+        },
+        {
+          "type": "shape",
+          "months": [
+            "August",
+            "September"
+          ]
+        }
+      ]
+    },
+    "repotting": null,
+    "bloom": {
+      "months": [
+        "Juni",
+        "Juli",
+        "August"
+      ],
+      "color": "violett bis blau-violett",
+      "fragrant": true,
+      "deadheadSpentBlooms": true
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Aussaat im Frühjahr im Kalthaus",
+        "Halbreife Stecklinge im Sommer"
+      ],
+      "bestMonths": [
+        "Mai",
+        "Juni",
+        "Juli"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Laut ASPCA giftig für Hunde und Katzen (Linalool, Linalylacetat); Symptome: Übelkeit, Erbrechen, Appetitlosigkeit. Ätherisches Öl ist besonders konzentriert und gefährlicher als die Pflanze selbst.",
+      "childrenToxic": false,
+      "childrenNotes": "Als Zierpflanze für Menschen allgemein unbedenklich; ätherisches Öl in großen Mengen kann reizen."
+    },
+    "size": {
+      "heightMinCm": 50,
+      "heightMaxCm": 100,
+      "widthMinCm": 100,
+      "widthMaxCm": 150,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Rosmarinkäfer",
+        "symptoms": "Kahlfraß an Blättern und Trieben",
+        "remedy": "Absammeln, Befall früh erkennen"
+      },
+      {
+        "name": "Grauschimmel (Botrytis)",
+        "symptoms": "Graue Fäulnis an Trieben, meist bei Staunässe",
+        "remedy": "Für gute Drainage und Luftzirkulation sorgen"
+      }
+    ],
+    "meta": {
+      "confidence": null,
+      "sources": [
+        "https://www.rhs.org.uk/plants/lavender/growing-guide",
+        "https://www.rhs.org.uk/plants/91398/i-lavandula-angustifolia-i/details",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/lavender"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Buxus sempervirens",
+      "commonNamesDe": [
+        "Buchsbaum",
+        "Gewöhnlicher Buchsbaum"
+      ],
+      "commonNamesEn": [
+        "Common box",
+        "Boxwood"
+      ],
+      "family": "Buxaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "partial_sun",
+      "indoor": false,
+      "outdoor": true,
+      "recommendedDirection": null,
+      "humidityMinPct": null,
+      "humidityMaxPct": null,
+      "temperatureMinC": null,
+      "temperatureOptimalC": null,
+      "temperatureMaxC": null,
+      "hardy": true,
+      "hardyToC": -20,
+      "winterProtection": "Bei starkem Frost in Kombination mit Wintersonne Beschattung sinnvoll, um Frosttrocknis der Blätter zu vermeiden."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 10,
+        "summer": 7,
+        "autumn": 14,
+        "winter": null
+      },
+      "amount": "Regelmäßig während der Etablierungsphase, danach mäßig",
+      "method": "Gießen, Staunässe vermeiden",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Durchlässiger, humoser Boden, toleriert Kalk, Lehm und Sand",
+      "phMin": null,
+      "phMax": null,
+      "drainage": "gut durchlässig bis mäßig feucht"
+    },
+    "fertilizer": {
+      "npk": "Allgemeindünger",
+      "rhythm": "Nach starkem Rückschnitt mulchen und düngen",
+      "seasonWindow": [
+        "April",
+        "Mai"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "Juni",
+            "Juli",
+            "August"
+          ]
+        },
+        {
+          "type": "rejuvenation",
+          "months": [
+            "Mai"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": null,
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Halbreife Stecklinge im Sommer"
+      ],
+      "bestMonths": [
+        "Juli",
+        "August"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Laut ASPCA giftig für Hunde, Katzen und Pferde (Steroid-Alkaloide, v. a. Buxin); Symptome: Erbrechen, Durchfall, bei größeren Mengen neurologische Symptome.",
+      "childrenToxic": true,
+      "childrenNotes": "Alle Pflanzenteile giftig, besonders Blätter und Samen; bei Verzehr Vergiftungserscheinungen möglich."
+    },
+    "size": {
+      "heightMinCm": 30,
+      "heightMaxCm": 800,
+      "widthMinCm": 30,
+      "widthMaxCm": 800,
+      "growthRate": "slow"
+    },
+    "problems": [
+      {
+        "name": "Buchsbaumzünsler",
+        "symptoms": "Kahlfraß, Gespinste, Kotkrümel",
+        "remedy": "Absammeln, Bacillus thuringiensis, Pheromonfallen"
+      },
+      {
+        "name": "Buchsbaumtriebsterben (Cylindrocladium)",
+        "symptoms": "Braune Blattflecken, Triebsterben, Laubfall",
+        "remedy": "Befallene Triebe entfernen, für Luftzirkulation sorgen, Falllaub entfernen"
+      }
+    ],
+    "meta": {
+      "confidence": null,
+      "sources": [
+        "https://www.rhs.org.uk/plants/box/growing-guide",
+        "https://www.rhs.org.uk/plants/2579/i-buxus-sempervirens-i/details",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/boxwood",
+        "https://en.wikipedia.org/wiki/Buxus_sempervirens"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Rhododendron",
+      "commonNamesDe": [
+        "Rhododendron"
+      ],
+      "commonNamesEn": [
+        "Rhododendron"
+      ],
+      "family": "Ericaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "partial_sun",
+      "indoor": false,
+      "outdoor": true,
+      "recommendedDirection": null,
+      "humidityMinPct": null,
+      "humidityMaxPct": null,
+      "temperatureMinC": null,
+      "temperatureOptimalC": null,
+      "temperatureMaxC": null,
+      "hardy": true,
+      "hardyToC": -15,
+      "winterProtection": "Wurzelbereich mit Mulch (Laub, Rindenmulch) vor Frost schützen; nicht zu tief pflanzen, da Flachwurzler; empfindliche Sorten mit Vlies vor Wintersonne schützen."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 5,
+        "autumn": 10,
+        "winter": null
+      },
+      "amount": "Regelmäßig mit kalkarmem Wasser (Regenwasser) gießen, nicht austrocknen lassen",
+      "method": "Gießen, Mulchschicht mind. 5 cm zwischen November und Februar aufbringen",
+      "letTopLayerDryOut": false
+    },
+    "soil": {
+      "substrate": "Humusreicher, saurer (ericaceous) Boden, verträgt keine Kalkböden",
+      "phMin": null,
+      "phMax": null,
+      "drainage": "durchlässig, aber gleichmäßig feucht"
+    },
+    "fertilizer": {
+      "npk": "Rhododendron-/Moorbeetpflanzendünger (ericaceous)",
+      "rhythm": "Im Frühjahr als Langzeitdünger oder Flüssigdünger für Moorbeetpflanzen",
+      "seasonWindow": [
+        "März",
+        "April"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "Mai",
+            "Juni"
+          ]
+        },
+        {
+          "type": "deadheading",
+          "months": [
+            "Juni"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "April"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "Mai",
+        "Juni"
+      ],
+      "color": "vielfältig (violett, rosa, rot, weiß, gelb)",
+      "fragrant": false,
+      "deadheadSpentBlooms": true
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Absenker",
+        "Halbreife Stecklinge im Sommer"
+      ],
+      "bestMonths": [
+        "Juli",
+        "August"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Laut ASPCA hochgiftig für Hunde und Katzen (Grayanotoxin); bereits wenige Blätter können schwere Vergiftungen mit Erbrechen, Herz-Kreislauf-Problemen bis hin zum Tod verursachen.",
+      "childrenToxic": true,
+      "childrenNotes": "Alle Pflanzenteile giftig; Verzehr kann ernsthafte Vergiftungserscheinungen (Übelkeit, Herzrhythmusstörungen) auslösen. Bei Verzehr ärztlichen Rat einholen."
+    },
+    "size": {
+      "heightMinCm": 100,
+      "heightMaxCm": 400,
+      "widthMinCm": 100,
+      "widthMaxCm": 400,
+      "growthRate": "slow"
+    },
+    "problems": [
+      {
+        "name": "Dickmaulrüssler",
+        "symptoms": "Buchtenfraß am Blattrand, Larven fressen Wurzeln",
+        "remedy": "Nematoden gegen Larven, Fallen für Käfer"
+      },
+      {
+        "name": "Knospensterben",
+        "symptoms": "Braune, vertrocknete Blütenknospen",
+        "remedy": "Befallene Knospen entfernen, ggf. Zikaden als Überträger bekämpfen"
+      }
+    ],
+    "meta": {
+      "confidence": null,
+      "sources": [
+        "https://www.rhs.org.uk/plants/rhododendron/growing-guide",
+        "https://en.wikipedia.org/wiki/Rhododendron_catawbiense",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/rhododendron"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Nerium oleander",
+      "commonNamesDe": [
+        "Oleander"
+      ],
+      "commonNamesEn": [
+        "Oleander"
+      ],
+      "family": "Apocynaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "full_sun",
+      "indoor": true,
+      "outdoor": true,
+      "recommendedDirection": [
+        "S"
+      ],
+      "humidityMinPct": null,
+      "humidityMaxPct": null,
+      "temperatureMinC": null,
+      "temperatureOptimalC": null,
+      "temperatureMaxC": null,
+      "hardy": false,
+      "hardyToC": -5,
+      "winterProtection": "In Mitteleuropa nicht zuverlässig winterhart; Überwinterung an einem hellen, kühlen Ort (ca. 2-10°C), z. B. Wintergarten oder Kellerfenster, erforderlich."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 5,
+        "summer": 3,
+        "autumn": 7,
+        "winter": 14
+      },
+      "amount": "Mäßig, aber regelmäßig gießen, Wurzelballen nicht austrocknen lassen",
+      "method": "Im Sommer reichlich gießen, im Winter sparsam",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Durchlässige, lehmige Kübelpflanzenerde",
+      "phMin": null,
+      "phMax": null,
+      "drainage": "gut durchlässig, feucht aber nicht nass"
+    },
+    "fertilizer": {
+      "npk": "Ausgewogener Flüssigdünger",
+      "rhythm": "Monatlich während der Wachstumsphase",
+      "seasonWindow": [
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "Februar",
+            "März"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "Juni",
+        "Juli",
+        "August",
+        "September"
+      ],
+      "color": "rosa, weiß oder rot",
+      "fragrant": true,
+      "deadheadSpentBlooms": true
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Halbreife Stecklinge im Sommer",
+        "Bewurzeln in Wasser"
+      ],
+      "bestMonths": [
+        "Juni",
+        "Juli",
+        "August"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Laut ASPCA hochgiftig für Hunde, Katzen und Pferde (herzwirksame Glykoside); alle Pflanzenteile, auch getrocknet, sind giftig. Symptome: Erbrechen, Durchfall, Herzrhythmusstörungen, Krämpfe, im schlimmsten Fall Tod.",
+      "childrenToxic": true,
+      "childrenNotes": "Hochgiftig, bereits geringe Mengen können lebensgefährlich sein; auch Rauch beim Verbrennen ist gefährlich. Kinder von der Pflanze fernhalten."
+    },
+    "size": {
+      "heightMinCm": 150,
+      "heightMaxCm": 250,
+      "widthMinCm": 100,
+      "widthMaxCm": 150,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Schildläuse",
+        "symptoms": "Klebriger Honigtau, braune Schildchen an Trieben",
+        "remedy": "Abwischen, Nützlinge, bei starkem Befall Insektizid"
+      },
+      {
+        "name": "Wurzelfäule durch Überwässerung",
+        "symptoms": "Blattfall, faulige Wurzeln",
+        "remedy": "Staunässe vermeiden, Drainage verbessern"
+      }
+    ],
+    "meta": {
+      "confidence": null,
+      "sources": [
+        "https://www.rhs.org.uk/plants/98456/nerium-oleander-l/details",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/oleander"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Pelargonium",
+      "commonNamesDe": [
+        "Geranie",
+        "Gartengeranie",
+        "Pelargonie"
+      ],
+      "commonNamesEn": [
+        "Geranium",
+        "Pelargonium"
+      ],
+      "family": "Geraniaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "full_sun",
+      "indoor": true,
+      "outdoor": true,
+      "recommendedDirection": [
+        "W",
+        "S",
+        "E"
+      ],
+      "humidityMinPct": null,
+      "humidityMaxPct": null,
+      "temperatureMinC": null,
+      "temperatureOptimalC": null,
+      "temperatureMaxC": null,
+      "hardy": false,
+      "hardyToC": 1,
+      "winterProtection": "Nicht winterhart; frostfrei bei 7-10°C überwintern, dabei Gießen und Düngen reduzieren."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 5,
+        "autumn": 10,
+        "winter": 14
+      },
+      "amount": "Mäßig gießen, Erde zwischen den Wassergaben antrocknen lassen",
+      "method": "Gießen, Staunässe vermeiden",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Durchlässige, auch steinige Kübelerde oder offenes Substrat",
+      "phMin": null,
+      "phMax": null,
+      "drainage": "sehr gut durchlässig, ggf. mit Kies/Perlit/Vermiculit angereichert"
+    },
+    "fertilizer": {
+      "npk": "Ausgewogener Flüssigdünger, ab Blüte kaliumbetonter Dünger (z. B. Tomatendünger)",
+      "rhythm": "Alle 10-14 Tage im Frühjahr/Sommer, im Winter höchstens monatlich",
+      "seasonWindow": [
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "April",
+            "Mai"
+          ]
+        },
+        {
+          "type": "deadheading",
+          "months": [
+            "Juni",
+            "Juli",
+            "August"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 1,
+      "bestMonths": [
+        "April",
+        "Mai"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "Mai",
+        "Juni",
+        "Juli",
+        "August",
+        "September"
+      ],
+      "color": "rosa, rot, weiß, lachsfarben",
+      "fragrant": false,
+      "deadheadSpentBlooms": true
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Weichholzstecklinge von Frühjahr bis Herbst"
+      ],
+      "bestMonths": [
+        "April",
+        "Mai",
+        "September"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Laut ASPCA giftig für Hunde, Katzen und Pferde (Geraniol, Linalool); Symptome: Erbrechen, Appetitlosigkeit, Hautreizungen (Dermatitis).",
+      "childrenToxic": false,
+      "childrenNotes": "Für Menschen allgemein als schwach reizend eingestuft, kein bekanntes ernsthaftes Risiko."
+    },
+    "size": {
+      "heightMinCm": 10,
+      "heightMaxCm": 50,
+      "widthMinCm": 10,
+      "widthMaxCm": 50,
+      "growthRate": "fast"
+    },
+    "problems": [
+      {
+        "name": "Grauschimmel (Botrytis)",
+        "symptoms": "Graufäule an Blättern und Blüten bei Feuchtigkeit",
+        "remedy": "Für Luftzirkulation sorgen, betroffene Pflanzenteile entfernen"
+      },
+      {
+        "name": "Pelargonienrost",
+        "symptoms": "Orangefarbene Pusteln auf Blattunterseite",
+        "remedy": "Befallene Blätter entfernen, bei starkem Befall Fungizid"
+      }
+    ],
+    "meta": {
+      "confidence": null,
+      "sources": [
+        "https://www.rhs.org.uk/plants/pelargonium/growing-guide",
+        "https://www.rhs.org.uk/plants/160286/pelargonium-hortorum/details",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/geranium"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Clematis",
+      "commonNamesDe": [
+        "Clematis",
+        "Waldrebe"
+      ],
+      "commonNamesEn": [
+        "Clematis"
+      ],
+      "family": "Ranunculaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "full_sun",
+      "indoor": false,
+      "outdoor": true,
+      "recommendedDirection": null,
+      "humidityMinPct": null,
+      "humidityMaxPct": null,
+      "temperatureMinC": null,
+      "temperatureOptimalC": null,
+      "temperatureMaxC": null,
+      "hardy": true,
+      "hardyToC": null,
+      "winterProtection": "Wurzelbereich beschatten und mulchen ('Füße im Schatten, Kopf in der Sonne'); winter- und frühjahrsblühende immergrüne Typen sind weniger winterhart und brauchen einen geschützten Standort."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 5,
+        "summer": 3,
+        "autumn": 7,
+        "winter": null
+      },
+      "amount": "Durchdringend gießen, ca. 30 cm tief, Boden während der Wachstumsphase nie austrocknen lassen",
+      "method": "Reichlich gießen, Kübelpflanzen fast täglich von April bis Oktober",
+      "letTopLayerDryOut": false
+    },
+    "soil": {
+      "substrate": "Tiefgründiger, fruchtbarer, humoser Boden",
+      "phMin": null,
+      "phMax": null,
+      "drainage": "feucht, aber gut durchlässig"
+    },
+    "fertilizer": {
+      "npk": "Organischer Volldünger; bei Kübelpflanzen organischer Flüssigdünger",
+      "rhythm": "Ausgepflanzt in nährstoffreichem Boden meist nicht nötig; Kübelpflanzen im Frühjahr/Sommer regelmäßig",
+      "seasonWindow": [
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "Februar",
+            "März"
+          ]
+        },
+        {
+          "type": "deadheading",
+          "months": [
+            "Juni",
+            "Juli"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "März"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "Mai",
+        "Juni"
+      ],
+      "color": "vielfältig (violett, rosa, weiß, gestreift)",
+      "fragrant": false,
+      "deadheadSpentBlooms": true
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Blattknospenstecklinge von Frühjahr bis Spätsommer",
+        "Absenker im Spätwinter/Frühjahr"
+      ],
+      "bestMonths": [
+        "Mai",
+        "Juni"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Laut ASPCA giftig für Hunde und Katzen (Protoanemonin, reizendes Glykosid); Symptome: Speicheln, Erbrechen, Durchfall. Bitterer Geschmack verhindert meist größere Aufnahmemengen.",
+      "childrenToxic": true,
+      "childrenNotes": "Pflanzensaft kann Haut- und Schleimhautreizungen verursachen; nicht verzehren."
+    },
+    "size": {
+      "heightMinCm": 200,
+      "heightMaxCm": 300,
+      "widthMinCm": 50,
+      "widthMaxCm": 150,
+      "growthRate": "fast"
+    },
+    "problems": [
+      {
+        "name": "Clematiswelke",
+        "symptoms": "Plötzliches Welken und Schwärzen der Triebe (Pilzkrankheit)",
+        "remedy": "Befallene Triebe bodennah zurückschneiden, Neuaustrieb abwarten"
+      },
+      {
+        "name": "Blattläuse",
+        "symptoms": "Verkrüppelte junge Triebe",
+        "remedy": "Nützlinge fördern, absammeln"
+      }
+    ],
+    "meta": {
+      "confidence": null,
+      "sources": [
+        "https://www.rhs.org.uk/plants/clematis/growing-guide",
+        "https://www.rhs.org.uk/plants/clematis/pruning-guide",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/clematis"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Paeonia lactiflora",
+      "commonNamesDe": [
+        "Chinesische Pfingstrose",
+        "Edel-Pfingstrose"
+      ],
+      "commonNamesEn": [
+        "Chinese peony",
+        "Common garden peony"
+      ],
+      "family": "Paeoniaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "full_sun",
+      "indoor": false,
+      "outdoor": true,
+      "recommendedDirection": [
+        "S",
+        "W",
+        "E"
+      ],
+      "humidityMinPct": null,
+      "humidityMaxPct": null,
+      "temperatureMinC": null,
+      "temperatureOptimalC": null,
+      "temperatureMaxC": null,
+      "hardy": true,
+      "hardyToC": -20,
+      "winterProtection": "Voll winterhart, in der Regel kein Winterschutz nötig; Augen beim Pflanzen nicht tiefer als 2-3 cm unter der Erde, sonst Blühunwilligkeit."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 5,
+        "autumn": 10,
+        "winter": null
+      },
+      "amount": "Mäßig, aber regelmäßig gießen, Staunässe vermeiden",
+      "method": "Gießen an der Basis",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Tiefgründiger, fruchtbarer, humusreicher Boden",
+      "phMin": null,
+      "phMax": null,
+      "drainage": "durchlässig, feucht aber nicht nass"
+    },
+    "fertilizer": {
+      "npk": "Kompost oder ausgewogener Volldünger",
+      "rhythm": "Einmal im zeitigen Frühjahr beim Austrieb",
+      "seasonWindow": [
+        "März"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "deadheading",
+          "months": [
+            "Juni",
+            "Juli"
+          ]
+        },
+        {
+          "type": "rejuvenation",
+          "months": [
+            "Oktober",
+            "November"
+          ]
+        }
+      ]
+    },
+    "repotting": null,
+    "bloom": {
+      "months": [
+        "Mai",
+        "Juni"
+      ],
+      "color": "weiß oder zartrosa",
+      "fragrant": true,
+      "deadheadSpentBlooms": true
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Teilung im Herbst"
+      ],
+      "bestMonths": [
+        "September",
+        "Oktober"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Laut ASPCA giftig für Hunde, Katzen und Pferde (Paeonol), vor allem in den Wurzeln; Symptome: Erbrechen, Durchfall, Mattigkeit.",
+      "childrenToxic": true,
+      "childrenNotes": "Wurzeln, Blüten und Stängel enthalten Paeonol; bei Verzehr können Übelkeit und Erbrechen auftreten."
+    },
+    "size": {
+      "heightMinCm": 50,
+      "heightMaxCm": 100,
+      "widthMinCm": 50,
+      "widthMaxCm": 100,
+      "growthRate": "slow"
+    },
+    "problems": [
+      {
+        "name": "Grauschimmel (Botrytis paeoniae)",
+        "symptoms": "Braune, faulige Triebe und Knospen im Frühjahr",
+        "remedy": "Befallene Pflanzenteile entfernen, für Luftzirkulation sorgen"
+      },
+      {
+        "name": "Ameisen an Blütenknospen",
+        "symptoms": "Ameisen krabbeln an klebrigen Knospen (meist harmlos)",
+        "remedy": "In der Regel keine Behandlung nötig"
+      }
+    ],
+    "meta": {
+      "confidence": null,
+      "sources": [
+        "https://www.rhs.org.uk/plants/12123/paeonia-lactiflora/details",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/peony"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Prunus laurocerasus",
+      "commonNamesDe": [
+        "Kirschlorbeer"
+      ],
+      "commonNamesEn": [
+        "Cherry laurel",
+        "Common laurel"
+      ],
+      "family": "Rosaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "partial_sun",
+      "indoor": false,
+      "outdoor": true,
+      "recommendedDirection": null,
+      "humidityMinPct": null,
+      "humidityMaxPct": null,
+      "temperatureMinC": null,
+      "temperatureOptimalC": null,
+      "temperatureMaxC": null,
+      "hardy": true,
+      "hardyToC": -15,
+      "winterProtection": "In der Regel winterhart ohne Schutz; in rauen Lagen oder bei jungen Pflanzen Vlies bei starkem Frost sinnvoll."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 10,
+        "summer": 7,
+        "autumn": 14,
+        "winter": null
+      },
+      "amount": "Regelmäßig gießen, kurze Trockenperioden werden toleriert",
+      "method": "Gießen, Staunässe vermeiden",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Durchlässiger, mäßig fruchtbarer Boden, toleriert viele Bodentypen; auf flachgründigen Kalkböden Chlorose möglich",
+      "phMin": null,
+      "phMax": null,
+      "drainage": "gut durchlässig bis feucht"
+    },
+    "fertilizer": {
+      "npk": "Allgemeindünger oder Hornspäne",
+      "rhythm": "Einmal im Frühjahr",
+      "seasonWindow": [
+        "März",
+        "April"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "Mai",
+            "Juni"
+          ]
+        }
+      ]
+    },
+    "repotting": null,
+    "bloom": {
+      "months": [
+        "April",
+        "Mai"
+      ],
+      "color": "weiß",
+      "fragrant": true,
+      "deadheadSpentBlooms": false
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Halbreife Stecklinge im Spätsommer/Herbst",
+        "Hartholzstecklinge im Winter",
+        "Aussaat im Herbst"
+      ],
+      "bestMonths": [
+        "August",
+        "September",
+        "Januar",
+        "Februar"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Blätter und v. a. Samen/Kerne enthalten cyanogene Glykoside (Blausäure-Vorstufen); laut Veterinärquellen ist das Vergiftungsrisiko für Hunde und Katzen gering, kann aber Magen-Darm-Beschwerden verursachen.",
+      "childrenToxic": true,
+      "childrenNotes": "Kerne und Blätter enthalten Blausäureglykoside; Verzehr größerer Mengen, insbesondere zerkauter Kerne, kann zu Vergiftungserscheinungen führen."
+    },
+    "size": {
+      "heightMinCm": 400,
+      "heightMaxCm": 800,
+      "widthMinCm": 400,
+      "widthMaxCm": 1000,
+      "growthRate": "fast"
+    },
+    "problems": [
+      {
+        "name": "Schrotschusskrankheit",
+        "symptoms": "Runde Löcher in den Blättern",
+        "remedy": "Befallene Blätter entfernen, für Luftzirkulation sorgen"
+      },
+      {
+        "name": "Blattläuse",
+        "symptoms": "Klebrige Blätter, verkrüppelte Triebe",
+        "remedy": "Nützlinge fördern, absammeln"
+      }
+    ],
+    "meta": {
+      "confidence": null,
+      "sources": [
+        "https://www.rhs.org.uk/plants/13977/prunus-laurocerasus-cherry-laurel-common-laurel/details",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/cherry",
+        "https://www.vpisglobal.com/2019/10/01/cherry-laurel-and-other-cyanide-containing-plants/"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Fuchsia",
+      "commonNamesDe": [
+        "Fuchsie"
+      ],
+      "commonNamesEn": [
+        "Fuchsia"
+      ],
+      "family": "Onagraceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "partial_sun",
+      "indoor": false,
+      "outdoor": true,
+      "recommendedDirection": null,
+      "humidityMinPct": null,
+      "humidityMaxPct": null,
+      "temperatureMinC": null,
+      "temperatureOptimalC": null,
+      "temperatureMaxC": null,
+      "hardy": true,
+      "hardyToC": null,
+      "winterProtection": "Basis der Pflanze beim Pflanzen ca. 5 cm tiefer setzen und mit dicker Mulchschicht abdecken; oberirdische Triebe können bei strengem Frost absterben, treiben aber im Frühjahr aus der Basis neu aus."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 4,
+        "autumn": 10,
+        "winter": null
+      },
+      "amount": "Regelmäßig gießen, Boden weder austrocknen noch vernässen lassen",
+      "method": "Gießen, mit organischem Material mulchen",
+      "letTopLayerDryOut": false
+    },
+    "soil": {
+      "substrate": "Feuchter, durchlässiger, humusreicher Boden",
+      "phMin": null,
+      "phMax": null,
+      "drainage": "gut durchlässig, aber feuchtigkeitshaltend"
+    },
+    "fertilizer": {
+      "npk": "Allgemeindünger im Frühjahr; Flüssigdünger (Tomaten-/Algendünger) in der Wachstumsphase",
+      "rhythm": "Bei schwachem Wuchs einmal im Frühjahr; Flüssigdünger von Mitte Mai bis Anfang September",
+      "seasonWindow": [
+        "Mai",
+        "Juni",
+        "Juli",
+        "August",
+        "September"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "rejuvenation",
+          "months": [
+            "April"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 1,
+      "bestMonths": [
+        "April",
+        "Mai"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "Juni",
+        "Juli",
+        "August",
+        "September",
+        "Oktober"
+      ],
+      "color": "rot, violett, rosa, weiß (oft zweifarbig)",
+      "fragrant": false,
+      "deadheadSpentBlooms": true
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Weichholzstecklinge im Frühjahr/Sommer"
+      ],
+      "bestMonths": [
+        "Mai",
+        "Juni"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": false,
+      "petNotes": "Laut ASPCA ungiftig für Hunde, Katzen und Pferde; Blüten und Beeren gelten sogar als essbar.",
+      "childrenToxic": false,
+      "childrenNotes": "Nicht giftig; Beeren mancher Sorten sind essbar."
+    },
+    "size": {
+      "heightMinCm": 100,
+      "heightMaxCm": 300,
+      "widthMinCm": 100,
+      "widthMaxCm": 150,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Fuchsienrost",
+        "symptoms": "Orangebraune Pusteln auf Blattunterseite",
+        "remedy": "Befallene Blätter entfernen, bei starkem Befall Fungizid"
+      },
+      {
+        "name": "Weiße Fliege",
+        "symptoms": "Kleine weiße Insekten auf Blattunterseite, klebriger Honigtau",
+        "remedy": "Gelbtafeln, Nützlinge, bei Bedarf Insektizid"
+      }
+    ],
+    "meta": {
+      "confidence": null,
+      "sources": [
+        "https://www.rhs.org.uk/plants/fuchsia/hardy/growing-guide",
+        "https://www.rhs.org.uk/plants/7494/fuchsia-magellanica/details",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/honeysuckle-fuchsia"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Syringa vulgaris",
+      "commonNamesDe": [
+        "Gewöhnlicher Flieder",
+        "Echter Flieder"
+      ],
+      "commonNamesEn": [
+        "Common lilac"
+      ],
+      "family": "Oleaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "full_sun",
+      "indoor": false,
+      "outdoor": true,
+      "recommendedDirection": null,
+      "humidityMinPct": null,
+      "humidityMaxPct": null,
+      "temperatureMinC": null,
+      "temperatureOptimalC": null,
+      "temperatureMaxC": null,
+      "hardy": true,
+      "hardyToC": -20,
+      "winterProtection": "Voll winterhart, kein Winterschutz nötig."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 10,
+        "summer": 7,
+        "autumn": 14,
+        "winter": null
+      },
+      "amount": "Mäßig gießen, etablierte Pflanzen sind trockenheitsverträglich",
+      "method": "Gießen, Staunässe vermeiden",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Durchlässiger, organisch reicher Boden, verträgt Kalk gut",
+      "phMin": null,
+      "phMax": null,
+      "drainage": "gut durchlässig, staunässeempfindlich"
+    },
+    "fertilizer": {
+      "npk": "Kompost oder ausgewogener Volldünger, nicht zu stickstoffbetont",
+      "rhythm": "Einmal im zeitigen Frühjahr",
+      "seasonWindow": [
+        "März"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "deadheading",
+          "months": [
+            "Mai",
+            "Juni"
+          ]
+        },
+        {
+          "type": "shape",
+          "months": [
+            "Juni"
+          ]
+        }
+      ]
+    },
+    "repotting": null,
+    "bloom": {
+      "months": [
+        "Mai",
+        "Juni"
+      ],
+      "color": "hellblau-violett",
+      "fragrant": true,
+      "deadheadSpentBlooms": true
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Wurzelausläufer trennen",
+        "Absenker",
+        "Grüne Stecklinge im Frühsommer"
+      ],
+      "bestMonths": [
+        "Juni",
+        "Juli"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": false,
+      "petNotes": "Echter Flieder (Syringa vulgaris) gilt als ungiftig; größere Mengen können milde Magen-Darm-Beschwerden verursachen. Nicht zu verwechseln mit dem giftigen, nicht verwandten 'Persischen Flieder' (Melia azedarach).",
+      "childrenToxic": false,
+      "childrenNotes": "Gilt als ungiftig; keine bekannten schweren Vergiftungsfälle."
+    },
+    "size": {
+      "heightMinCm": 400,
+      "heightMaxCm": 800,
+      "widthMinCm": 400,
+      "widthMaxCm": 800,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Fliedermotte",
+        "symptoms": "Minierte, verfärbte Blätter",
+        "remedy": "Befallene Blätter entfernen, Pheromonfallen"
+      },
+      {
+        "name": "Echter Mehltau",
+        "symptoms": "Weißer Belag auf Blättern im Spätsommer",
+        "remedy": "Für Luftzirkulation sorgen, meist nur ästhetisches Problem"
+      }
+    ],
+    "meta": {
+      "confidence": null,
+      "sources": [
+        "https://www.rhs.org.uk/plants/99011/syringa-vulgaris/details",
+        "https://plantaddicts.com/are-lilacs-poisonous/"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Forsythia x intermedia",
+      "commonNamesDe": [
+        "Forsythie",
+        "Goldglöckchen"
+      ],
+      "commonNamesEn": [
+        "Border forsythia"
+      ],
+      "family": "Oleaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "full_sun",
+      "indoor": false,
+      "outdoor": true,
+      "recommendedDirection": null,
+      "humidityMinPct": null,
+      "humidityMaxPct": null,
+      "temperatureMinC": null,
+      "temperatureOptimalC": null,
+      "temperatureMaxC": null,
+      "hardy": true,
+      "hardyToC": -15,
+      "winterProtection": "Voll winterhart, kein besonderer Winterschutz nötig."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 10,
+        "summer": 7,
+        "autumn": 14,
+        "winter": null
+      },
+      "amount": "Mäßig gießen, etabliert recht trockenheitsverträglich",
+      "method": "Gießen, Staunässe vermeiden",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Durchlässiger, humusreicher Boden, anspruchslos",
+      "phMin": null,
+      "phMax": null,
+      "drainage": "gut durchlässig bis feucht"
+    },
+    "fertilizer": {
+      "npk": "Kompost oder Allgemeindünger",
+      "rhythm": "Einmal im Frühjahr",
+      "seasonWindow": [
+        "März"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "April",
+            "Mai"
+          ]
+        }
+      ]
+    },
+    "repotting": null,
+    "bloom": {
+      "months": [
+        "März",
+        "April"
+      ],
+      "color": "leuchtend gelb",
+      "fragrant": false,
+      "deadheadSpentBlooms": false
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Halbreife Stecklinge im Sommer"
+      ],
+      "bestMonths": [
+        "Juli",
+        "August"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": false,
+      "petNotes": "Laut ASPCA ungiftig für Hunde, Katzen und Pferde ('Golden Bells').",
+      "childrenToxic": false,
+      "childrenNotes": "Gilt als ungiftig für Menschen."
+    },
+    "size": {
+      "heightMinCm": 100,
+      "heightMaxCm": 150,
+      "widthMinCm": 100,
+      "widthMaxCm": 150,
+      "growthRate": "fast"
+    },
+    "problems": [
+      {
+        "name": "Vogelfraß an Blütenknospen",
+        "symptoms": "Fehlende Blüten im Frühjahr durch Vogelfraß",
+        "remedy": "Ggf. Netz zum Schutz der Knospen"
+      },
+      {
+        "name": "Honigpilz (selten)",
+        "symptoms": "Welke Triebe, Pilzgeflecht an der Rinde",
+        "remedy": "Befallene Pflanzenteile entfernen, Pflanzenhygiene"
+      }
+    ],
+    "meta": {
+      "confidence": null,
+      "sources": [
+        "https://www.rhs.org.uk/plants/forsythia/growing-guide",
+        "https://www.rhs.org.uk/plants/94712/forsythia-intermedia/details",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/golden-bells"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Hibiscus syriacus",
+      "commonNamesDe": [
+        "Garteneibisch",
+        "Straucheibisch"
+      ],
+      "commonNamesEn": [
+        "Rose of Sharon"
+      ],
+      "family": "Malvaceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "full_sun",
+      "indoor": false,
+      "outdoor": true,
+      "recommendedDirection": [
+        "S",
+        "W"
+      ],
+      "humidityMinPct": null,
+      "humidityMaxPct": null,
+      "temperatureMinC": null,
+      "temperatureOptimalC": null,
+      "temperatureMaxC": null,
+      "hardy": true,
+      "hardyToC": -15,
+      "winterProtection": "Im Boden meist winterhart; junge Pflanzen und Kübelexemplare mit Mulch/Vlies über Winter schützen."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 5,
+        "autumn": 10,
+        "winter": null
+      },
+      "amount": "Regelmäßig gießen; braucht lange, warme Sommer für gute Blüte",
+      "method": "Gießen, im Winter mulchen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Neutraler bis leicht saurer, durchlässiger Boden",
+      "phMin": null,
+      "phMax": null,
+      "drainage": "gut durchlässig, feucht aber nicht nass"
+    },
+    "fertilizer": {
+      "npk": "Ausgewogener Volldünger",
+      "rhythm": "Einmal im Frühjahr",
+      "seasonWindow": [
+        "April"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "März"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "Juli",
+        "August",
+        "September",
+        "Oktober"
+      ],
+      "color": "rosa, rot, blau, weiß",
+      "fragrant": false,
+      "deadheadSpentBlooms": true
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Weichholzstecklinge im Spätfrühling",
+        "Halbreife Stecklinge im Sommer",
+        "Absenker"
+      ],
+      "bestMonths": [
+        "Mai",
+        "Juni",
+        "Juli"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": false,
+      "petNotes": "Laut ASPCA ungiftig für Hunde, Katzen und Pferde.",
+      "childrenToxic": false,
+      "childrenNotes": "Gilt als ungiftig, dennoch können größere Mengen Pflanzenmaterial Magenbeschwerden verursachen."
+    },
+    "size": {
+      "heightMinCm": 250,
+      "heightMaxCm": 400,
+      "widthMinCm": 250,
+      "widthMaxCm": 400,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Blattläuse",
+        "symptoms": "Verkrüppelte Triebspitzen, Honigtau",
+        "remedy": "Nützlinge fördern, absammeln"
+      },
+      {
+        "name": "Schildläuse",
+        "symptoms": "Braune Schildchen an Trieben, Honigtau",
+        "remedy": "Abwischen, bei starkem Befall Insektizid"
+      }
+    ],
+    "meta": {
+      "confidence": null,
+      "sources": [
+        "https://www.rhs.org.uk/plants/40530/hibiscus-syriacus/details",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/rose-sharon"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Helianthus annuus",
+      "commonNamesDe": [
+        "Gewöhnliche Sonnenblume",
+        "Sonnenblume"
+      ],
+      "commonNamesEn": [
+        "Common sunflower"
+      ],
+      "family": "Asteraceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "full_sun",
+      "indoor": false,
+      "outdoor": true,
+      "recommendedDirection": [
+        "S",
+        "W"
+      ],
+      "humidityMinPct": null,
+      "humidityMaxPct": null,
+      "temperatureMinC": null,
+      "temperatureOptimalC": null,
+      "temperatureMaxC": null,
+      "hardy": false,
+      "hardyToC": 0,
+      "winterProtection": "Einjährige Pflanze, stirbt nach der Saison ab; kein Winterschutz nötig oder möglich."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 5,
+        "summer": 3,
+        "autumn": null,
+        "winter": null
+      },
+      "amount": "Regelmäßig und reichlich gießen, besonders in der Wachstumsphase",
+      "method": "Durchdringend gießen",
+      "letTopLayerDryOut": false
+    },
+    "soil": {
+      "substrate": "Mäßig fruchtbarer, humusreicher, durchlässiger Boden, neutral bis alkalisch bevorzugt",
+      "phMin": null,
+      "phMax": null,
+      "drainage": "gut durchlässig, feucht aber nicht nass"
+    },
+    "fertilizer": {
+      "npk": "Kompost vor der Pflanzung, ausgewogener Volldünger",
+      "rhythm": "Bei der Pflanzung und ggf. einmal während der Wachstumsphase",
+      "seasonWindow": [
+        "Mai",
+        "Juni"
+      ]
+    },
+    "pruning": null,
+    "repotting": null,
+    "bloom": {
+      "months": [
+        "Juli",
+        "August",
+        "September"
+      ],
+      "color": "leuchtend gelb mit dunklem Zentrum",
+      "fragrant": false,
+      "deadheadSpentBlooms": false
+    },
+    "harvest": {
+      "months": [
+        "September",
+        "Oktober"
+      ]
+    },
+    "propagation": {
+      "methods": [
+        "Aussaat direkt ins Freiland oder Vorkultur"
+      ],
+      "bestMonths": [
+        "April",
+        "Mai"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": false,
+      "petNotes": "Laut ASPCA ungiftig für Hunde, Katzen und Pferde; große Mengen fasrigen Pflanzenmaterials können dennoch Magen-Darm-Beschwerden verursachen.",
+      "childrenToxic": false,
+      "childrenNotes": "Ungiftig, Samen sind essbar."
+    },
+    "size": {
+      "heightMinCm": 250,
+      "heightMaxCm": 400,
+      "widthMinCm": 50,
+      "widthMaxCm": 100,
+      "growthRate": "fast"
+    },
+    "problems": [
+      {
+        "name": "Vogelfraß an Samenständen",
+        "symptoms": "Angefressene oder fehlende Samenstände",
+        "remedy": "Netz zum Schutz, oder als gewünschte Vogelfutterquelle akzeptieren"
+      },
+      {
+        "name": "Mehltau",
+        "symptoms": "Weißer Belag auf Blättern bei feuchter Witterung",
+        "remedy": "Für Luftzirkulation sorgen, betroffene Blätter entfernen"
+      }
+    ],
+    "meta": {
+      "confidence": null,
+      "sources": [
+        "https://www.rhs.org.uk/plants/helianthus/growing-guide",
+        "https://www.rhs.org.uk/plants/105515/helianthus-annuus/details",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/sunflower"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Dahlia",
+      "commonNamesDe": [
+        "Dahlie",
+        "Georgine"
+      ],
+      "commonNamesEn": [
+        "Dahlia"
+      ],
+      "family": "Asteraceae",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "full_sun",
+      "indoor": false,
+      "outdoor": true,
+      "recommendedDirection": null,
+      "humidityMinPct": null,
+      "humidityMaxPct": null,
+      "temperatureMinC": null,
+      "temperatureOptimalC": null,
+      "temperatureMaxC": null,
+      "hardy": false,
+      "hardyToC": 0,
+      "winterProtection": "Knollen sind nicht winterhart; in den meisten Regionen Deutschlands nach dem ersten Frost ausgraben und frostfrei, trocken und dunkel bei ca. 5-10°C überwintern."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 4,
+        "autumn": 7,
+        "winter": null
+      },
+      "amount": "Vor dem Austrieb nicht gießen (Fäulnisgefahr), danach regelmäßig und reichlich",
+      "method": "Gießen, direkt nach der Pflanzung Staunässe vermeiden",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Fruchtbarer, humusreicher, durchlässiger Boden",
+      "phMin": null,
+      "phMax": null,
+      "drainage": "gut durchlässig"
+    },
+    "fertilizer": {
+      "npk": "Kaliumbetonter Dünger (z. B. Tomatendünger)",
+      "rhythm": "Alle zwei Wochen während der Blütezeit",
+      "seasonWindow": [
+        "Juni",
+        "Juli",
+        "August",
+        "September"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "deadheading",
+          "months": [
+            "Juli",
+            "August",
+            "September"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 1,
+      "bestMonths": [
+        "April",
+        "Mai"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "Juli",
+        "August",
+        "September",
+        "Oktober"
+      ],
+      "color": "vielfältig (rot, rosa, gelb, orange, violett, weiß)",
+      "fragrant": false,
+      "deadheadSpentBlooms": true
+    },
+    "harvest": null,
+    "propagation": {
+      "methods": [
+        "Teilung der Knollen im Frühjahr",
+        "Stecklinge von Austrieben"
+      ],
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Laut ASPCA giftig für Hunde, Katzen und Pferde; milde Magen-Darm-Beschwerden und leichte Hautreizungen (Dermatitis) möglich. Alle Pflanzenteile inklusive Knollen gelten als giftig.",
+      "childrenToxic": true,
+      "childrenNotes": "Enthält vermutlich phototoxische Polyacetylene; kann bei Hautkontakt Reizungen und bei Verzehr leichte Magenbeschwerden verursachen."
+    },
+    "size": {
+      "heightMinCm": 70,
+      "heightMaxCm": 160,
+      "widthMinCm": 30,
+      "widthMaxCm": 60,
+      "growthRate": "fast"
+    },
+    "problems": [
+      {
+        "name": "Schnecken",
+        "symptoms": "Löcher in jungen Blättern und Trieben",
+        "remedy": "Absammeln, Schneckenkorn, Barrieren"
+      },
+      {
+        "name": "Grauschimmel an Knollen",
+        "symptoms": "Welke Triebe, graue Fäulnis an Knollen bei Feuchtigkeit während der Lagerung",
+        "remedy": "Knollen trocken lagern, beschädigte Knollen vor Einlagerung aussortieren"
+      }
+    ],
+    "meta": {
+      "confidence": null,
+      "sources": [
+        "https://www.rhs.org.uk/plants/dahlia/growing-guide",
+        "https://en.wikipedia.org/wiki/Dahlia_pinnata",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/dahlia"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Rosmarinus officinalis",
+      "commonNamesDe": [
+        "Rosmarin"
+      ],
+      "commonNamesEn": [
+        "Rosemary"
+      ],
+      "family": "Lamiaceae (Lippenblütler)",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "full_sun",
+      "indoor": true,
+      "outdoor": true,
+      "recommendedDirection": [
+        "S",
+        "SW",
+        "W"
+      ],
+      "humidityMinPct": 30,
+      "humidityMaxPct": 50,
+      "temperatureMinC": 5,
+      "temperatureOptimalC": 18,
+      "temperatureMaxC": 30,
+      "hardy": true,
+      "hardyToC": -5,
+      "winterProtection": "Bedingt winterhart; in rauen Lagen und im Kübel Winterschutz durch Mulch, Vlies oder helles, kühles Winterquartier empfehlenswert."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 5,
+        "autumn": 10,
+        "winter": 14
+      },
+      "amount": "Mäßig gießen, Erde zwischen den Gaben fast vollständig antrocknen lassen",
+      "method": "Gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Durchlässiges, eher mageres Substrat, z. B. mit Sand oder Kies gemischt",
+      "phMin": 6.0,
+      "phMax": 7.5,
+      "drainage": "Sehr gute Drainage notwendig, Staunässe unbedingt vermeiden"
+    },
+    "fertilizer": {
+      "npk": "Schwachzehrer – organischer Langzeitdünger genügt",
+      "rhythm": "Einmal jährlich im Frühjahr düngen, im Winter keine Düngung",
+      "seasonWindow": [
+        "April",
+        "September"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "März",
+            "April"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "April",
+        "Mai"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "April",
+        "Mai",
+        "Juni"
+      ],
+      "color": "Hellviolett-blau bis weiß",
+      "fragrant": true,
+      "deadheadSpentBlooms": false
+    },
+    "harvest": {
+      "months": [
+        "Januar",
+        "Februar",
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August",
+        "September",
+        "Oktober",
+        "November",
+        "Dezember"
+      ]
+    },
+    "propagation": {
+      "methods": [
+        "Kopfstecklinge",
+        "Aussaat"
+      ],
+      "bestMonths": [
+        "Mai",
+        "Juni",
+        "Juli"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": false,
+      "petNotes": "Laut ASPCA für Hunde und Katzen ungiftig; konzentriertes ätherisches Öl sollte dennoch von Tieren ferngehalten werden.",
+      "childrenToxic": false,
+      "childrenNotes": "Verbreitetes Küchenkraut, in haushaltsüblichen Mengen unbedenklich."
+    },
+    "size": {
+      "heightMinCm": 15,
+      "heightMaxCm": 200,
+      "widthMinCm": 50,
+      "widthMaxCm": 150,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Rosmarinkäfer (Chrysolina americana)",
+        "symptoms": "Metallisch glänzende Käfer fressen an Blättern und Trieben",
+        "remedy": "Käfer absammeln, gesunden, luftigen Standort fördern"
+      },
+      {
+        "name": "Wurzelfäule durch Staunässe",
+        "symptoms": "Welke trotz feuchter Erde, braune, faulige Wurzeln",
+        "remedy": "Drainage verbessern, seltener und maßvoller gießen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "placement": 0.5,
+        "water": 0.4,
+        "harvest": 0.5,
+        "size": 0.5
+      },
+      "sources": [
+        "https://www.rhs.org.uk/plants/16099/rosmarinus-officinalis/details",
+        "https://www.plantura.garden/kraeuter/rosmarin/rosmarin-pflege",
+        "https://www.plantura.garden/kraeuter/rosmarin/rosmarin-duengen",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/rosemary"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Thymus vulgaris",
+      "commonNamesDe": [
+        "Thymian",
+        "Echter Thymian",
+        "Gartenthymian"
+      ],
+      "commonNamesEn": [
+        "Thyme",
+        "Common thyme",
+        "Garden thyme"
+      ],
+      "family": "Lamiaceae (Lippenblütler)",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "full_sun",
+      "indoor": true,
+      "outdoor": true,
+      "recommendedDirection": [
+        "S",
+        "SW",
+        "W"
+      ],
+      "humidityMinPct": 30,
+      "humidityMaxPct": 50,
+      "temperatureMinC": -15,
+      "temperatureOptimalC": 18,
+      "temperatureMaxC": 30,
+      "hardy": true,
+      "hardyToC": -15,
+      "winterProtection": "Meist winterhart; im Kübel bei starkem Frost mit Vlies oder Reisig schützen."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 5,
+        "autumn": 10,
+        "winter": 14
+      },
+      "amount": "Sparsam gießen, Staunässe unbedingt vermeiden",
+      "method": "Gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Durchlässiges, kalkhaltiges bis neutrales, mageres Substrat",
+      "phMin": 6.5,
+      "phMax": 8.0,
+      "drainage": "Sehr gute Drainage erforderlich, ggf. mit Sand/Kies verbessern"
+    },
+    "fertilizer": {
+      "npk": "Schwachzehrer, geringer Nährstoffbedarf",
+      "rhythm": "Einmal im Frühjahr leicht düngen, im Winter keine Düngung",
+      "seasonWindow": [
+        "April",
+        "Mai"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "April"
+          ]
+        },
+        {
+          "type": "rejuvenation",
+          "months": [
+            "März"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "April",
+        "Mai"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "Juni",
+        "Juli"
+      ],
+      "color": "Rosa bis violett",
+      "fragrant": true,
+      "deadheadSpentBlooms": false
+    },
+    "harvest": {
+      "months": [
+        "Mai",
+        "Juni",
+        "Juli",
+        "August",
+        "September"
+      ]
+    },
+    "propagation": {
+      "methods": [
+        "Aussaat",
+        "Teilung",
+        "Stecklinge"
+      ],
+      "bestMonths": [
+        "April",
+        "Mai"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": false,
+      "petNotes": "Nicht auf der ASPCA-Giftpflanzenliste geführt; als weit verbreitetes Küchenkraut in haushaltsüblichen Mengen als unbedenklich für Hunde und Katzen eingeschätzt.",
+      "childrenToxic": false,
+      "childrenNotes": "Verbreitetes Küchenkraut, unbedenklich."
+    },
+    "size": {
+      "heightMinCm": 15,
+      "heightMaxCm": 30,
+      "widthMinCm": 30,
+      "widthMaxCm": 40,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Wurzelfäule bei Staunässe",
+        "symptoms": "Braune, faulige Triebe, Pflanze stirbt ab",
+        "remedy": "Trockeneren, sonnigen Standort wählen, Drainage verbessern"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "toxicity": 0.3,
+        "water": 0.4,
+        "size": 0.5
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Thymus_vulgaris",
+        "https://www.rhs.org.uk/herbs/thyme/grow-your-own",
+        "https://www.plantura.garden/kraeuter/thymian/thymian-pflege",
+        "https://www.plantura.garden/kraeuter/thymian/thymian-ernten-und-lagern"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Ocimum basilicum",
+      "commonNamesDe": [
+        "Basilikum"
+      ],
+      "commonNamesEn": [
+        "Basil",
+        "Sweet basil"
+      ],
+      "family": "Lamiaceae (Lippenblütler)",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "full_sun",
+      "indoor": true,
+      "outdoor": true,
+      "recommendedDirection": [
+        "S",
+        "SW",
+        "W"
+      ],
+      "humidityMinPct": 40,
+      "humidityMaxPct": 60,
+      "temperatureMinC": 10,
+      "temperatureOptimalC": 22,
+      "temperatureMaxC": 35,
+      "hardy": false,
+      "hardyToC": 10,
+      "winterProtection": "Nicht winterhart und frostempfindlich; vor erstem Frost ins Haus holen oder als einjährige Pflanze kultivieren."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 4,
+        "summer": 2,
+        "autumn": 5,
+        "winter": 7
+      },
+      "amount": "Regelmäßig und reichlich gießen, morgens oder abends direkt an der Wurzel, Staunässe vermeiden",
+      "method": "Gießen",
+      "letTopLayerDryOut": false
+    },
+    "soil": {
+      "substrate": "Nährstoffreiches, lockeres Kräuter- oder Gemüseerde-Substrat",
+      "phMin": 6.0,
+      "phMax": 7.0,
+      "drainage": "Gute Drainage, Erde aber gleichmäßig feucht halten"
+    },
+    "fertilizer": {
+      "npk": "Stickstoffbetonter Flüssigdünger",
+      "rhythm": "Im Topf wöchentlich, im Freiland etwa alle sechs Wochen",
+      "seasonWindow": [
+        "Mai",
+        "September"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "Juni",
+            "Juli",
+            "August"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 1,
+      "bestMonths": [
+        "April"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "Juli",
+        "August"
+      ],
+      "color": "Weiß bis leicht rosa",
+      "fragrant": true,
+      "deadheadSpentBlooms": true
+    },
+    "harvest": {
+      "months": [
+        "Juni",
+        "Juli",
+        "August",
+        "September"
+      ]
+    },
+    "propagation": {
+      "methods": [
+        "Aussaat",
+        "Kopfstecklinge in Wasser"
+      ],
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": false,
+      "petNotes": "Laut ASPCA ungiftig für Hunde und Katzen.",
+      "childrenToxic": false,
+      "childrenNotes": "Unbedenkliches, weit verbreitetes Küchenkraut."
+    },
+    "size": {
+      "heightMinCm": 15,
+      "heightMaxCm": 75,
+      "widthMinCm": 20,
+      "widthMaxCm": 40,
+      "growthRate": "fast"
+    },
+    "problems": [
+      {
+        "name": "Basilikum-Welke (Fusarium)",
+        "symptoms": "Welke Triebe trotz feuchter Erde, Braunfärbung am Stängelgrund",
+        "remedy": "Befallene Pflanzen entsorgen, nicht zu feucht kultivieren, Fruchtfolge beachten"
+      },
+      {
+        "name": "Blattläuse",
+        "symptoms": "Kräuselung und Verklebung der Blätter",
+        "remedy": "Mit Wasserstrahl abspülen oder Nützlinge fördern"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "placement": 0.5,
+        "water": 0.4,
+        "size": 0.5
+      },
+      "sources": [
+        "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=a689",
+        "https://www.plantura.garden/kraeuter/basilikum/basilikum-pflegen",
+        "https://www.plantura.garden/kraeuter/basilikum/basilikum-ernten",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/basil",
+        "https://www.lubera.com/de/gartenbuch/basilikum-ueberwintern-p4060"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Mentha spicata",
+      "commonNamesDe": [
+        "Grüne Minze",
+        "Ährige Minze",
+        "Speer-Minze"
+      ],
+      "commonNamesEn": [
+        "Spearmint"
+      ],
+      "family": "Lamiaceae (Lippenblütler)",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "partial_sun",
+      "indoor": true,
+      "outdoor": true,
+      "recommendedDirection": [
+        "E",
+        "SE",
+        "W"
+      ],
+      "humidityMinPct": 40,
+      "humidityMaxPct": 70,
+      "temperatureMinC": -15,
+      "temperatureOptimalC": 20,
+      "temperatureMaxC": 30,
+      "hardy": true,
+      "hardyToC": -15,
+      "winterProtection": "Winterhart, zieht sich im Winter zurück; im Kübel leichten Winterschutz (Vlies) empfehlenswert."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 5,
+        "summer": 3,
+        "autumn": 7,
+        "winter": 14
+      },
+      "amount": "Gleichmäßig feucht halten, kurze Staunässe wird toleriert",
+      "method": "Gießen",
+      "letTopLayerDryOut": false
+    },
+    "soil": {
+      "substrate": "Humusreiches, feuchtigkeitshaltendes Substrat",
+      "phMin": 6.0,
+      "phMax": 7.5,
+      "drainage": "Durchlässig, aber wasserhaltend; bei Beetpflanzung Wurzelsperre wegen Ausläuferbildung empfohlen"
+    },
+    "fertilizer": {
+      "npk": "Ausgewogener organischer Dünger",
+      "rhythm": "Alle 4-6 Wochen während der Wachstumsphase",
+      "seasonWindow": [
+        "April",
+        "August"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "Juni",
+            "Juli"
+          ]
+        },
+        {
+          "type": "rejuvenation",
+          "months": [
+            "März"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "April"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "Juli",
+        "August",
+        "September"
+      ],
+      "color": "Lila, weiß oder rosa",
+      "fragrant": true,
+      "deadheadSpentBlooms": false
+    },
+    "harvest": {
+      "months": [
+        "Mai",
+        "Juni",
+        "Juli",
+        "August",
+        "September"
+      ]
+    },
+    "propagation": {
+      "methods": [
+        "Teilung",
+        "Ausläufer",
+        "Stecklinge"
+      ],
+      "bestMonths": [
+        "April",
+        "Mai"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Laut ASPCA giftig für Hunde und Katzen (ätherische Öle); bei größeren Mengen Erbrechen und Durchfall möglich.",
+      "childrenToxic": false,
+      "childrenNotes": "Als Küchenkraut in normalen Mengen für Menschen unbedenklich."
+    },
+    "size": {
+      "heightMinCm": 30,
+      "heightMaxCm": 130,
+      "widthMinCm": 40,
+      "widthMaxCm": 100,
+      "growthRate": "fast"
+    },
+    "problems": [
+      {
+        "name": "Minzrost (Puccinia menthae)",
+        "symptoms": "Orangefarbene Pusteln auf der Blattunterseite",
+        "remedy": "Befallene Pflanzenteile entfernen, für Abstand und Luftzirkulation sorgen, ggf. Pflanze erneuern"
+      },
+      {
+        "name": "Echter Mehltau",
+        "symptoms": "Weißer, mehliger Belag auf Blättern",
+        "remedy": "Luftige Standorte wählen, betroffene Blätter entfernen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "water": 0.4,
+        "size": 0.4,
+        "soil": 0.4
+      },
+      "sources": [
+        "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a244",
+        "https://www.plantura.garden/kraeuter/minze/mentha-spicata",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/mint"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Salvia officinalis",
+      "commonNamesDe": [
+        "Echter Salbei",
+        "Gartensalbei"
+      ],
+      "commonNamesEn": [
+        "Common sage",
+        "Garden sage"
+      ],
+      "family": "Lamiaceae (Lippenblütler)",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "full_sun",
+      "indoor": true,
+      "outdoor": true,
+      "recommendedDirection": [
+        "S",
+        "SW"
+      ],
+      "humidityMinPct": 30,
+      "humidityMaxPct": 50,
+      "temperatureMinC": -15,
+      "temperatureOptimalC": 20,
+      "temperatureMaxC": 30,
+      "hardy": true,
+      "hardyToC": -15,
+      "winterProtection": "Winterhart; in strengen Wintern und bei Staunässegefahr Schutz durch Laub, Tannenzweige oder Mulch empfehlenswert."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 5,
+        "autumn": 10,
+        "winter": 14
+      },
+      "amount": "Sparsam gießen; auch im Winter an frostfreien Tagen leicht gießen, da die immergrüne Pflanze über die Blätter Wasser verdunstet",
+      "method": "Gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Mageres, durchlässiges Substrat",
+      "phMin": 6.0,
+      "phMax": 7.5,
+      "drainage": "Sehr gute Drainage notwendig"
+    },
+    "fertilizer": {
+      "npk": "Schwachzehrer, geringer Düngerbedarf",
+      "rhythm": "Einmal im Frühjahr düngen",
+      "seasonWindow": [
+        "April"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "deadheading",
+          "months": [
+            "Juli"
+          ]
+        },
+        {
+          "type": "shape",
+          "months": [
+            "April"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "April",
+        "Mai"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "Juni",
+        "Juli"
+      ],
+      "color": "Hellblau bis violett",
+      "fragrant": true,
+      "deadheadSpentBlooms": true
+    },
+    "harvest": {
+      "months": [
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August",
+        "September",
+        "Oktober"
+      ]
+    },
+    "propagation": {
+      "methods": [
+        "Aussaat",
+        "Stecklinge"
+      ],
+      "bestMonths": [
+        "April",
+        "Mai",
+        "Juni"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": false,
+      "petNotes": "Salbei gilt als ungiftig für Katzen und Hunde und wird auf ASPCA-nahen Übersichten als unbedenkliches Kraut geführt.",
+      "childrenToxic": false,
+      "childrenNotes": "Verbreitetes Küchenkraut, in haushaltsüblichen Mengen unbedenklich."
+    },
+    "size": {
+      "heightMinCm": 30,
+      "heightMaxCm": 75,
+      "widthMinCm": 40,
+      "widthMaxCm": 60,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Rosmarinkäfer",
+        "symptoms": "Metallisch glänzende Käfer fressen an Blättern",
+        "remedy": "Käfer absammeln, gesunden Standort fördern"
+      },
+      {
+        "name": "Wurzelfäule",
+        "symptoms": "Welke, braune Wurzeln durch Staunässe",
+        "remedy": "Drainage verbessern, weniger gießen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "toxicity": 0.4,
+        "water": 0.4,
+        "size": 0.5
+      },
+      "sources": [
+        "https://www.rhs.org.uk/plants/16356/salvia-officinalis/details",
+        "https://en.wikipedia.org/wiki/Salvia_officinalis",
+        "https://freudengarten.de/show/99/salbei-richtig-pflegen-schneiden-ernten-vermehren-und-uberwintern",
+        "https://www.rainbowgardens.biz/news-events/10-herbs-non-toxic-to-dogs-aspca-list-approved/"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Petroselinum crispum",
+      "commonNamesDe": [
+        "Petersilie"
+      ],
+      "commonNamesEn": [
+        "Parsley"
+      ],
+      "family": "Apiaceae (Doldenblütler)",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "partial_sun",
+      "indoor": true,
+      "outdoor": true,
+      "recommendedDirection": [
+        "E",
+        "SE",
+        "W"
+      ],
+      "humidityMinPct": 40,
+      "humidityMaxPct": 60,
+      "temperatureMinC": -10,
+      "temperatureOptimalC": 18,
+      "temperatureMaxC": 28,
+      "hardy": true,
+      "hardyToC": -10,
+      "winterProtection": "Als zweijährige Pflanze meist winterhart im Beet; im Kübel bei starkem Frost leichten Schutz (Vlies) bieten."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 5,
+        "summer": 3,
+        "autumn": 5,
+        "winter": 10
+      },
+      "amount": "Regelmäßig gießen, gleichmäßig feucht halten, Staunässe vermeiden",
+      "method": "Gießen",
+      "letTopLayerDryOut": false
+    },
+    "soil": {
+      "substrate": "Nährstoffreiches, humoses Substrat",
+      "phMin": 6.0,
+      "phMax": 7.0,
+      "drainage": "Gut durchlässig, aber feuchtigkeitshaltend"
+    },
+    "fertilizer": {
+      "npk": "Stickstoffbetonter organischer Dünger",
+      "rhythm": "Alle 4-6 Wochen während der Wachstumszeit",
+      "seasonWindow": [
+        "April",
+        "September"
+      ]
+    },
+    "pruning": null,
+    "repotting": null,
+    "bloom": {
+      "months": [
+        "Juni",
+        "Juli"
+      ],
+      "color": "Gelblich-grün",
+      "fragrant": false,
+      "deadheadSpentBlooms": false
+    },
+    "harvest": {
+      "months": [
+        "Mai",
+        "Juni",
+        "Juli",
+        "August",
+        "September",
+        "Oktober"
+      ]
+    },
+    "propagation": {
+      "methods": [
+        "Aussaat"
+      ],
+      "bestMonths": [
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Laut ASPCA giftig für Hunde, Katzen und Pferde (Furanocumarine); bei größeren Mengen Photosensibilisierung und Hautreizungen möglich.",
+      "childrenToxic": false,
+      "childrenNotes": "In haushaltsüblichen Speisemengen für Menschen unbedenklich; große Mengen sollten vermieden werden."
+    },
+    "size": {
+      "heightMinCm": 30,
+      "heightMaxCm": 60,
+      "widthMinCm": 20,
+      "widthMaxCm": 30,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Möhrenfliege",
+        "symptoms": "Fraßgänge an den Wurzeln, welke Pflanzen",
+        "remedy": "Kulturschutznetz verwenden, Mischkultur mit Zwiebelgewächsen"
+      },
+      {
+        "name": "Blattläuse",
+        "symptoms": "Kräuselung der Blätter",
+        "remedy": "Nützlinge fördern, mit Wasserstrahl abspülen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "placement": 0.4,
+        "water": 0.4,
+        "size": 0.5
+      },
+      "sources": [
+        "https://www.rhs.org.uk/herbs/parsley/grow-your-own",
+        "https://www.plantura.garden/kraeuter/petersilie/petersilie-pflanzenportrait",
+        "https://www.plantura.garden/kraeuter/petersilie/petersilie-pflegen",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/parsley"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Allium schoenoprasum",
+      "commonNamesDe": [
+        "Schnittlauch"
+      ],
+      "commonNamesEn": [
+        "Chives"
+      ],
+      "family": "Amaryllidaceae (Amaryllisgewächse, Unterfamilie Allioideae)",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "partial_sun",
+      "indoor": true,
+      "outdoor": true,
+      "recommendedDirection": [
+        "E",
+        "SE",
+        "W"
+      ],
+      "humidityMinPct": 40,
+      "humidityMaxPct": 60,
+      "temperatureMinC": -25,
+      "temperatureOptimalC": 18,
+      "temperatureMaxC": 28,
+      "hardy": true,
+      "hardyToC": -25,
+      "winterProtection": "Voll winterhart, zieht im Winter oberirdisch ein; kein besonderer Schutz nötig."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 5,
+        "summer": 3,
+        "autumn": 7,
+        "winter": 14
+      },
+      "amount": "Gleichmäßig feucht halten, Staunässe vermeiden",
+      "method": "Gießen",
+      "letTopLayerDryOut": false
+    },
+    "soil": {
+      "substrate": "Nährstoffreiches, humoses Substrat",
+      "phMin": 6.0,
+      "phMax": 7.5,
+      "drainage": "Durchlässig, aber feuchtigkeitshaltend"
+    },
+    "fertilizer": {
+      "npk": "Stickstoffbetonter Dünger",
+      "rhythm": "Alle 4-6 Wochen während der Wachstumszeit",
+      "seasonWindow": [
+        "April",
+        "September"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "Mai",
+            "Juni",
+            "Juli",
+            "August"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "Juni",
+        "Juli"
+      ],
+      "color": "Hellviolett",
+      "fragrant": false,
+      "deadheadSpentBlooms": true
+    },
+    "harvest": {
+      "months": [
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August",
+        "September"
+      ]
+    },
+    "propagation": {
+      "methods": [
+        "Teilung",
+        "Aussaat"
+      ],
+      "bestMonths": [
+        "März",
+        "April",
+        "September"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Laut ASPCA giftig für Hunde, Katzen und Pferde (N-Propyldisulfid); kann hämolytische Anämie verursachen.",
+      "childrenToxic": false,
+      "childrenNotes": "Als Küchenkraut in haushaltsüblichen Mengen für Menschen unbedenklich."
+    },
+    "size": {
+      "heightMinCm": 20,
+      "heightMaxCm": 30,
+      "widthMinCm": 15,
+      "widthMaxCm": 25,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Zwiebelfliege",
+        "symptoms": "Welke Halme, Fraßschäden an der Zwiebel",
+        "remedy": "Kulturschutznetz verwenden, Fruchtfolge beachten"
+      },
+      {
+        "name": "Falscher Mehltau",
+        "symptoms": "Graue bis violette Beläge auf den Halmen",
+        "remedy": "Luftige Standorte wählen, befallene Pflanzenteile entfernen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "water": 0.4,
+        "size": 0.5
+      },
+      "sources": [
+        "https://www.rhs.org.uk/plants/859/allium-schoenoprasum/details",
+        "https://www.rhs.org.uk/herbs/chives/grow-your-own",
+        "https://www.plantura.garden/kraeuter/schnittlauch/schnittlauch-pflegen",
+        "https://www.plantura.garden/kraeuter/schnittlauch/schnittlauch-pflanzenportrait",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/chives"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Solanum lycopersicum",
+      "commonNamesDe": [
+        "Tomate"
+      ],
+      "commonNamesEn": [
+        "Tomato"
+      ],
+      "family": "Solanaceae (Nachtschattengewächse)",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "full_sun",
+      "indoor": true,
+      "outdoor": true,
+      "recommendedDirection": [
+        "S",
+        "SW",
+        "W"
+      ],
+      "humidityMinPct": 50,
+      "humidityMaxPct": 70,
+      "temperatureMinC": 10,
+      "temperatureOptimalC": 22,
+      "temperatureMaxC": 30,
+      "hardy": false,
+      "hardyToC": 0,
+      "winterProtection": "Nicht winterhart; wird in Deutschland als einjährige Pflanze kultiviert und nach der Saison entsorgt."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 5,
+        "summer": 2,
+        "autumn": 4,
+        "winter": null
+      },
+      "amount": "Regelmäßig und reichlich am Wurzelbereich gießen, Blätter dabei trocken halten",
+      "method": "Gießen",
+      "letTopLayerDryOut": false
+    },
+    "soil": {
+      "substrate": "Nährstoffreiche, humose Tomaten-/Gemüseerde",
+      "phMin": 6.0,
+      "phMax": 6.8,
+      "drainage": "Gut durchlässig, gleichmäßig feucht"
+    },
+    "fertilizer": {
+      "npk": "Kaliumbetonter Tomatendünger",
+      "rhythm": "Wöchentlich ab Juni mit Flüssigdünger übers Gießwasser",
+      "seasonWindow": [
+        "Juni",
+        "September"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "thinning",
+          "months": [
+            "Juni",
+            "Juli",
+            "August"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": null,
+      "bestMonths": [
+        "Mai"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "Mai",
+        "Juni",
+        "Juli",
+        "August"
+      ],
+      "color": "Gelb",
+      "fragrant": false,
+      "deadheadSpentBlooms": false
+    },
+    "harvest": {
+      "months": [
+        "Juli",
+        "August",
+        "September",
+        "Oktober"
+      ]
+    },
+    "propagation": {
+      "methods": [
+        "Aussaat"
+      ],
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Laut ASPCA sind Blätter, Stängel und unreife (grüne) Früchte durch Solanin/Tomatin giftig für Hunde und Katzen; reife, rote Früchte gelten als unbedenklich.",
+      "childrenToxic": false,
+      "childrenNotes": "Reife Tomaten sind ein übliches Nahrungsmittel; grüne Pflanzenteile und unreife Früchte sollten nicht in größeren Mengen verzehrt werden."
+    },
+    "size": {
+      "heightMinCm": 20,
+      "heightMaxCm": 200,
+      "widthMinCm": 40,
+      "widthMaxCm": 80,
+      "growthRate": "fast"
+    },
+    "problems": [
+      {
+        "name": "Kraut- und Braunfäule (Phytophthora infestans)",
+        "symptoms": "Braune Flecken auf Blättern und Früchten, Fäulnis",
+        "remedy": "Blätter beim Gießen trocken halten, Regenschutz bieten, resistente Sorten wählen"
+      },
+      {
+        "name": "Weiße Fliege",
+        "symptoms": "Kleine weiße Insekten an Blattunterseiten, klebrige Ausscheidungen",
+        "remedy": "Gelbtafeln einsetzen, Nützlinge fördern, Brennnesseljauche spritzen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "placement": 0.4,
+        "water": 0.4,
+        "size": 0.5
+      },
+      "sources": [
+        "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a104",
+        "https://www.plantura.garden/gemuese/tomaten/tomaten-duengen",
+        "https://www.plantura.garden/gemuese/tomaten/balkontomaten",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/tomato-plant",
+        "https://www.einrichtungsbeispiele.de/teich-pflanzen/suedamerika/solanum-lycopersicum-slnk.html"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Capsicum annuum",
+      "commonNamesDe": [
+        "Chili",
+        "Paprika",
+        "Pfefferschote"
+      ],
+      "commonNamesEn": [
+        "Chili pepper",
+        "Bell pepper"
+      ],
+      "family": "Solanaceae (Nachtschattengewächse)",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "full_sun",
+      "indoor": true,
+      "outdoor": true,
+      "recommendedDirection": [
+        "S",
+        "SW"
+      ],
+      "humidityMinPct": 50,
+      "humidityMaxPct": 70,
+      "temperatureMinC": 12,
+      "temperatureOptimalC": 24,
+      "temperatureMaxC": 32,
+      "hardy": false,
+      "hardyToC": 0,
+      "winterProtection": "Nicht winterhart; für mehrjährige Kultur helles, kühles Winterquartier bei 15-20°C nötig, sonst einjährige Kultur."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 5,
+        "summer": 1,
+        "autumn": 5,
+        "winter": 10
+      },
+      "amount": "Gleichmäßig feucht halten, an heißen Tagen im Topf mehrmals täglich gießen, Staunässe vermeiden",
+      "method": "Gießen",
+      "letTopLayerDryOut": false
+    },
+    "soil": {
+      "substrate": "Nährstoffreiches, humoses Substrat",
+      "phMin": 6.0,
+      "phMax": 6.8,
+      "drainage": "Gut durchlässig"
+    },
+    "fertilizer": {
+      "npk": "Ausgewogener, kaliumbetonter Flüssigdünger zur Fruchtreife",
+      "rhythm": "Wöchentlich ab Blühbeginn",
+      "seasonWindow": [
+        "Mai",
+        "September"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "Mai",
+            "Juni"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 1,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "Juni",
+        "Juli",
+        "August"
+      ],
+      "color": "Weiß bis violett",
+      "fragrant": false,
+      "deadheadSpentBlooms": false
+    },
+    "harvest": {
+      "months": [
+        "Juli",
+        "August",
+        "September",
+        "Oktober"
+      ]
+    },
+    "propagation": {
+      "methods": [
+        "Aussaat",
+        "Stecklinge bei Überwinterung"
+      ],
+      "bestMonths": [
+        "Februar",
+        "März"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Für Capsicum annuum liegt keine spezifische ASPCA-Einzelbewertung vor; als Nachtschattengewächs können Blätter und unreife Früchte reizend wirken, und Capsaicin verursacht Reizungen von Maul und Verdauungstrakt bei Tieren.",
+      "childrenToxic": false,
+      "childrenNotes": "Reife Früchte sind ein übliches Nahrungsmittel; scharfe Sorten können bei Kindern Reizungen im Mund verursachen."
+    },
+    "size": {
+      "heightMinCm": 30,
+      "heightMaxCm": 100,
+      "widthMinCm": 30,
+      "widthMaxCm": 60,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Blattläuse",
+        "symptoms": "Kräuselung der Blätter, klebriger Honigtau",
+        "remedy": "Nützlinge fördern, Schmierseifenlösung anwenden"
+      },
+      {
+        "name": "Blütenendfäule",
+        "symptoms": "Braune, faulige Flecken an der Fruchtunterseite durch Calciummangel/unregelmäßige Wasserversorgung",
+        "remedy": "Gleichmäßig gießen, auf ausreichende Calciumversorgung achten"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "toxicity": 0.3,
+        "placement": 0.4,
+        "water": 0.4,
+        "size": 0.5
+      },
+      "sources": [
+        "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=287148",
+        "https://www.plantura.garden/gemuese/chilis/chili-pflanzenportrait",
+        "https://www.plantura.garden/gemuese/chilis/chili-ueberwintern",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/ornamental-pepper"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Fragaria x ananassa",
+      "commonNamesDe": [
+        "Gartenerdbeere",
+        "Erdbeere"
+      ],
+      "commonNamesEn": [
+        "Garden strawberry"
+      ],
+      "family": "Rosaceae (Rosengewächse)",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "full_sun",
+      "indoor": true,
+      "outdoor": true,
+      "recommendedDirection": [
+        "S",
+        "SW",
+        "W"
+      ],
+      "humidityMinPct": 40,
+      "humidityMaxPct": 60,
+      "temperatureMinC": -15,
+      "temperatureOptimalC": 18,
+      "temperatureMaxC": 28,
+      "hardy": true,
+      "hardyToC": -15,
+      "winterProtection": "Winterhart; im Kübel den Wurzelballen mit Vlies, Stroh oder Laub vor starkem Frost schützen."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 5,
+        "summer": 3,
+        "autumn": 7,
+        "winter": 14
+      },
+      "amount": "Gleichmäßig feucht halten, besonders während Blüte und Fruchtbildung; Blätter beim Gießen trocken halten",
+      "method": "Gießen",
+      "letTopLayerDryOut": false
+    },
+    "soil": {
+      "substrate": "Nährstoffreiches, humoses, lockeres Substrat",
+      "phMin": 5.5,
+      "phMax": 6.5,
+      "drainage": "Gut durchlässig"
+    },
+    "fertilizer": {
+      "npk": "Kaliumbetonter Beerenobstdünger",
+      "rhythm": "Im Frühjahr und erneut nach der Ernte düngen",
+      "seasonWindow": [
+        "März",
+        "April",
+        "August"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "thinning",
+          "months": [
+            "August",
+            "September"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 3,
+      "bestMonths": [
+        "September"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "April",
+        "Mai"
+      ],
+      "color": "Weiß",
+      "fragrant": false,
+      "deadheadSpentBlooms": false
+    },
+    "harvest": {
+      "months": [
+        "Juni",
+        "Juli",
+        "August"
+      ]
+    },
+    "propagation": {
+      "methods": [
+        "Ausläufer (Runners)",
+        "Teilung"
+      ],
+      "bestMonths": [
+        "Juli",
+        "August"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": false,
+      "petNotes": "Laut ASPCA ungiftig für Hunde, Katzen und Pferde; Blätter, Stängel und Kelchblätter sind unbedenklich.",
+      "childrenToxic": false,
+      "childrenNotes": "Übliches Nahrungsmittel, unbedenklich."
+    },
+    "size": {
+      "heightMinCm": 20,
+      "heightMaxCm": 30,
+      "widthMinCm": 30,
+      "widthMaxCm": 45,
+      "growthRate": "medium"
+    },
+    "problems": [
+      {
+        "name": "Grauschimmel (Botrytis cinerea)",
+        "symptoms": "Grauer Pilzrasen auf Früchten, Fäulnis",
+        "remedy": "Ausreichend Pflanzabstand, mit Stroh mulchen, befallene Früchte sofort entfernen"
+      },
+      {
+        "name": "Erdbeerblütenstecher",
+        "symptoms": "Abgeknickte, welke Blütenknospen",
+        "remedy": "Befallene Knospen entfernen, Nützlinge fördern"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "repotting": 0.3,
+        "harvest": 0.5,
+        "size": 0.5
+      },
+      "sources": [
+        "https://www.rhs.org.uk/plants/106127/fragaria-x-ananassa-f/details",
+        "https://www.plantura.garden/obst/erdbeeren/erdbeeren-pflanzenportrait",
+        "https://www.plantura.garden/obst/erdbeeren/erdbeeren-duengen",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/strawberry",
+        "https://www.lubera.com/de/gartenbuch/erdbeeren-erntezeit-p4165"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Citrus limon",
+      "commonNamesDe": [
+        "Zitrone",
+        "Zitronenbaum"
+      ],
+      "commonNamesEn": [
+        "Lemon",
+        "Lemon tree"
+      ],
+      "family": "Rutaceae (Rautengewächse)",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "full_sun",
+      "indoor": true,
+      "outdoor": true,
+      "recommendedDirection": [
+        "S",
+        "SW"
+      ],
+      "humidityMinPct": 40,
+      "humidityMaxPct": 60,
+      "temperatureMinC": 4,
+      "temperatureOptimalC": 20,
+      "temperatureMaxC": 30,
+      "hardy": false,
+      "hardyToC": -6,
+      "winterProtection": "Nicht winterhart; benötigt helles, kühles und möglichst frostfreies Winterquartier bei etwa 5-10°C von Oktober bis April/Mai."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 5,
+        "summer": 3,
+        "autumn": 7,
+        "winter": 14
+      },
+      "amount": "Im Sommer reichlich gießen und Blätter täglich besprühen, im Winter deutlich sparsamer gießen",
+      "method": "Gießen und Besprühen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Durchlässiges, lehmhaltiges Zitrussubstrat mit Kies- oder Blähtonanteil",
+      "phMin": 6.0,
+      "phMax": 6.5,
+      "drainage": "Sehr gute Drainage notwendig, Staunässe unbedingt vermeiden"
+    },
+    "fertilizer": {
+      "npk": "Spezieller Zitrusdünger mit Spurenelementen (Eisen, Magnesium)",
+      "rhythm": "Wöchentlich bis alle zwei Wochen während der Wachstumszeit, im Winter keine Düngung",
+      "seasonWindow": [
+        "März",
+        "September"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "Februar",
+            "März"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 2,
+      "bestMonths": [
+        "März",
+        "April"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "Mai",
+        "Juni"
+      ],
+      "color": "Weiß",
+      "fragrant": true,
+      "deadheadSpentBlooms": false
+    },
+    "harvest": {
+      "months": [
+        "Oktober",
+        "November",
+        "Dezember",
+        "Januar"
+      ]
+    },
+    "propagation": {
+      "methods": [
+        "Veredelung",
+        "Stecklinge (schwierig)"
+      ],
+      "bestMonths": [
+        "Mai",
+        "Juni"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": true,
+      "petNotes": "Laut ASPCA giftig für Hunde, Katzen und Pferde (ätherische Öle, Psoralene), v. a. in Schale, Blättern und Stängeln; Symptome sind Erbrechen, Durchfall und Hautreizungen.",
+      "childrenToxic": false,
+      "childrenNotes": "Die Frucht ist ein übliches Nahrungsmittel; Blätter und Schale nicht in großen Mengen verzehren."
+    },
+    "size": {
+      "heightMinCm": 100,
+      "heightMaxCm": 250,
+      "widthMinCm": 80,
+      "widthMaxCm": 150,
+      "growthRate": "slow"
+    },
+    "problems": [
+      {
+        "name": "Schildläuse",
+        "symptoms": "Klebriger Honigtau, braune Schildchen an Blättern und Trieben",
+        "remedy": "Mit Alkohol abtupfen, Nützlinge einsetzen, Neemöl anwenden"
+      },
+      {
+        "name": "Chlorose (Eisenmangel)",
+        "symptoms": "Gelbe Blätter mit grünen Blattadern",
+        "remedy": "Eisendünger (Chelat) verabreichen, Substrat-pH prüfen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "harvest": 0.4,
+        "size": 0.4,
+        "placement": 0.5
+      },
+      "sources": [
+        "https://www.rhs.org.uk/plants/91243/citrus-x-limon-f/details",
+        "https://www.rhs.org.uk/fruit/citrus/grow-your-own",
+        "https://www.plantura.garden/obst/zitronenbaum/zitronenbaum-ueberwintern",
+        "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/lemon",
+        "https://hgic.clemson.edu/cold-tolerance-in-citrus/"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  },
+  {
+    "identity": {
+      "botanicalName": "Olea europaea",
+      "commonNamesDe": [
+        "Olivenbaum",
+        "Ölbaum"
+      ],
+      "commonNamesEn": [
+        "Olive tree"
+      ],
+      "family": "Oleaceae (Ölbaumgewächse)",
+      "cultivar": null
+    },
+    "placement": {
+      "light": "full_sun",
+      "indoor": false,
+      "outdoor": true,
+      "recommendedDirection": [
+        "S",
+        "SW"
+      ],
+      "humidityMinPct": 30,
+      "humidityMaxPct": 50,
+      "temperatureMinC": 5,
+      "temperatureOptimalC": 22,
+      "temperatureMaxC": 35,
+      "hardy": false,
+      "hardyToC": -5,
+      "winterProtection": "Nicht zuverlässig winterhart; im Kübel kühles, helles, frostfreies Winterquartier (ca. 0-10°C) von Oktober/November bis April nötig, nicht im warmen Wohnraum überwintern."
+    },
+    "water": {
+      "intervalDaysBySeason": {
+        "spring": 7,
+        "summer": 4,
+        "autumn": 10,
+        "winter": 21
+      },
+      "amount": "Mäßig gießen, Substratoberfläche zwischen den Gaben antrocknen lassen, Staunässe vermeiden",
+      "method": "Gießen",
+      "letTopLayerDryOut": true
+    },
+    "soil": {
+      "substrate": "Durchlässiges, strukturreiches Substrat, z. B. Kübelpflanzenerde mit Sand- oder Blähtonanteil",
+      "phMin": 6.5,
+      "phMax": 8.5,
+      "drainage": "Sehr gute Drainage notwendig, Drainageschicht aus Blähton empfohlen"
+    },
+    "fertilizer": {
+      "npk": "Mediterran-/Zitrusdünger mit ausgewogenem NPK",
+      "rhythm": "Alle 2-4 Wochen von April bis September, im Winter keine Düngung",
+      "seasonWindow": [
+        "April",
+        "September"
+      ]
+    },
+    "pruning": {
+      "windows": [
+        {
+          "type": "shape",
+          "months": [
+            "März",
+            "April"
+          ]
+        }
+      ]
+    },
+    "repotting": {
+      "everyYears": 3,
+      "bestMonths": [
+        "April",
+        "Mai"
+      ]
+    },
+    "bloom": {
+      "months": [
+        "April",
+        "Mai",
+        "Juni"
+      ],
+      "color": "Cremeweiß",
+      "fragrant": true,
+      "deadheadSpentBlooms": false
+    },
+    "harvest": {
+      "months": [
+        "Oktober",
+        "November"
+      ]
+    },
+    "propagation": {
+      "methods": [
+        "Halbverholzte Stecklinge",
+        "Veredelung"
+      ],
+      "bestMonths": [
+        "Juni",
+        "Juli"
+      ]
+    },
+    "toxicity": {
+      "petsToxic": false,
+      "petNotes": "Der Olivenbaum gilt als ungiftig für Hunde und Katzen; größere Mengen an Blättern oder Früchten (auch eingelegte Oliven) können leichte Magen-Darm-Beschwerden verursachen, Kerne sind eine Erstickungsgefahr.",
+      "childrenToxic": false,
+      "childrenNotes": "Rohe Früchte vom Baum sind sehr bitter, aber nicht giftig; zum Verzehr müssen sie eingelegt werden."
+    },
+    "size": {
+      "heightMinCm": 100,
+      "heightMaxCm": 150,
+      "widthMinCm": 80,
+      "widthMaxCm": 150,
+      "growthRate": "slow"
+    },
+    "problems": [
+      {
+        "name": "Wurzelfäule durch Staunässe",
+        "symptoms": "Welke, Blattfall trotz feuchter Erde",
+        "remedy": "Drainage verbessern, seltener gießen"
+      },
+      {
+        "name": "Olivenfliege",
+        "symptoms": "Fraßgänge in Früchten (in Deutschland selten relevant)",
+        "remedy": "Gelbtafeln einsetzen, befallene Früchte entfernen"
+      }
+    ],
+    "meta": {
+      "confidence": {
+        "harvest": 0.3,
+        "toxicity": 0.4,
+        "size": 0.5,
+        "soil": 0.4
+      },
+      "sources": [
+        "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=283004",
+        "https://www.plantura.garden/gehoelze/olivenbaum/olivenbaum-ueberwintern",
+        "https://www.plantura.garden/gehoelze/olivenbaum/olivenbaum-im-topf",
+        "https://www.gartengemeinschaft.de/olivenbaum-wachstum-wie-schnell-waechst-die-pflanze/",
+        "https://florage.de/blogs/pflanzenblog/olivenbaum-blute",
+        "https://de.wikipedia.org/wiki/Olivenbaum"
+      ],
+      "model": null,
+      "schemaVersion": 1,
+      "promptVersion": null
+    }
+  }
+]

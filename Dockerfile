@@ -30,6 +30,7 @@ COPY --from=build /app/apps/api/dist apps/api/dist
 COPY --from=build /app/apps/api/drizzle apps/api/drizzle
 COPY --from=build /app/packages/shared/dist packages/shared/dist
 COPY --from=build /app/apps/web/dist apps/web/dist
+COPY --from=build /app/data/seeds data/seeds
 
 EXPOSE 3000
 CMD ["node", "apps/api/dist/server.js"]
