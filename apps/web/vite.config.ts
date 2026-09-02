@@ -10,6 +10,7 @@ export default defineConfig({
       srcDir: "src",
       filename: "sw.ts",
       injectRegister: "auto",
+      registerType: "autoUpdate",
       devOptions: { enabled: true, type: "module" },
       manifest: {
         name: "Plants vs. Mella",
