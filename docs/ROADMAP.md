@@ -427,6 +427,12 @@ unsichere Werte als recherchierte Schätzung mit „bitte prüfen"-Flag, nie erf
 Bündelt bewusst nur bereits vorhandene Daten aus M3/M5/M6/M7 — erzeugt nichts Neues, sondern
 macht das bisher auf drei Tabs verteilte „was ist heute wichtig" an einem Ort sichtbar.
 
+> **Status:** Umgesetzt und deployed — eigener erster Tab „Übersicht" (statt Ersatz der
+> Pflanzenliste als Landing-Tab, wie ursprünglich hier notiert: die BottomNav hat inzwischen
+> ohnehin 5 Tabs inkl. Beetplaner, ein zusätzlicher 6. Tab war unkomplizierter als ein Umbau der
+> Pflanzenliste). Neue Route `GET /api/weather/warnings` liefert die M5-Warnlogik ohne
+> Seiteneffekt fürs Dashboard.
+
 - Neuer Startbildschirm (ersetzt die Pflanzenliste als Landing-Tab, diese bleibt als eigener
   Tab erhalten): heute fällige + überfällige Aufgaben mit Quick-Actions wie im Kalender.
 - Aktive Wetterwarnung (Frost/Regen/Hitze aus M5) prominent, falls vorhanden.
