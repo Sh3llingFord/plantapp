@@ -111,7 +111,7 @@ bewiesen statt mit Prototypen.
    AI-Modell) blockiert den Start von M0 komplett**, bekommt aber keinen eigenen expliziten
    Vorbereitungsschritt mit Verantwortlichkeit (Mensch vs. Session).
 
-### Iteration 4 — final
+### Iteration 4
 
 **Leitprinzip: gleiche Grundstruktur wie Iteration 3, aber Infrastruktur-Risiko und
 Produkt-Risiko in M0 entkoppelt, Basis-Backup vorgezogen, n8n-Konnektivität früh geprüft,
@@ -128,6 +128,45 @@ Vorbereitungs-Blocker explizit benannt statt am Ende beiläufig aufgelistet.**
   dass es Nutzeraufgabe ist (Secrets/Zugänge), nicht Teil einer Coding-Session.
 - M3, M4, M5 bleiben strukturell unverändert — dort wurden keine vergleichbaren Probleme
   gefunden.
+
+### Iteration 5 — final
+
+M0–M5 sind gebaut und deployed (siehe [Verifikation](#verifikation)). Rückmeldung nach dem
+Live-Test: **„Ich finde die Funktionalität sehr gering."** Berechtigt — M0–M5 waren fast
+ausschließlich Infrastruktur (Auth, Push, KI-Anreicherung, Kalender, Wetter) plus reine
+Verwaltung (Pflanze anlegen, Aufgabe abhaken). Für aktives **Planen** — was passt wohin, was
+säe ich wann, was passt zusammen ins Beet — liefert die App bisher nichts, obwohl die
+nötigen Rohdaten (Licht, Himmelsrichtung, Erntemonate) längst im Schema stehen.
+
+**Kritik am bisherigen Stand:**
+
+1. Katalog und Pflanzenliste sind reine Nachschlagewerke. Sie beantworten nicht "passt diese
+   Pflanze an mein Fenster" oder "was kann ich diesen Monat säen" — obwohl `placement.light`,
+   `placement.recommendedDirection` und `location.direction`/`lightEstimate` seit M1 existieren.
+2. Es fehlt jeder Begriff von **Mischkultur/Nachbarschaft** — welche Pflanzen sich im selben
+   Beet gut oder schlecht vertragen. Klassisches Gartenplanungs-Wissen, im Schema bisher gar
+   nicht vorgesehen.
+3. `harvest.months` existiert, aber **wann gesät oder ausgepflanzt wird, fehlt komplett** —
+   ohne das ist "was kann jetzt ins Beet" nicht beantwortbar.
+4. Kein zentraler Einstiegspunkt: Wetterwarnung (M5), fällige Aufgaben (M3) und
+   Standort-Probleme sind auf drei Tabs verteilt, nirgends gebündelt als "was ist gerade
+   wichtig".
+
+**Leitprinzip: nach der Infrastruktur-Phase jetzt gezielt Planungsfunktionen, die die bereits
+vorhandenen (und neu recherchierten) Daten nutzbar machen — vor der reinen Betriebshärtung.**
+Die bisherige Härtung (Offline-Schreiben, Backup-Rotation, Export/Import) bleibt nötig, rutscht
+aber als **M9** ans Ende; sie liefert dem Alltag der zwei Nutzer weniger sichtbaren Wert als
+eine funktionierende Beetplanung.
+
+- **M6 — Standort-Match-Score:** reine Datenmodell-/UI-Arbeit auf bereits vorhandenen Feldern,
+  kein neuer Recherchebedarf. Schneller, risikoarmer erster Schritt der neuen Iteration.
+- **M7 — Mischkultur & Beetplaner:** größter Recherche-Aufwand der Iteration (neue
+  Schema-Felder `sowing` und `companionPlanting`, recherchiert mit echten Quellen wie M1) —
+  beantwortet „was kann jetzt ins Beet" und „was passt zueinander".
+- **M8 — Dashboard/Übersicht:** bündelt Wetterwarnung, fällige Aufgaben, Standort-Mismatches
+  und Beetplaner-Hinweise auf einem Startbildschirm. Bewusst erst nach M6/M7, weil er deren
+  Daten konsumiert statt neue zu erzeugen.
+- **M9 — Härtung und Betrieb:** inhaltlich unverändert das bisherige M6, nur ans Ende verschoben.
 
 Zeitangaben: Kalenderwochen bei ca. 8 h/Woche, mit Claude Code als Schreibkraft.
 
@@ -222,10 +261,10 @@ Der Katalog — nützlich, noch ganz ohne AI.
   Notizen; dazu Filter für Standort, Licht, Winterhärte, Giftigkeit für Haustiere
 - Detailansicht mit allen Pflegedaten
 - Offline-Lesen (Workbox: App-Shell precache, API stale-while-revalidate)
-- **Basis-Backup, vorgezogen aus M6:** Sobald die erste eigene Pflanze in der DB steht, gibt
+- **Basis-Backup, vorgezogen aus M9:** Sobald die erste eigene Pflanze in der DB steht, gibt
   es echte Nutzerdaten, die ohne Sicherung wären. Ein einfacher nächtlicher `VACUUM INTO`-
   Snapshot nach `/data/backups/` reicht hier — noch **ohne** 14-Generationen-Rotation und
-  ohne durchgespielten Restore-Test, das kommt erst mit der vollen Politur in M6. Ziel ist
+  ohne durchgespielten Restore-Test, das kommt erst mit der vollen Politur in M9. Ziel ist
   nur: kein 8 Wochen langes Fenster ganz ohne Sicherung.
 
 **DoD:** Die 50 Seeds sind durchsuchbar, eine eigene Pflanze lässt sich anlegen und
@@ -338,7 +377,56 @@ Open-Meteo, kein API-Key, kein Konto.
 > Bleibt sauber trennbar: Wenn HA später dazukommt, kann es die Koordinaten einmalig
 > vorbefüllen.
 
-### M6 — Härtung und Betrieb (Woche 9)
+### M6 — Standort-Match-Score (Woche 9)
+
+Nutzt ausschließlich bereits vorhandene Daten (`placement.light`, `placement.recommendedDirection`,
+`placement.indoor`/`outdoor` aus dem Pflegeprofil; `direction`, `indoor`, `lightEstimate` aus
+`locations`) — kein neuer Recherchebedarf, daher als schneller erster Schritt vorgezogen.
+
+- Score pro (Pflanze × Standort)-Kombination, dreistufig: **passt gut / passt bedingt / passt
+  nicht**, mit kurzer Begründung im Klartext („Nordfenster, Pflanze braucht volle Sonne").
+- Fehlen die nötigen Angaben auf einer der beiden Seiten (z.B. `lightEstimate` des Standorts
+  unbekannt), zeigt die App **„nicht bewertbar"** statt zu raten — konsistent mit dem
+  Grundsatz, nie erfundene Werte auszugeben.
+- Anzeige: Badge auf der Pflanzenliste bei „passt nicht", ausführlicher auf der
+  Pflanzen-Detailseite neben dem zugewiesenen Standort.
+- Beim Anlegen/Verschieben einer Pflanze: Live-Vorschau des Scores für **alle** vorhandenen
+  Standorte in der Auswahl, damit die Entscheidung vor dem Anlegen fällt statt danach.
+
+### M7 — Mischkultur & Beetplaner (Woche 10–11)
+
+Größter Recherche-Aufwand der Iteration — gleiche Regel wie M1: nur echte, zitierte Quellen
+(z.B. RHS-, Missouri-Botanical-Garden-, Universitäts-Extension-Publikationen zu Mischkultur),
+unsichere Werte als recherchierte Schätzung mit „bitte prüfen"-Flag, nie erfunden.
+
+- **Schema-Erweiterung `sowing`:** `indoorMonths`, `outdoorMonths`, `plantOutMonths`,
+  `daysToGermination` — alle nullable, wie jeder andere Pflegeprofil-Abschnitt.
+- **Schema-Erweiterung `companionPlanting`:** `goodCompanions`/`badCompanions` (botanische
+  Namen), `notes`. Nur zwischen zwei Katalog-Einträgen auswertbar, die beide existieren —
+  keine Aussage über Pflanzen außerhalb des Katalogs.
+- Nachrecherche der bestehenden ~28 Garten-/Kräuter-Einträge aus dem M1-Seed für beide neuen
+  Abschnitte (Agent-gestützte Web-Recherche wie in M1).
+- Neuer Aufgabentyp **„🌰 Aussäen"**, aus `sowing` generiert — analog zu `harvest` in M3.
+- **„Was kann ins Beet"**: Planungsansicht (nicht auf eigenen Bestand beschränkt) — zeigt
+  Katalog-Pflanzen, deren Aussaat-/Auspflanzfenster den aktuellen Monat trifft, gefiltert auf
+  einen gewählten Außenstandort per Standort-Match-Score aus M6.
+- **„Was passt zueinander"**: auf der Pflanzen-Detailseite eine Liste guter/schlechter
+  Nachbarn unter den bereits am selben Standort stehenden eigenen Pflanzen, plus allgemeine
+  Empfehlungen aus dem Katalog.
+
+### M8 — Dashboard/Übersicht (Woche 12)
+
+Bündelt bewusst nur bereits vorhandene Daten aus M3/M5/M6/M7 — erzeugt nichts Neues, sondern
+macht das bisher auf drei Tabs verteilte „was ist heute wichtig" an einem Ort sichtbar.
+
+- Neuer Startbildschirm (ersetzt die Pflanzenliste als Landing-Tab, diese bleibt als eigener
+  Tab erhalten): heute fällige + überfällige Aufgaben mit Quick-Actions wie im Kalender.
+- Aktive Wetterwarnung (Frost/Regen/Hitze aus M5) prominent, falls vorhanden.
+- Standort-Mismatch-Hinweise aus M6 („3 Pflanzen passen nicht optimal zu ihrem Standort").
+- Kurzhinweis aus M7 („Diesen Monat säbar: Radieschen, Feldsalat").
+- DoD: App-Start zeigt sofort das Tagesbild, ohne zwischen Tabs wechseln zu müssen.
+
+### M9 — Härtung und Betrieb (Woche 13, bisheriges M6)
 
 - **Offline-Schreiben:** IndexedDB-Outbox + Background Sync, serverseitige Idempotenz-Keys
   (R4)
@@ -492,15 +580,19 @@ Drei Dinge, die daraus folgen:
 | Schema trägt Kalender nicht | M1 | 50 Seeds validieren das Schema, bevor Aufgaben-Code entsteht |
 | Benachrichtigungs-Müdigkeit | M4 | Tagesbündelung + Ruhezeiten statt Push je Aufgabe |
 | Datenverlust (eine Datei), erste Wochen | M1 | Einfacher nächtlicher `VACUUM INTO`-Snapshot ab der ersten echten Pflanze, noch ohne Rotation |
-| Datenverlust (eine Datei), volle Absicherung | M6 | 14-Generationen-Rotation, einmal echt getesteter Restore |
-| Offline-Schreibkonflikte | M6 | Outbox + Idempotenz-Keys |
+| Datenverlust (eine Datei), volle Absicherung | M9 | 14-Generationen-Rotation, einmal echt getesteter Restore |
+| Offline-Schreibkonflikte | M9 | Outbox + Idempotenz-Keys |
 | Langsamer Rebuild auf der VM | M0a | Dockerfile-Layering, Tests außerhalb des Builds |
+| Mischkultur-Empfehlungen sind Gärtner-Folklore statt belegt | M7 | Nur zitierfähige Quellen (RHS, Botanische Gärten, Uni-Extension); ohne Beleg lieber keine Aussage als eine erfundene |
+| Standort-Score suggeriert Präzision, die die Datenlage nicht hergibt | M6 | Nur 3 grobe Stufen statt Prozentwert; „nicht bewertbar" bei fehlenden Daten statt Rateergebnis |
 
 ---
 
 ## Bewusst nicht in dieser Roadmap (Backlog)
 
-Abgewählt oder zurückgestellt, damit die 9 Wochen halten:
+Abgewählt oder zurückgestellt, damit die Wochenplanung hält (Standort-Match-Score und
+Aussaat-/Mischkulturplanung sind mit Iteration 5 aus dieser Liste heraus- und als M6/M7
+eingeplant worden):
 
 - **Home Assistant** (bewusst später, als eigener Meilenstein danach): Bodenfeuchte-Entity
   pro Pflanze zuordenbar, Unterschreitung des Schwellwerts macht die Gießaufgabe sofort
@@ -510,8 +602,6 @@ Abgewählt oder zurückgestellt, damit die 9 Wochen halten:
   dass ein externer Trigger sie vorziehen kann.
 - Pflanzenerkennung und Krankheitsdiagnose per Foto (derselbe n8n-Webhook, Vision-Modell)
 - QR-Etiketten für Töpfe, Scan öffnet die Pflanze
-- Standort-Match-Score („passt diese Pflanze an dieses Fenster?") — die Daten dafür
-  (Himmelsrichtung, Lichtbedarf) entstehen bereits in M1, nur die Bewertung fehlt
 - Foto-Timeline zur Wachstumsdokumentation
 - Aussaat- und Ernteplanung für Nutzpflanzen
 - Mehr als zwei Nutzer, Rollen, Teilen
@@ -549,7 +639,21 @@ Aufgabe; Ruhezeit unterdrückt zuverlässig.
 mocken → Frostwarnung nennt genau die nicht winterharten Pflanzen; Regen-Mock verschiebt nur
 Außenstandorte.
 
-**M6** — Stack in Portainer entfernen und neu deployen, `plantapp.db` durch einen Snapshot
+**M6** — Pflanze mit bekanntem Lichtbedarf (z.B. volle Sonne) einem Nordfenster-Standort
+zuweisen → Score zeigt „passt nicht" mit Begründung; Standort ohne gesetzte `lightEstimate`
+→ Score zeigt „nicht bewertbar", keine Rateausgabe.
+
+**M7** — Nachrecherchierte `sowing`/`companionPlanting`-Felder der ~28 Garten-/Kräuter-Seeds
+gegen das erweiterte Zod-Schema validieren (jeder Eintrag mit Quelle oder „bitte prüfen"-Flag,
+nie ohne); „Was kann ins Beet" im aktuellen Monat gegen mindestens 3 bekannte Aussaatfenster
+manuell gegenprüfen; „Was passt zueinander" zeigt für ein bekanntes Gegenbeispiel (z.B.
+Fenchel) tatsächlich eine Warnung.
+
+**M8** — App-Start ohne weitere Navigation zeigt: heute fällige Aufgaben, aktive
+Wetterwarnung (falls eine per Mock aktiv ist) und mindestens einen Standort-Mismatch-Hinweis
+aus M6.
+
+**M9** — Stack in Portainer entfernen und neu deployen, `plantapp.db` durch einen Snapshot
 aus `/data/backups/` ersetzen, Datenbestand vergleichen. Offline zwei Aufgaben abhaken,
 online gehen, Sync prüfen.
 
