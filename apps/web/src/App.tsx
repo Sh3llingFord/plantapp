@@ -12,6 +12,7 @@ import { CalendarPage } from "./pages/CalendarPage";
 import { GardenPlansPage } from "./pages/GardenPlansPage";
 import { GardenPlanEditorPage } from "./pages/GardenPlanEditorPage";
 import { DashboardPage } from "./pages/DashboardPage";
+import { WelcomeModal } from "./components/WelcomeModal";
 
 interface User {
   username: string;
@@ -37,7 +38,17 @@ function titleFor(tab: Tab, view: View): string {
   return "Einstellungen";
 }
 
-function AppShell({ user, onLoggedOut }: { user: User; onLoggedOut: () => void }) {
+function AppShell({
+  user,
+  onLoggedOut,
+  showWelcome,
+  onCloseWelcome,
+}: {
+  user: User;
+  onLoggedOut: () => void;
+  showWelcome: boolean;
+  onCloseWelcome: () => void;
+}) {
   const [tab, setTab] = useState<Tab>("home");
   const [view, setView] = useState<View>({ name: "list" });
 
@@ -113,12 +124,15 @@ function AppShell({ user, onLoggedOut }: { user: User; onLoggedOut: () => void }
       )}
 
       <BottomNav active={tab} onChange={handleTabChange} />
+
+      {showWelcome && <WelcomeModal onClose={onCloseWelcome} />}
     </div>
   );
 }
 
 export function App() {
   const [user, setUser] = useState<User | null | undefined>(undefined);
+  const [showWelcome, setShowWelcome] = useState(false);
 
   useEffect(() => {
     fetch("/api/auth/me")
@@ -128,6 +142,22 @@ export function App() {
   }, []);
 
   if (user === undefined) return null;
-  if (user === null) return <AuthPage onAuthenticated={setUser} />;
-  return <AppShell user={user} onLoggedOut={() => setUser(null)} />;
+  if (user === null) {
+    return (
+      <AuthPage
+        onAuthenticated={(u, isNewAccount) => {
+          setUser(u);
+          if (isNewAccount) setShowWelcome(true);
+        }}
+      />
+    );
+  }
+  return (
+    <AppShell
+      user={user}
+      onLoggedOut={() => setUser(null)}
+      showWelcome={showWelcome}
+      onCloseWelcome={() => setShowWelcome(false)}
+    />
+  );
 }

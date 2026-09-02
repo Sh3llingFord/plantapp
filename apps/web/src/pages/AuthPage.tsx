@@ -4,7 +4,11 @@ interface User {
   username: string;
 }
 
-export function AuthPage({ onAuthenticated }: { onAuthenticated: (user: User) => void }) {
+export function AuthPage({
+  onAuthenticated,
+}: {
+  onAuthenticated: (user: User, isNewAccount: boolean) => void;
+}) {
   const [mode, setMode] = useState<"login" | "register">("login");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -30,7 +34,7 @@ export function AuthPage({ onAuthenticated }: { onAuthenticated: (user: User) =>
         const data = await res.json().catch(() => ({}));
         throw new Error(data.error ?? "Fehlgeschlagen");
       }
-      onAuthenticated(await res.json());
+      onAuthenticated(await res.json(), mode === "register");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Fehlgeschlagen");
     } finally {
