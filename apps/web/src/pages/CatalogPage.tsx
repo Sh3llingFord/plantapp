@@ -85,9 +85,13 @@ export function CatalogPage({ onOpenSpecies }: { onOpenSpecies: (id: string) => 
               className="list-item"
               onClick={() => onOpenSpecies(entry.id)}
             >
-              <span className="list-item__thumb" aria-hidden="true">
-                🌿
-              </span>
+              {entry.photoPath ? (
+                <img className="list-item__thumb" src={entry.photoPath} alt="" />
+              ) : (
+                <span className="list-item__thumb" aria-hidden="true">
+                  🌿
+                </span>
+              )}
               <div className="list-item__body">
                 <div className="list-item__title">
                   {entry.careProfile.identity.commonNamesDe?.[0] ?? entry.botanicalName}

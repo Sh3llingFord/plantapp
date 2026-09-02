@@ -70,7 +70,15 @@ function AppShell({ user, onLoggedOut }: { user: User; onLoggedOut: () => void }
       {tab === "catalog" && view.name === "list" && (
         <CatalogPage onOpenSpecies={(id) => setView({ name: "species-detail", id })} />
       )}
-      {tab === "catalog" && view.name === "species-detail" && <SpeciesDetailPage id={view.id} />}
+      {tab === "catalog" && view.name === "species-detail" && (
+        <SpeciesDetailPage
+          id={view.id}
+          onAddedToMyPlants={(plantId) => {
+            setTab("plants");
+            setView({ name: "plant-detail", id: plantId });
+          }}
+        />
+      )}
 
       {tab === "settings" && <SettingsPage user={user} onLoggedOut={onLoggedOut} />}
 

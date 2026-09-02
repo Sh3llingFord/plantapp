@@ -47,6 +47,7 @@ export const species = sqliteTable("species", {
   indoor: integer("indoor", { mode: "boolean" }),
   outdoor: integer("outdoor", { mode: "boolean" }),
   isSeed: integer("is_seed", { mode: "boolean" }).notNull().default(true),
+  photoPath: text("photo_path"), // von Nutzern selbst hochgeladenes Referenzfoto
   createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
 });
 
@@ -63,4 +64,28 @@ export const plants = sqliteTable("plants", {
   // für genau diese eine Pflanze (z.B. abweichender Standort/Gießrhythmus).
   careProfileOverrides: text("care_profile_overrides", { mode: "json" }),
   createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
+});
+
+// M2 — KI-Anreicherung ausschließlich über n8n (siehe docs/ROADMAP.md).
+// cacheKey = normalisierter Artname + ":" + schemaVersion + ":" + (promptVersion ?? "-")
+export const speciesCache = sqliteTable("species_cache", {
+  cacheKey: text("cache_key").primaryKey(),
+  query: text("query").notNull(),
+  careProfile: text("care_profile", { mode: "json" }).notNull(),
+  schemaVersion: integer("schema_version").notNull(),
+  promptVersion: text("prompt_version"),
+  createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
+});
+
+export const enrichmentJobs = sqliteTable("enrichment_jobs", {
+  id: text("id").primaryKey(),
+  query: text("query").notNull(),
+  plantId: text("plant_id").references(() => plants.id, { onDelete: "set null" }),
+  status: text("status").notNull(), // queued | done | failed
+  resultSpeciesId: text("result_species_id").references(() => species.id, {
+    onDelete: "set null",
+  }),
+  error: text("error"),
+  createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
+  updatedAt: integer("updated_at", { mode: "timestamp" }).notNull(),
 });

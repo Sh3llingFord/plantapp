@@ -19,6 +19,7 @@ export interface Species {
   indoor: boolean | null;
   outdoor: boolean | null;
   isSeed: boolean;
+  photoPath: string | null;
   createdAt: string;
 }
 
@@ -72,6 +73,13 @@ export const api = {
     list: (params: { q?: string; light?: string; hardy?: string; petsToxic?: string } = {}) =>
       request<Species[]>(`/api/species${query(params)}`),
     get: (id: string) => request<Species>(`/api/species/${id}`),
+    uploadPhoto: async (id: string, file: File) => {
+      const form = new FormData();
+      form.append("file", file);
+      const res = await fetch(`/api/species/${id}/photo`, { method: "POST", body: form });
+      if (!res.ok) throw new Error("Foto-Upload fehlgeschlagen");
+      return res.json() as Promise<{ photoPath: string }>;
+    },
   },
   plants: {
     list: (params: { q?: string; locationId?: string } = {}) =>
@@ -89,6 +97,17 @@ export const api = {
       if (!res.ok) throw new Error("Foto-Upload fehlgeschlagen");
       return res.json() as Promise<{ photoPath: string }>;
     },
+    enrich: (id: string) =>
+      request<{ status: "done" | "queued"; jobId?: string; speciesId?: string }>(
+        `/api/plants/${id}/enrich`,
+        { method: "POST" },
+      ),
+  },
+  enrichmentJobs: {
+    get: (id: string) =>
+      request<{ id: string; status: "queued" | "done" | "failed"; error: string | null }>(
+        `/api/enrichment/jobs/${id}`,
+      ),
   },
 };
 

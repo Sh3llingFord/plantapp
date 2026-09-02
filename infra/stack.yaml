@@ -15,8 +15,16 @@ services:
       # gesetzten Wert ist die Registrierung deaktiviert. Frei wählbarer, langer
       # String — separat pro Umgebung setzen, nicht ins Repo.
       PLANTAPP_SETUP_CODE: ${PLANTAPP_SETUP_CODE}
-      # weitere Secrets (n8n-Webhook-URL, ...) kommen ab M2 als
-      # Portainer-Stack-Umgebungsvariablen dazu, nicht als Datei.
+      # M2 — KI-Anreicherung über n8n (siehe infra/n8n-plant-enrich-workflow.json).
+      # Beide leer lassen, solange n8n nicht angebunden ist: Enrichment-Jobs
+      # bleiben dann einfach "queued", nichts blockiert.
+      N8N_ENRICH_WEBHOOK_URL: ${N8N_ENRICH_WEBHOOK_URL}
+      # Muss exakt der n8n-Umgebungsvariable PLANTAPP_WEBHOOK_SECRET entsprechen.
+      N8N_CALLBACK_SECRET: ${N8N_CALLBACK_SECRET}
+      # Öffentliche Basis-URL für die Callback-Adresse. Nötig, weil der Container
+      # intern nur HTTP spricht (TLS terminiert am Cloudflare-Tunnel) — ohne das
+      # würde die abgeleitete Callback-URL auf http:// statt https:// zeigen.
+      PUBLIC_BASE_URL: https://plantsvsmella.inmc.info
     volumes:
       # Host-Pfad aus der Vorbereitung-Checkliste eintragen, siehe docs/ROADMAP.md
       - ${PLANTAPP_DATA_PATH}:/data

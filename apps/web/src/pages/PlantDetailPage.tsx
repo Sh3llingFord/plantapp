@@ -14,6 +14,7 @@ export function PlantDetailPage({
   const [plant, setPlant] = useState<PlantDetail | null>(null);
   const [location, setLocation] = useState<Location | null>(null);
   const [uploading, setUploading] = useState(false);
+  const [enrichStatus, setEnrichStatus] = useState<string | null>(null);
 
   function load() {
     api.plants.get(id).then((p) => {
@@ -44,6 +45,42 @@ export function PlantDetailPage({
     if (!confirm(`"${plant?.nickname}" wirklich löschen?`)) return;
     await api.plants.remove(id);
     onDeleted();
+  }
+
+  async function pollJob(jobId: string, attemptsLeft: number) {
+    if (attemptsLeft <= 0) {
+      setEnrichStatus("dauert länger als erwartet — später nochmal versuchen");
+      return;
+    }
+    const job = await api.enrichmentJobs.get(jobId);
+    if (job.status === "done") {
+      setEnrichStatus("Pflegeprofil gefunden ✓");
+      load();
+      return;
+    }
+    if (job.status === "failed") {
+      setEnrichStatus(job.error ?? "Recherche fehlgeschlagen");
+      return;
+    }
+    setTimeout(() => pollJob(jobId, attemptsLeft - 1), 4000);
+  }
+
+  async function handleEnrich() {
+    setEnrichStatus("recherchiere…");
+    try {
+      const result = await api.plants.enrich(id);
+      if (result.status === "done") {
+        setEnrichStatus("Pflegeprofil gefunden ✓");
+        load();
+      } else if (result.jobId) {
+        setEnrichStatus("angefragt — n8n recherchiert im Hintergrund…");
+        pollJob(result.jobId, 30);
+      } else {
+        setEnrichStatus("n8n ist noch nicht angebunden");
+      }
+    } catch (err) {
+      setEnrichStatus(err instanceof Error ? err.message : "fehlgeschlagen");
+    }
   }
 
   if (!plant) return <div className="app-content">lädt…</div>;
@@ -114,10 +151,16 @@ export function PlantDetailPage({
       )}
 
       {!care && plant.freeTextSpecies && (
-        <p style={{ color: "var(--color-text-muted)" }}>
-          Diese Pflanze ist nicht mit dem Katalog verknüpft, daher gibt es noch kein
-          Pflegeprofil.
-        </p>
+        <div className="detail-card">
+          <p style={{ color: "var(--color-text-muted)", marginBottom: 10 }}>
+            Diese Pflanze ist nicht mit dem Katalog verknüpft, daher gibt es noch kein
+            Pflegeprofil.
+          </p>
+          <button className="btn btn--secondary" onClick={handleEnrich}>
+            🔎 Pflegeprofil per KI recherchieren
+          </button>
+          {enrichStatus && <p className="section__status">{enrichStatus}</p>}
+        </div>
       )}
 
       <div className="btn-row">

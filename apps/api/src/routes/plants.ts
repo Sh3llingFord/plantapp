@@ -1,17 +1,11 @@
 import { randomUUID } from "node:crypto";
-import path from "node:path";
-import { createWriteStream, mkdirSync } from "node:fs";
-import { pipeline } from "node:stream/promises";
 import type { FastifyInstance } from "fastify";
 import { and, eq, inArray } from "drizzle-orm";
 import { mergeCareProfile, type CareProfile } from "@plantapp/shared";
 import { db } from "../db/client.js";
 import { plants, species } from "../db/schema.js";
 import { indexPlant, removeFromIndex, searchIndex } from "../search/index.js";
-import { DATA_DIR } from "../db/paths.js";
-
-const UPLOADS_DIR = path.join(DATA_DIR, "uploads");
-mkdirSync(UPLOADS_DIR, { recursive: true });
+import { saveUploadedPhoto } from "../uploads.js";
 
 interface PlantsQuery {
   q?: string;
@@ -156,18 +150,9 @@ export async function plantRoutes(app: FastifyInstance) {
     const file = await request.file();
     if (!file) return reply.code(400).send({ error: "keine Datei erhalten" });
 
-    const allowed: Record<string, string> = {
-      "image/jpeg": ".jpg",
-      "image/png": ".png",
-      "image/webp": ".webp",
-    };
-    const ext = allowed[file.mimetype];
-    if (!ext) return reply.code(400).send({ error: "nur JPEG/PNG/WebP erlaubt" });
+    const photoPath = await saveUploadedPhoto(file, request.params.id);
+    if (!photoPath) return reply.code(400).send({ error: "nur JPEG/PNG/WebP erlaubt" });
 
-    const filename = `${request.params.id}-${randomUUID()}${ext}`;
-    await pipeline(file.file, createWriteStream(path.join(UPLOADS_DIR, filename)));
-
-    const photoPath = `/uploads/${filename}`;
     db.update(plants).set({ photoPath }).where(eq(plants.id, request.params.id)).run();
 
     return { photoPath };

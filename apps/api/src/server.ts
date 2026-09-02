@@ -11,6 +11,7 @@ import { pushRoutes } from "./routes/push.js";
 import { locationRoutes } from "./routes/locations.js";
 import { speciesRoutes } from "./routes/species.js";
 import { plantRoutes } from "./routes/plants.js";
+import { enrichmentRoutes } from "./routes/enrichment.js";
 import { startBackupSchedule } from "./backup.js";
 import { DATA_DIR } from "./db/paths.js";
 import "./vapid.js"; // erzeugt/lädt VAPID-Keys beim Start
@@ -26,6 +27,17 @@ const app = Fastify({ logger: true });
 
 await app.register(fastifyCookie);
 await app.register(fastifyMultipart);
+
+// Rohen Body zusätzlich zum geparsten JSON aufbewahren — nötig, um die
+// HMAC-Signatur des n8n-Callbacks exakt über die empfangenen Bytes zu prüfen.
+app.addContentTypeParser("application/json", { parseAs: "string" }, (request, body, done) => {
+  request.rawBody = body as string;
+  try {
+    done(null, body === "" ? undefined : JSON.parse(body as string));
+  } catch (err) {
+    done(err as Error, undefined);
+  }
+});
 
 app.addHook("preHandler", async (request) => {
   const sessionId = request.cookies[SESSION_COOKIE_NAME];
@@ -43,6 +55,7 @@ await app.register(pushRoutes);
 await app.register(locationRoutes);
 await app.register(speciesRoutes);
 await app.register(plantRoutes);
+await app.register(enrichmentRoutes);
 
 await app.register(fastifyStatic, {
   root: uploadsDir,

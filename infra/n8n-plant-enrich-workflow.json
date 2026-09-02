@@ -1,0 +1,238 @@
+{
+  "name": "plantapp – Pflegeprofil-Recherche (M2)",
+  "nodes": [
+    {
+      "id": "a672fc00-107d-422b-9225-7a5cdca51a6a",
+      "name": "Webhook: plant-enrich",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        300
+      ],
+      "parameters": {
+        "path": "plant-enrich",
+        "httpMethod": "POST",
+        "responseMode": "onReceived",
+        "options": {
+          "responseData": "{\"received\":true}"
+        }
+      },
+      "webhookId": "5239834e-3ce9-4b2c-ad40-0641d3d80bc6"
+    },
+    {
+      "id": "0487a708-6180-4cf2-8762-0c759d90ff90",
+      "name": "Signatur prüfen & normalisieren",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        260,
+        300
+      ],
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Prüft die HMAC-SHA256-Signatur des eingehenden Webhook-Requests\n// (gleiches Schema wie der Callback zurück an plantapp) und normalisiert\n// die Eingabefelder für die folgenden Nodes.\nconst crypto = require('crypto');\n\nconst secret = $env.PLANTAPP_WEBHOOK_SECRET;\nif (!secret) {\n  throw new Error('PLANTAPP_WEBHOOK_SECRET ist nicht gesetzt (n8n-Umgebungsvariable fehlt)');\n}\n\nconst item = $input.item;\nconst headers = item.json.headers || {};\nconst body = item.json.body || {};\n\nconst timestamp = headers['x-plantapp-timestamp'];\nconst signature = headers['x-plantapp-signature'];\nconst rawBody = JSON.stringify(body);\n\nif (!timestamp || !signature) {\n  throw new Error('Fehlende Signatur-Header');\n}\n\nconst age = Date.now() - Number(timestamp);\nif (!Number.isFinite(age) || age < 0 || age > 5 * 60 * 1000) {\n  throw new Error('Zeitstempel ungültig oder zu alt (Replay-Schutz)');\n}\n\nconst expected = crypto.createHmac('sha256', secret).update(`${timestamp}.${rawBody}`).digest('hex');\nconst a = Buffer.from(expected);\nconst b = Buffer.from(String(signature));\nif (a.length !== b.length || !crypto.timingSafeEqual(a, b)) {\n  throw new Error('Signatur ungültig');\n}\n\nreturn {\n  json: {\n    jobId: body.jobId,\n    query: body.query,\n    locale: body.locale || 'de',\n    hardinessZone: body.hardinessZone ?? null,\n    callbackUrl: body.callbackUrl,\n    schemaVersion: body.schemaVersion,\n    promptVersion: body.promptVersion || null,\n  },\n};"
+      }
+    },
+    {
+      "id": "46a97ab6-db5a-4bfe-9de8-fece3b171190",
+      "name": "Prompt bauen",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        520,
+        300
+      ],
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Baut den Prompt für die AI (Gemini) aus der recherchierten Pflanze.\n// WICHTIG: Der Prompt beschreibt exakt das CareProfile-JSON-Schema aus\n// packages/shared/src/care-profile.ts — bei Schema-Änderungen im Code\n// diesen Text mit aktualisieren.\n\nconst schema = \"{\\n  \\\"identity\\\": { \\\"botanicalName\\\": string, \\\"commonNamesDe\\\": string[]|null, \\\"commonNamesEn\\\": string[]|null, \\\"family\\\": string|null, \\\"cultivar\\\": string|null },\\n  \\\"placement\\\": { \\\"light\\\": \\\"full_sun\\\"|\\\"partial_sun\\\"|\\\"bright_indirect\\\"|\\\"shade\\\"|null, \\\"indoor\\\": boolean|null, \\\"outdoor\\\": boolean|null, \\\"recommendedDirection\\\": (\\\"N\\\"|\\\"NE\\\"|\\\"E\\\"|\\\"SE\\\"|\\\"S\\\"|\\\"SW\\\"|\\\"W\\\"|\\\"NW\\\")[]|null, \\\"humidityMinPct\\\": number|null, \\\"humidityMaxPct\\\": number|null, \\\"temperatureMinC\\\": number|null, \\\"temperatureOptimalC\\\": number|null, \\\"temperatureMaxC\\\": number|null, \\\"hardy\\\": boolean|null, \\\"hardyToC\\\": number|null, \\\"winterProtection\\\": string|null } | null,\\n  \\\"water\\\": { \\\"intervalDaysBySeason\\\": { \\\"spring\\\": number|null, \\\"summer\\\": number|null, \\\"autumn\\\": number|null, \\\"winter\\\": number|null } | null, \\\"amount\\\": string|null, \\\"method\\\": string|null, \\\"letTopLayerDryOut\\\": boolean|null } | null,\\n  \\\"soil\\\": { \\\"substrate\\\": string|null, \\\"phMin\\\": number|null, \\\"phMax\\\": number|null, \\\"drainage\\\": string|null } | null,\\n  \\\"fertilizer\\\": { \\\"npk\\\": string|null, \\\"rhythm\\\": string|null, \\\"seasonWindow\\\": string[]|null } | null,\\n  \\\"pruning\\\": { \\\"windows\\\": [{ \\\"type\\\": \\\"shape\\\"|\\\"thinning\\\"|\\\"rejuvenation\\\"|\\\"deadheading\\\", \\\"months\\\": string[] }] | null } | null,\\n  \\\"repotting\\\": { \\\"everyYears\\\": number|null, \\\"bestMonths\\\": string[]|null } | null,\\n  \\\"bloom\\\": { \\\"months\\\": string[]|null, \\\"color\\\": string|null, \\\"fragrant\\\": boolean|null, \\\"deadheadSpentBlooms\\\": boolean|null } | null,\\n  \\\"harvest\\\": { \\\"months\\\": string[]|null } | null,\\n  \\\"propagation\\\": { \\\"methods\\\": string[]|null, \\\"bestMonths\\\": string[]|null } | null,\\n  \\\"toxicity\\\": { \\\"petsToxic\\\": boolean|null, \\\"petNotes\\\": string|null, \\\"childrenToxic\\\": boolean|null, \\\"childrenNotes\\\": string|null } | null,\\n  \\\"size\\\": { \\\"heightMinCm\\\": number|null, \\\"heightMaxCm\\\": number|null, \\\"widthMinCm\\\": number|null, \\\"widthMaxCm\\\": number|null, \\\"growthRate\\\": \\\"slow\\\"|\\\"medium\\\"|\\\"fast\\\"|null } | null,\\n  \\\"problems\\\": [{ \\\"name\\\": string, \\\"symptoms\\\": string|null, \\\"remedy\\\": string|null }] | null,\\n  \\\"meta\\\": { \\\"confidence\\\": { [section: string]: number } | null, \\\"sources\\\": string[]|null, \\\"model\\\": string|null, \\\"schemaVersion\\\": number, \\\"promptVersion\\\": string|null }\\n}\";\n\nconst query = $json.query;\n\nconst prompt = `Du bist ein Experte für Pflanzenpflege. Recherchiere fundierte, corrente Pflegeinformationen für folgende Pflanze und antworte AUSSCHLIESSLICH mit einem einzigen validen JSON-Objekt, das exakt diesem Schema entspricht (kein Markdown, kein Fließtext davor oder danach):\n\n${schema}\n\nPflanze: \"${query}\"\n\nRegeln:\n- Alle Textfelder (amount, method, substrate, drainage, npk, rhythm, winterProtection, notes, problems, months, color) auf Deutsch.\n- botanicalName bleibt lateinisch.\n- Wenn ein Wert nicht mit ausreichender Sicherheit bekannt ist: null verwenden, NICHT raten oder erfinden.\n- meta.sources: liste die tatsächlich verwendeten Quellen (URLs), falls über Websuche verfügbar; sonst leeres Array.\n- meta.schemaVersion muss genau ${$json.schemaVersion} sein.\n- Gib NUR das JSON-Objekt zurück, keinen weiteren Text.`;\n\nreturn {\n  json: {\n    ...$json,\n    prompt,\n  },\n};"
+      }
+    },
+    {
+      "id": "59aa204a-c455-41e9-9d74-38bf5de4f5fb",
+      "name": "Gemini AI (Platzhalter – API-Key eintragen)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        780,
+        300
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "x-goog-api-key",
+              "value": "DEIN_GEMINI_API_KEY_HIER_EINTRAGEN"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ contents: [ { parts: [ { text: $json.prompt } ] } ], generationConfig: { responseMimeType: \"application/json\", temperature: 0.2 } }) }}",
+        "options": {}
+      },
+      "notesInFlow": true,
+      "notes": "Platzhalter: Gemini-API-Key eintragen (oder auf n8n-Credential/HTTP-Query-Auth umstellen)."
+    },
+    {
+      "id": "33bb767f-01fe-4b69-a349-1bf85b24716c",
+      "name": "Hinweis: Gemini konfigurieren",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        780,
+        80
+      ],
+      "parameters": {
+        "width": 300,
+        "height": 160,
+        "content": "### Hier Gemini einfügen\n\nIm Node links den API-Key im Header `x-goog-api-key` eintragen (oder besser: eine n8n-Credential vom Typ „Header Auth“ anlegen und im Node auswählen).\n\nModell/Endpoint kann ebenfalls angepasst werden — aktuell `gemini-2.0-flash`."
+      }
+    },
+    {
+      "id": "61d70925-4994-40b4-95e7-6a32e000b79c",
+      "name": "Antwort parsen & validieren",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1040,
+        300
+      ],
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Parst die Gemini-Antwort, validiert grob die Struktur und baut die\n// Callback-Nutzlast. Bei Fehlern wird stattdessen {jobId, error} gebaut,\n// damit der Job in plantapp sauber als \"failed\" markiert wird statt ewig\n// \"queued\" zu bleiben.\n\nconst jobId = $('Signatur prüfen & normalisieren').item.json.jobId;\n\nlet payload;\ntry {\n  const candidates = $json.candidates || [];\n  const text = candidates[0]?.content?.parts?.map(p => p.text).join('') || '';\n  const cleaned = text.trim().replace(/^```json/i, '').replace(/^```/, '').replace(/```$/, '').trim();\n  const result = JSON.parse(cleaned);\n\n  if (!result || typeof result !== 'object' || !result.identity || !result.identity.botanicalName) {\n    throw new Error('Antwort enthält kein gültiges CareProfile (identity.botanicalName fehlt)');\n  }\n\n  payload = { jobId, result };\n} catch (err) {\n  payload = { jobId, error: 'AI-Antwort konnte nicht geparst werden: ' + err.message };\n}\n\nreturn { json: payload };"
+      }
+    },
+    {
+      "id": "450274be-fe31-453f-8dd0-a4a434a28b27",
+      "name": "Callback signieren",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1300,
+        300
+      ],
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Signiert die Callback-Nutzlast mit demselben HMAC-Schema wie der\n// eingehende Webhook-Request.\nconst crypto = require('crypto');\n\nconst secret = $env.PLANTAPP_WEBHOOK_SECRET;\nconst callbackUrl = $('Signatur prüfen & normalisieren').item.json.callbackUrl;\n\nconst bodyString = JSON.stringify($json);\nconst timestamp = Date.now().toString();\nconst signature = crypto.createHmac('sha256', secret).update(`${timestamp}.${bodyString}`).digest('hex');\n\nreturn {\n  json: {\n    callbackUrl,\n    bodyString,\n    timestamp,\n    signature,\n  },\n};"
+      }
+    },
+    {
+      "id": "ea7b5d38-d1d7-4e68-8f54-f7dd47c751e3",
+      "name": "Ergebnis an plantapp zurückmelden",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1560,
+        300
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $json.callbackUrl }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "X-Plantapp-Timestamp",
+              "value": "={{ $json.timestamp }}"
+            },
+            {
+              "name": "X-Plantapp-Signature",
+              "value": "={{ $json.signature }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.bodyString }}",
+        "options": {}
+      }
+    }
+  ],
+  "connections": {
+    "Webhook: plant-enrich": {
+      "main": [
+        [
+          {
+            "node": "Signatur prüfen & normalisieren",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Signatur prüfen & normalisieren": {
+      "main": [
+        [
+          {
+            "node": "Prompt bauen",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prompt bauen": {
+      "main": [
+        [
+          {
+            "node": "Gemini AI (Platzhalter – API-Key eintragen)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini AI (Platzhalter – API-Key eintragen)": {
+      "main": [
+        [
+          {
+            "node": "Antwort parsen & validieren",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Antwort parsen & validieren": {
+      "main": [
+        [
+          {
+            "node": "Callback signieren",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Callback signieren": {
+      "main": [
+        [
+          {
+            "node": "Ergebnis an plantapp zurückmelden",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "description": "Empfängt POST von plantapp (/api/plants/:id/enrich), recherchiert per Gemini ein CareProfile-JSON und meldet es HMAC-signiert an plantapp (/api/enrichment/callback) zurück. Benötigt die n8n-Umgebungsvariable PLANTAPP_WEBHOOK_SECRET (identisch mit N8N_CALLBACK_SECRET in plantapp)."
+  }
+}
