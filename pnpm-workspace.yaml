@@ -6,3 +6,8 @@ onlyBuiltDependencies:
   - esbuild
   - argon2
   - better-sqlite3
+  - sharp
+  - "@img/sharp-linux-x64"
+  - "@img/sharp-libvips-linux-x64"
+  - "@img/sharp-linux-arm64"
+  - "@img/sharp-libvips-linux-arm64"

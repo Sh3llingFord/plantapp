@@ -26,7 +26,9 @@ const uploadsDir = path.join(DATA_DIR, "uploads");
 const app = Fastify({ logger: true });
 
 await app.register(fastifyCookie);
-await app.register(fastifyMultipart);
+await app.register(fastifyMultipart, {
+  limits: { fileSize: 25 * 1024 * 1024 }, // 25 MB roh, wird danach ohnehin komprimiert
+});
 
 // Rohen Body zusätzlich zum geparsten JSON aufbewahren — nötig, um die
 // HMAC-Signatur des n8n-Callbacks exakt über die empfangenen Bytes zu prüfen.
