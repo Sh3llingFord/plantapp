@@ -4895,7 +4895,10 @@
       }
     ],
     "meta": {
-      "confidence": null,
+      "confidence": {
+        "sowing": 0.6,
+        "companionPlanting": 0.6
+      },
       "sources": [
         "https://www.rhs.org.uk/plants/helianthus/growing-guide",
         "https://www.rhs.org.uk/plants/105515/helianthus-annuus/details",
@@ -4905,8 +4908,31 @@
       "schemaVersion": 2,
       "promptVersion": null
     },
-    "sowing": null,
-    "companionPlanting": null
+    "sowing": {
+      "indoorMonths": [
+        "April"
+      ],
+      "outdoorMonths": [
+        "Mai"
+      ],
+      "plantOutMonths": [
+        "Mai"
+      ],
+      "daysToGermination": 10
+    },
+    "companionPlanting": {
+      "goodCompanions": [
+        "Gurke",
+        "Kürbis",
+        "Zucchini",
+        "Bohnen"
+      ],
+      "badCompanions": [
+        "Kartoffel",
+        "Stangenbohne"
+      ],
+      "notes": "Sonnenblumen sind Starkzehrer und können durch ihre Größe Schatten werfen."
+    }
   },
   {
     "identity": {
@@ -5182,7 +5208,9 @@
         "placement": 0.5,
         "water": 0.4,
         "harvest": 0.5,
-        "size": 0.5
+        "size": 0.5,
+        "sowing": 0.6,
+        "companionPlanting": 0.6
       },
       "sources": [
         "https://www.rhs.org.uk/plants/16099/rosmarinus-officinalis/details",
@@ -5194,8 +5222,32 @@
       "schemaVersion": 2,
       "promptVersion": null
     },
-    "sowing": null,
-    "companionPlanting": null
+    "sowing": {
+      "indoorMonths": [
+        "Februar",
+        "März"
+      ],
+      "outdoorMonths": [
+        "Mai"
+      ],
+      "plantOutMonths": [
+        "Mai"
+      ],
+      "daysToGermination": 21
+    },
+    "companionPlanting": {
+      "goodCompanions": [
+        "Salbei",
+        "Thymian",
+        "Lavendel",
+        "Bohnenkraut"
+      ],
+      "badCompanions": [
+        "Basilikum",
+        "Petersilie"
+      ],
+      "notes": "Rosmarin verträgt sich gut mit anderen mediterranen Kräutern, die ähnliche Ansprüche an Boden und Wasser stellen."
+    }
   },
   {
     "identity": {
@@ -5332,7 +5384,9 @@
       "confidence": {
         "toxicity": 0.3,
         "water": 0.4,
-        "size": 0.5
+        "size": 0.5,
+        "sowing": 0.6,
+        "companionPlanting": 0.6
       },
       "sources": [
         "https://en.wikipedia.org/wiki/Thymus_vulgaris",
@@ -5344,8 +5398,32 @@
       "schemaVersion": 2,
       "promptVersion": null
     },
-    "sowing": null,
-    "companionPlanting": null
+    "sowing": {
+      "indoorMonths": [
+        "März",
+        "April"
+      ],
+      "outdoorMonths": [
+        "Mai"
+      ],
+      "plantOutMonths": [
+        "Mai"
+      ],
+      "daysToGermination": 14
+    },
+    "companionPlanting": {
+      "goodCompanions": [
+        "Rosmarin",
+        "Lavendel",
+        "Tomate",
+        "Erdbeere"
+      ],
+      "badCompanions": [
+        "Majoran",
+        "Pfefferminze"
+      ],
+      "notes": "Thymian verträgt sich gut mit anderen mediterranen Kräutern, die ähnliche Ansprüche an Boden und Sonne stellen."
+    }
   },
   {
     "identity": {
@@ -5477,7 +5555,9 @@
       "confidence": {
         "placement": 0.5,
         "water": 0.4,
-        "size": 0.5
+        "size": 0.5,
+        "sowing": 0.6,
+        "companionPlanting": 0.6
       },
       "sources": [
         "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=a689",
@@ -5490,8 +5570,32 @@
       "schemaVersion": 2,
       "promptVersion": null
     },
-    "sowing": null,
-    "companionPlanting": null
+    "sowing": {
+      "indoorMonths": [
+        "März",
+        "April"
+      ],
+      "outdoorMonths": [
+        "Mai",
+        "Juni"
+      ],
+      "plantOutMonths": [
+        "Mai"
+      ],
+      "daysToGermination": 10
+    },
+    "companionPlanting": {
+      "goodCompanions": [
+        "Tomate",
+        "Gurke",
+        "Paprika"
+      ],
+      "badCompanions": [
+        "Majoran",
+        "Rauten"
+      ],
+      "notes": "Basilikum harmoniert hervorragend mit Tomaten, da es den Geschmack verbessern und Schädlinge wie die Weiße Fliege abwehren soll."
+    }
   },
   {
     "identity": {
@@ -5632,7 +5736,9 @@
       "confidence": {
         "water": 0.4,
         "size": 0.4,
-        "soil": 0.4
+        "soil": 0.4,
+        "sowing": 0.6,
+        "companionPlanting": 0.6
       },
       "sources": [
         "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a244",
@@ -5643,8 +5749,33 @@
       "schemaVersion": 2,
       "promptVersion": null
     },
-    "sowing": null,
-    "companionPlanting": null
+    "sowing": {
+      "indoorMonths": [
+        "März",
+        "April"
+      ],
+      "outdoorMonths": [
+        "Mai",
+        "Juni"
+      ],
+      "plantOutMonths": [
+        "Mai",
+        "Juni"
+      ],
+      "daysToGermination": 14
+    },
+    "companionPlanting": {
+      "goodCompanions": [
+        "Kamille",
+        "Kohl",
+        "Tomate"
+      ],
+      "badCompanions": [
+        "Petersilie",
+        "Fenchel"
+      ],
+      "notes": "Minze breitet sich stark über Ausläufer aus, weshalb eine Wurzelsperre im Beet sinnvoll ist."
+    }
   },
   {
     "identity": {
@@ -5784,7 +5915,9 @@
       "confidence": {
         "toxicity": 0.4,
         "water": 0.4,
-        "size": 0.5
+        "size": 0.5,
+        "sowing": 0.6,
+        "companionPlanting": 0.6
       },
       "sources": [
         "https://www.rhs.org.uk/plants/16356/salvia-officinalis/details",
@@ -5796,8 +5929,32 @@
       "schemaVersion": 2,
       "promptVersion": null
     },
-    "sowing": null,
-    "companionPlanting": null
+    "sowing": {
+      "indoorMonths": [
+        "März",
+        "April"
+      ],
+      "outdoorMonths": [
+        "Mai"
+      ],
+      "plantOutMonths": [
+        "Mai"
+      ],
+      "daysToGermination": 14
+    },
+    "companionPlanting": {
+      "goodCompanions": [
+        "Rosmarin",
+        "Thymian",
+        "Karotten",
+        "Kohl"
+      ],
+      "badCompanions": [
+        "Gurken",
+        "Zwiebeln"
+      ],
+      "notes": "Salbei passt gut zu anderen mediterranen Kräutern, die ähnliche Ansprüche an Boden und Wasser stellen."
+    }
   },
   {
     "identity": {
@@ -6064,7 +6221,9 @@
     "meta": {
       "confidence": {
         "water": 0.4,
-        "size": 0.5
+        "size": 0.5,
+        "sowing": 0.6,
+        "companionPlanting": 0.6
       },
       "sources": [
         "https://www.rhs.org.uk/plants/859/allium-schoenoprasum/details",
@@ -6077,8 +6236,38 @@
       "schemaVersion": 2,
       "promptVersion": null
     },
-    "sowing": null,
-    "companionPlanting": null
+    "sowing": {
+      "indoorMonths": [
+        "Februar",
+        "März"
+      ],
+      "outdoorMonths": [
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August"
+      ],
+      "plantOutMonths": [
+        "April",
+        "Mai"
+      ],
+      "daysToGermination": 14
+    },
+    "companionPlanting": {
+      "goodCompanions": [
+        "Karotte",
+        "Tomate",
+        "Erdbeere",
+        "Salat"
+      ],
+      "badCompanions": [
+        "Bohne",
+        "Erbse",
+        "Kohl"
+      ],
+      "notes": "Schnittlauch hält durch seinen Geruch einige Schädlinge wie Möhrenfliegen fern."
+    }
   },
   {
     "identity": {
@@ -6210,7 +6399,9 @@
       "confidence": {
         "placement": 0.4,
         "water": 0.4,
-        "size": 0.5
+        "size": 0.5,
+        "sowing": 0.6,
+        "companionPlanting": 0.6
       },
       "sources": [
         "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a104",
@@ -6223,8 +6414,32 @@
       "schemaVersion": 2,
       "promptVersion": null
     },
-    "sowing": null,
-    "companionPlanting": null
+    "sowing": {
+      "indoorMonths": [
+        "Februar",
+        "März"
+      ],
+      "outdoorMonths": null,
+      "plantOutMonths": [
+        "Mai"
+      ],
+      "daysToGermination": 10
+    },
+    "companionPlanting": {
+      "goodCompanions": [
+        "Basilikum",
+        "Ringelblume",
+        "Knoblauch",
+        "Salat"
+      ],
+      "badCompanions": [
+        "Kohl",
+        "Fenchel",
+        "Kartoffel",
+        "Erbsen"
+      ],
+      "notes": "Basilikum verbessert als Nachbar oft den Geschmack und hält Schädlinge fern. Kartoffeln sollten wegen gemeinsamer Krankheiten (wie Kraut- und Braunfäule) ferngehalten werden."
+    }
   },
   {
     "identity": {
@@ -6359,7 +6574,9 @@
         "toxicity": 0.3,
         "placement": 0.4,
         "water": 0.4,
-        "size": 0.5
+        "size": 0.5,
+        "sowing": 0.6,
+        "companionPlanting": 0.6
       },
       "sources": [
         "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=287148",
@@ -6371,8 +6588,31 @@
       "schemaVersion": 2,
       "promptVersion": null
     },
-    "sowing": null,
-    "companionPlanting": null
+    "sowing": {
+      "indoorMonths": [
+        "Februar",
+        "März"
+      ],
+      "outdoorMonths": null,
+      "plantOutMonths": [
+        "Mai"
+      ],
+      "daysToGermination": 14
+    },
+    "companionPlanting": {
+      "goodCompanions": [
+        "Basilikum",
+        "Tomate",
+        "Salat",
+        "Ringelblume"
+      ],
+      "badCompanions": [
+        "Erbsen",
+        "Fenchel",
+        "Kartoffeln"
+      ],
+      "notes": "Basilikum schützt vor Schädlingen und verbessert das Aroma."
+    }
   },
   {
     "identity": {
@@ -6503,7 +6743,9 @@
       "confidence": {
         "repotting": 0.3,
         "harvest": 0.5,
-        "size": 0.5
+        "size": 0.5,
+        "sowing": 0.6,
+        "companionPlanting": 0.6
       },
       "sources": [
         "https://www.rhs.org.uk/plants/106127/fragaria-x-ananassa-f/details",
@@ -6516,8 +6758,37 @@
       "schemaVersion": 2,
       "promptVersion": null
     },
-    "sowing": null,
-    "companionPlanting": null
+    "sowing": {
+      "indoorMonths": [
+        "Februar",
+        "März"
+      ],
+      "outdoorMonths": [
+        "Mai",
+        "Juni"
+      ],
+      "plantOutMonths": [
+        "Juli",
+        "August"
+      ],
+      "daysToGermination": 21
+    },
+    "companionPlanting": {
+      "goodCompanions": [
+        "Knoblauch",
+        "Zwiebeln",
+        "Salat",
+        "Spinat",
+        "Buschbohnen"
+      ],
+      "badCompanions": [
+        "Kohl",
+        "Kürbis",
+        "Fenchel",
+        "Kartoffeln"
+      ],
+      "notes": "Knoblauch und Zwiebeln schützen durch ihren Geruch vor Pilzkrankheiten und Schädlingen."
+    }
   },
   {
     "identity": {
@@ -6649,7 +6920,8 @@
       "confidence": {
         "harvest": 0.4,
         "size": 0.4,
-        "placement": 0.5
+        "placement": 0.5,
+        "companionPlanting": 0.6
       },
       "sources": [
         "https://www.rhs.org.uk/plants/91243/citrus-x-limon-f/details",
@@ -6663,7 +6935,17 @@
       "promptVersion": null
     },
     "sowing": null,
-    "companionPlanting": null
+    "companionPlanting": {
+      "goodCompanions": [
+        "Lavendel",
+        "Rosmarin"
+      ],
+      "badCompanions": [
+        "Tomate",
+        "Kartoffel"
+      ],
+      "notes": "Citrus limon wird im mitteleuropäischen Raum fast ausschließlich als Kübelpflanze gehalten. Eine direkte Bepflanzung mit Unterkultur im selben Topf ist aufgrund des empfindlichen Wurzelsystems meist nicht empfehlenswert."
+    }
   },
   {
     "identity": {
@@ -6794,7 +7076,8 @@
         "harvest": 0.3,
         "toxicity": 0.4,
         "size": 0.5,
-        "soil": 0.4
+        "soil": 0.4,
+        "companionPlanting": 0.6
       },
       "sources": [
         "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=283004",
@@ -6809,6 +7092,16 @@
       "promptVersion": null
     },
     "sowing": null,
-    "companionPlanting": null
+    "companionPlanting": {
+      "goodCompanions": [
+        "Lavendel",
+        "Rosmarin"
+      ],
+      "badCompanions": [
+        "Farn",
+        "Hostas"
+      ],
+      "notes": "Bevorzugt trockene, sonnige Standorte und verträgt sich gut mit anderen mediterranen Kräutern und Gehölzen mit ähnlichen Ansprüchen an Wasser und Boden."
+    }
   }
 ]
