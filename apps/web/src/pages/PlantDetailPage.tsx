@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { api, LIGHT_LABELS, type PlantDetail, type Location } from "../api";
+import { api, LIGHT_LABELS, type PlantDetail, type Location, type Plant } from "../api";
 import { ToxicityBanner } from "../toxicity";
 import { LocationMatchCard } from "../location-match";
+import { CompanionCard } from "../companion";
 
 export function PlantDetailPage({
   id,
@@ -14,6 +15,7 @@ export function PlantDetailPage({
 }) {
   const [plant, setPlant] = useState<PlantDetail | null>(null);
   const [location, setLocation] = useState<Location | null>(null);
+  const [neighborPlants, setNeighborPlants] = useState<Plant[]>([]);
   const [uploading, setUploading] = useState(false);
   const [enrichStatus, setEnrichStatus] = useState<string | null>(null);
   const pollingJobId = useRef<string | null>(null);
@@ -25,6 +27,10 @@ export function PlantDetailPage({
         api.locations.list().then((locs) => {
           setLocation(locs.find((l) => l.id === p.locationId) ?? null);
         });
+        api.plants.list({ locationId: p.locationId }).then(setNeighborPlants);
+      } else {
+        setLocation(null);
+        setNeighborPlants([]);
       }
 
       const job = p.latestEnrichmentJob;
@@ -146,6 +152,8 @@ export function PlantDetailPage({
       </div>
 
       <LocationMatchCard care={care} location={location} />
+
+      <CompanionCard companionPlanting={care?.companionPlanting} neighborPlants={neighborPlants} ownPlantId={id} />
 
       {plant.notes && (
         <div className="detail-card">

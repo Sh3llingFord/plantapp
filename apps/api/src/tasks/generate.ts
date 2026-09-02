@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto";
 import { and, desc, eq } from "drizzle-orm";
-import { mergeCareProfile, type CareProfile } from "@plantapp/shared";
+import { mergeCareProfile, MONTHS_DE, type CareProfile } from "@plantapp/shared";
 import { db } from "../db/client.js";
 import { plants, species, taskOccurrences } from "../db/schema.js";
 
@@ -10,6 +10,7 @@ export const TASK_TYPES = [
   "prune",
   "repot",
   "harvest",
+  "sow",
   "winter_protect_in",
   "winter_protect_out",
 ] as const;
@@ -21,14 +22,10 @@ export const TASK_LABELS: Record<TaskType, string> = {
   prune: "✂️ Schnitt",
   repot: "🔄 Umtopfen",
   harvest: "🧺 Ernte",
+  sow: "🌰 Aussäen",
   winter_protect_in: "🥶 Winterschutz (reinholen)",
   winter_protect_out: "☀️ Winterschutz (rausstellen)",
 };
-
-const MONTHS_DE = [
-  "Januar", "Februar", "März", "April", "Mai", "Juni",
-  "Juli", "August", "September", "Oktober", "November", "Dezember",
-];
 
 function seasonForMonth(monthIndex: number): "spring" | "summer" | "autumn" | "winter" {
   if ([2, 3, 4].includes(monthIndex)) return "spring";
@@ -158,6 +155,21 @@ export function generateOccurrencesForPlant(plant: typeof plants.$inferSelect, t
     const anchor = lastCompletedDate(plant.id, "harvest") ?? today;
     const due = nextDateInMonthList(addDays(anchor, 1), care.harvest.months);
     if (due) insertOccurrence(plant.id, "harvest", due);
+  }
+
+  // Aussäen: nächstes Aussaat-/Auspflanzfenster (Voranzucht, Direktsaat und Auspflanzen
+  // zusammengefasst — grobe Näherung, wie bei Düngen/Schnitt auch).
+  if (care.sowing && !hasPending(plant.id, "sow")) {
+    const allMonths = [
+      ...(care.sowing.indoorMonths ?? []),
+      ...(care.sowing.outdoorMonths ?? []),
+      ...(care.sowing.plantOutMonths ?? []),
+    ];
+    if (allMonths.length > 0) {
+      const anchor = lastCompletedDate(plant.id, "sow") ?? today;
+      const due = nextDateInMonthList(addDays(anchor, 1), allMonths);
+      if (due) insertOccurrence(plant.id, "sow", due);
+    }
   }
 
   // Winterschutz: einfache Faustregel für nicht winterharte Pflanzen im Freien —

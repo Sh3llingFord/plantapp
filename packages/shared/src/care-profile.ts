@@ -103,6 +103,21 @@ const harvestSchema = z.object({
 });
 export type Harvest = z.infer<typeof harvestSchema>;
 
+const sowingSchema = z.object({
+  indoorMonths: z.array(z.string()).nullable(), // Voranzucht am Fensterbrett
+  outdoorMonths: z.array(z.string()).nullable(), // Direktsaat ins Freiland
+  plantOutMonths: z.array(z.string()).nullable(), // vorgezogene Jungpflanzen auspflanzen
+  daysToGermination: z.number().nullable(),
+});
+export type Sowing = z.infer<typeof sowingSchema>;
+
+const companionPlantingSchema = z.object({
+  goodCompanions: z.array(z.string()).nullable(), // gängige (deutsche) Pflanzennamen
+  badCompanions: z.array(z.string()).nullable(),
+  notes: z.string().nullable(),
+});
+export type CompanionPlanting = z.infer<typeof companionPlantingSchema>;
+
 const propagationSchema = z.object({
   methods: z.array(z.string()).nullable(),
   bestMonths: z.array(z.string()).nullable(),
@@ -152,6 +167,8 @@ export const CareProfileSchema = z.object({
   repotting: repottingSchema.nullable(),
   bloom: bloomSchema.nullable(),
   harvest: harvestSchema.nullable(),
+  sowing: sowingSchema.nullable(),
+  companionPlanting: companionPlantingSchema.nullable(),
   propagation: propagationSchema.nullable(),
   toxicity: toxicitySchema.nullable(),
   size: sizeSchema.nullable(),
@@ -160,4 +177,7 @@ export const CareProfileSchema = z.object({
 });
 export type CareProfile = z.infer<typeof CareProfileSchema>;
 
-export const CARE_PROFILE_SCHEMA_VERSION = 1;
+// v2 (M7): neue Abschnitte `sowing` und `companionPlanting`. Additiv (beide nullable), alte
+// gespeicherte Profile werden weiterhin gelesen — der Versionssprung sorgt nur dafür, dass
+// species_cache-Einträge aus v1 nicht wiederverwendet werden, sondern neu recherchiert werden.
+export const CARE_PROFILE_SCHEMA_VERSION = 2;

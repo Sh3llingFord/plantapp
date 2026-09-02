@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
-import { api, LIGHT_LABELS, type Species } from "../api";
-import type { LightLevel } from "@plantapp/shared";
+import { useEffect, useMemo, useState } from "react";
+import { api, LIGHT_LABELS, type Species, type Location } from "../api";
+import { currentMonthNameDe, isSowableInMonth, matchLocation, type LightLevel } from "@plantapp/shared";
 import { ToxicityBadges } from "../toxicity";
 
 const LIGHT_FILTERS: LightLevel[] = ["full_sun", "partial_sun", "bright_indirect", "shade"];
+const CURRENT_MONTH = currentMonthNameDe();
+const TIER_ICON = { good: "🟢", partial: "🟡", bad: "🔴", unknown: "" } as const;
 
 export function CatalogPage({ onOpenSpecies }: { onOpenSpecies: (id: string) => void }) {
   const [list, setList] = useState<Species[] | null>(null);
@@ -11,6 +13,13 @@ export function CatalogPage({ onOpenSpecies }: { onOpenSpecies: (id: string) => 
   const [light, setLight] = useState<LightLevel | null>(null);
   const [hardyOnly, setHardyOnly] = useState(false);
   const [petSafeOnly, setPetSafeOnly] = useState(false);
+  const [sowableOnly, setSowableOnly] = useState(false);
+  const [outdoorLocations, setOutdoorLocations] = useState<Location[]>([]);
+  const [bedLocationId, setBedLocationId] = useState<string>("");
+
+  useEffect(() => {
+    api.locations.list().then((locs) => setOutdoorLocations(locs.filter((l) => !l.indoor)));
+  }, []);
 
   useEffect(() => {
     const handle = setTimeout(() => {
@@ -26,6 +35,12 @@ export function CatalogPage({ onOpenSpecies }: { onOpenSpecies: (id: string) => 
     }, 200);
     return () => clearTimeout(handle);
   }, [q, light, hardyOnly, petSafeOnly]);
+
+  const visibleList = useMemo(() => {
+    if (!list) return list;
+    if (!sowableOnly) return list;
+    return list.filter((entry) => isSowableInMonth(entry.careProfile.sowing, CURRENT_MONTH));
+  }, [list, sowableOnly]);
 
   return (
     <div className="app-content">
@@ -64,21 +79,55 @@ export function CatalogPage({ onOpenSpecies }: { onOpenSpecies: (id: string) => 
         >
           haustierunbedenklich
         </button>
+        <button
+          type="button"
+          className={`chip ${sowableOnly ? "chip--active" : ""}`}
+          onClick={() => setSowableOnly((v) => !v)}
+        >
+          🌰 diesen Monat säbar
+        </button>
       </div>
 
-      {list === null && <p>lädt…</p>}
-      {list?.length === 0 && (
+      {sowableOnly && (
+        <>
+          <p className="section__status" style={{ marginBottom: 8 }}>
+            Aussaat-, Direktsaat- oder Auspflanzfenster für {CURRENT_MONTH} — unabhängig vom
+            eigenen Bestand, reine Planungshilfe.
+          </p>
+          {outdoorLocations.length > 0 && (
+            <div className="field" style={{ marginBottom: 10 }}>
+              <label htmlFor="bedLocation">Für welches Beet?</label>
+              <select
+                id="bedLocation"
+                className="select"
+                value={bedLocationId}
+                onChange={(e) => setBedLocationId(e.target.value)}
+              >
+                <option value="">– beliebig –</option>
+                {outdoorLocations.map((loc) => (
+                  <option key={loc.id} value={loc.id}>
+                    {loc.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
+        </>
+      )}
+
+      {visibleList === null && <p>lädt…</p>}
+      {visibleList?.length === 0 && (
         <div className="empty-state">
           <span className="empty-state__icon" aria-hidden="true">
             📖
           </span>
-          <p>Keine Pflanze gefunden.</p>
+          <p>{sowableOnly ? `Für ${CURRENT_MONTH} ist nichts hinterlegt.` : "Keine Pflanze gefunden."}</p>
         </div>
       )}
 
-      {list && list.length > 0 && (
+      {visibleList && visibleList.length > 0 && (
         <div className="list">
-          {list.map((entry) => (
+          {visibleList.map((entry) => (
             <button
               key={entry.id}
               type="button"
@@ -98,6 +147,14 @@ export function CatalogPage({ onOpenSpecies }: { onOpenSpecies: (id: string) => 
                 </div>
                 <div className="list-item__subtitle">{entry.botanicalName}</div>
               </div>
+              {sowableOnly && bedLocationId && (() => {
+                const bed = outdoorLocations.find((l) => l.id === bedLocationId);
+                if (!bed) return null;
+                const { tier } = matchLocation(entry.careProfile, bed);
+                return tier === "unknown" ? null : (
+                  <span aria-hidden="true" style={{ fontSize: 16 }}>{TIER_ICON[tier]}</span>
+                );
+              })()}
               <ToxicityBadges toxicity={entry.careProfile.toxicity} />
             </button>
           ))}

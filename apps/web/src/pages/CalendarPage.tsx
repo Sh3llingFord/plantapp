@@ -7,6 +7,7 @@ const ALL_TYPES: TaskType[] = [
   "prune",
   "repot",
   "harvest",
+  "sow",
   "winter_protect_in",
   "winter_protect_out",
 ];

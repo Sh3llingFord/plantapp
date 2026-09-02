@@ -129,9 +129,11 @@
         "https://bloomscape.com/plant-care-guide/monstera/"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -262,9 +264,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/golden-pothos"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -394,9 +398,11 @@
         "https://soltech.com/products/snake-plant-care"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -532,9 +538,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/phalaenopsis-orchid"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -675,9 +683,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/peace-lily"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -806,9 +816,11 @@
         "https://www.aspca.org/news/these-houseplants-can-cause-trouble-your-pets"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -935,9 +947,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/indian-rubber-plant"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -1067,9 +1081,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/aloe"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -1193,9 +1209,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/calathea-lancifolia-3"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -1319,9 +1337,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/corn-plant"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -1458,9 +1478,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/ribbon-plant-chlorophytum-comosum"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -1584,9 +1606,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/weeping-fig"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -1711,9 +1735,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/alocasia"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -1840,9 +1866,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/heartleaf-philodendron"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -1966,9 +1994,11 @@
         "https://thestem.co.uk/plant-academy/a-z-of-plants/dypsis-lutescens-plant-care-guide"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -2110,9 +2140,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/english-ivy"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -2242,9 +2274,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/orange-star"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -2368,9 +2402,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -2501,9 +2537,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/african-violet"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -2623,9 +2661,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/kentia-palm"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -2755,9 +2795,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/tail-flower"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -2884,9 +2926,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/blunt-leaf-peperomia"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -3020,9 +3064,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/rose"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -3146,9 +3192,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/hydrangea"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -3276,9 +3324,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/lavender"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -3403,9 +3453,11 @@
         "https://en.wikipedia.org/wiki/Buxus_sempervirens"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -3534,9 +3586,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/rhododendron"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -3667,9 +3721,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/oleander"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -3814,9 +3870,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/geranium"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -3951,9 +4009,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/clematis"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -4081,9 +4141,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/peony"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -4205,9 +4267,11 @@
         "https://www.vpisglobal.com/2019/10/01/cherry-laurel-and-other-cyanide-containing-plants/"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -4335,9 +4399,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/honeysuckle-fuchsia"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -4461,9 +4527,11 @@
         "https://plantaddicts.com/are-lilacs-poisonous/"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -4580,9 +4648,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/golden-bells"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -4711,9 +4781,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/rose-sharon"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -4830,9 +4902,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/sunflower"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -4962,9 +5036,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/dahlia"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -5115,9 +5191,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/rosemary"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -5263,9 +5341,11 @@
         "https://www.plantura.garden/kraeuter/thymian/thymian-ernten-und-lagern"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -5407,9 +5487,11 @@
         "https://www.lubera.com/de/gartenbuch/basilikum-ueberwintern-p4060"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -5558,9 +5640,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/mint"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -5709,9 +5793,11 @@
         "https://www.rainbowgardens.biz/news-events/10-herbs-non-toxic-to-dogs-aspca-list-approved/"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -5839,9 +5925,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/parsley"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -5986,9 +6074,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/chives"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -6130,9 +6220,11 @@
         "https://www.einrichtungsbeispiele.de/teich-pflanzen/suedamerika/solanum-lycopersicum-slnk.html"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -6276,9 +6368,11 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/ornamental-pepper"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -6419,9 +6513,11 @@
         "https://www.lubera.com/de/gartenbuch/erdbeeren-erntezeit-p4165"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -6563,9 +6659,11 @@
         "https://hgic.clemson.edu/cold-tolerance-in-citrus/"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   },
   {
     "identity": {
@@ -6707,8 +6805,10 @@
         "https://de.wikipedia.org/wiki/Olivenbaum"
       ],
       "model": null,
-      "schemaVersion": 1,
+      "schemaVersion": 2,
       "promptVersion": null
-    }
+    },
+    "sowing": null,
+    "companionPlanting": null
   }
 ]

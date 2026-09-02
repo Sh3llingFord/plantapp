@@ -162,6 +162,7 @@ export type TaskType =
   | "prune"
   | "repot"
   | "harvest"
+  | "sow"
   | "winter_protect_in"
   | "winter_protect_out";
 
@@ -183,6 +184,7 @@ export const TASK_LABELS: Record<TaskType, string> = {
   prune: "✂️ Schnitt",
   repot: "🔄 Umtopfen",
   harvest: "🧺 Ernte",
+  sow: "🌰 Aussäen",
   winter_protect_in: "🥶 Winterschutz (reinholen)",
   winter_protect_out: "☀️ Winterschutz (rausstellen)",
 };

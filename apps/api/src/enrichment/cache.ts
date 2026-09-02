@@ -5,7 +5,7 @@ import { species, speciesCache } from "../db/schema.js";
 import { deriveFilterColumns, slugify } from "../species/helpers.js";
 import { indexSpecies } from "../search/index.js";
 
-export const PROMPT_VERSION = "v1";
+export const PROMPT_VERSION = "v2";
 
 export function normalizeQuery(query: string): string {
   return query.trim().toLowerCase().replace(/\s+/g, " ");
