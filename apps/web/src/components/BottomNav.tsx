@@ -1,9 +1,10 @@
-export type Tab = "plants" | "calendar" | "catalog" | "settings";
+export type Tab = "plants" | "calendar" | "catalog" | "garden" | "settings";
 
 const items: { tab: Tab; icon: string; label: string }[] = [
   { tab: "plants", icon: "🪴", label: "Meine Pflanzen" },
   { tab: "calendar", icon: "📅", label: "Kalender" },
   { tab: "catalog", icon: "📖", label: "Katalog" },
+  { tab: "garden", icon: "🗺️", label: "Beetpläne" },
   { tab: "settings", icon: "⚙️", label: "Einstellungen" },
 ];
 
