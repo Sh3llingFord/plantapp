@@ -3,17 +3,7 @@ import type { FastifyInstance } from "fastify";
 import { eq } from "drizzle-orm";
 import { db } from "../db/client.js";
 import { calendarTokens, plants, taskOccurrences } from "../db/schema.js";
-import type { TaskType } from "../tasks/generate.js";
-
-const TASK_LABELS: Record<TaskType, string> = {
-  water: "💧 Gießen",
-  fertilize: "🌱 Düngen",
-  prune: "✂️ Schnitt",
-  repot: "🔄 Umtopfen",
-  harvest: "🧺 Ernte",
-  winter_protect_in: "🥶 Winterschutz (reinholen)",
-  winter_protect_out: "☀️ Winterschutz (rausstellen)",
-};
+import { TASK_LABELS, type TaskType } from "../tasks/generate.js";
 
 function icsDate(date: Date): string {
   return date.toISOString().slice(0, 10).replace(/-/g, "");

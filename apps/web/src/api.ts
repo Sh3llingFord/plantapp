@@ -122,7 +122,20 @@ export const api = {
   calendar: {
     token: () => request<{ token: string }>("/api/calendar/token"),
   },
+  settings: {
+    get: () => request<UserSettings>("/api/settings"),
+    update: (body: Partial<UserSettings>) =>
+      request<UserSettings>("/api/settings", { method: "PATCH", body: JSON.stringify(body) }),
+  },
 };
+
+export interface UserSettings {
+  userId: string;
+  dailyDigestEnabled: boolean;
+  quietHoursStart: string;
+  quietHoursEnd: string;
+  lastDigestSentDate: string | null;
+}
 
 export type TaskType =
   | "water"

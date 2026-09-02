@@ -114,3 +114,14 @@ export const calendarTokens = sqliteTable("calendar_tokens", {
     .references(() => users.id, { onDelete: "cascade" }),
   createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
 });
+
+// M4 — Erinnerungen scharf stellen.
+export const userSettings = sqliteTable("user_settings", {
+  userId: text("user_id")
+    .primaryKey()
+    .references(() => users.id, { onDelete: "cascade" }),
+  dailyDigestEnabled: integer("daily_digest_enabled", { mode: "boolean" }).notNull().default(true),
+  quietHoursStart: text("quiet_hours_start").notNull().default("08:00"), // "HH:MM", lokale Serverzeit
+  quietHoursEnd: text("quiet_hours_end").notNull().default("21:00"),
+  lastDigestSentDate: text("last_digest_sent_date"), // "YYYY-MM-DD", verhindert Doppelversand am selben Tag
+});

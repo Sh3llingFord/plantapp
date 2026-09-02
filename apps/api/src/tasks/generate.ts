@@ -15,6 +15,16 @@ export const TASK_TYPES = [
 ] as const;
 export type TaskType = (typeof TASK_TYPES)[number];
 
+export const TASK_LABELS: Record<TaskType, string> = {
+  water: "💧 Gießen",
+  fertilize: "🌱 Düngen",
+  prune: "✂️ Schnitt",
+  repot: "🔄 Umtopfen",
+  harvest: "🧺 Ernte",
+  winter_protect_in: "🥶 Winterschutz (reinholen)",
+  winter_protect_out: "☀️ Winterschutz (rausstellen)",
+};
+
 const MONTHS_DE = [
   "Januar", "Februar", "März", "April", "Mai", "Juni",
   "Juli", "August", "September", "Oktober", "November", "Dezember",
