@@ -12,12 +12,16 @@ import { locationRoutes } from "./routes/locations.js";
 import { speciesRoutes } from "./routes/species.js";
 import { plantRoutes } from "./routes/plants.js";
 import { enrichmentRoutes } from "./routes/enrichment.js";
+import { taskRoutes } from "./routes/tasks.js";
+import { calendarRoutes } from "./routes/calendar.js";
 import { startBackupSchedule } from "./backup.js";
+import { startTaskSchedule } from "./tasks/schedule.js";
 import { DATA_DIR } from "./db/paths.js";
 import "./vapid.js"; // erzeugt/lädt VAPID-Keys beim Start
 
 runMigrations();
 startBackupSchedule();
+startTaskSchedule();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const webDist = path.resolve(__dirname, "../../web/dist");
@@ -58,6 +62,8 @@ await app.register(locationRoutes);
 await app.register(speciesRoutes);
 await app.register(plantRoutes);
 await app.register(enrichmentRoutes);
+await app.register(taskRoutes);
+await app.register(calendarRoutes);
 
 await app.register(fastifyStatic, {
   root: uploadsDir,

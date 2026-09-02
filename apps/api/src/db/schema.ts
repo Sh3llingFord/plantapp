@@ -89,3 +89,28 @@ export const enrichmentJobs = sqliteTable("enrichment_jobs", {
   createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
   updatedAt: integer("updated_at", { mode: "timestamp" }).notNull(),
 });
+
+// M3 — Aufgaben und Kalender (siehe docs/ROADMAP.md).
+// Aus dem Pflegeprofil abgeleitete Fälligkeiten. Pro (plantId, type) existiert
+// zu jedem Zeitpunkt höchstens eine "pending"-Zeile; beim Erledigen wird die
+// nächste direkt im Anschluss neu generiert (ausgehend vom tatsächlichen
+// Erledigungsdatum, nicht vom ursprünglichen Plandatum).
+export const taskOccurrences = sqliteTable("task_occurrences", {
+  id: text("id").primaryKey(),
+  plantId: text("plant_id")
+    .notNull()
+    .references(() => plants.id, { onDelete: "cascade" }),
+  type: text("type").notNull(), // water | fertilize | prune | repot | harvest | winter_protect_in | winter_protect_out
+  dueDate: integer("due_date", { mode: "timestamp" }).notNull(),
+  status: text("status").notNull().default("pending"), // pending | done | skipped
+  completedDate: integer("completed_date", { mode: "timestamp" }),
+  createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
+});
+
+export const calendarTokens = sqliteTable("calendar_tokens", {
+  token: text("token").primaryKey(),
+  userId: text("user_id")
+    .notNull()
+    .references(() => users.id, { onDelete: "cascade" }),
+  createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
+});

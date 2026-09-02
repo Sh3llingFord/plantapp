@@ -6,6 +6,7 @@ import { enrichmentJobs, plants } from "../db/schema.js";
 import { storeEnrichmentResult } from "../enrichment/cache.js";
 import { verifySignature } from "../enrichment/hmac.js";
 import { triggerEnrichmentForPlant, CALLBACK_PATH } from "../enrichment/trigger.js";
+import { generateOccurrencesForPlant } from "../tasks/generate.js";
 
 export async function enrichmentRoutes(app: FastifyInstance) {
   app.post<{ Params: { id: string } }>("/api/plants/:id/enrich", async (request, reply) => {
@@ -79,6 +80,8 @@ export async function enrichmentRoutes(app: FastifyInstance) {
 
     if (job.plantId) {
       db.update(plants).set({ speciesId }).where(eq(plants.id, job.plantId)).run();
+      const plant = db.select().from(plants).where(eq(plants.id, job.plantId)).get();
+      if (plant) generateOccurrencesForPlant(plant);
     }
 
     return { ok: true };

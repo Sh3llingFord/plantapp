@@ -8,6 +8,7 @@ import { PlantFormPage } from "./pages/PlantFormPage";
 import { CatalogPage } from "./pages/CatalogPage";
 import { SpeciesDetailPage } from "./pages/SpeciesDetailPage";
 import { SettingsPage } from "./pages/SettingsPage";
+import { CalendarPage } from "./pages/CalendarPage";
 
 interface User {
   username: string;
@@ -24,6 +25,7 @@ function titleFor(tab: Tab, view: View): string {
   if (view.name === "plant-detail") return "Pflanze";
   if (view.name === "species-detail") return "Katalog";
   if (tab === "plants") return "Meine Pflanzen";
+  if (tab === "calendar") return "Kalender";
   if (tab === "catalog") return "Katalog";
   return "Einstellungen";
 }
@@ -79,6 +81,8 @@ function AppShell({ user, onLoggedOut }: { user: User; onLoggedOut: () => void }
           }}
         />
       )}
+
+      {tab === "calendar" && <CalendarPage />}
 
       {tab === "settings" && <SettingsPage user={user} onLoggedOut={onLoggedOut} />}
 

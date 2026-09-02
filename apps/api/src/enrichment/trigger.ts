@@ -5,6 +5,7 @@ import { db } from "../db/client.js";
 import { enrichmentJobs, plants, type plants as PlantsTable } from "../db/schema.js";
 import { getCachedCareProfile, storeEnrichmentResult, PROMPT_VERSION } from "./cache.js";
 import { signRequest } from "./hmac.js";
+import { generateOccurrencesForPlant } from "../tasks/generate.js";
 
 export const CALLBACK_PATH = "/api/enrichment/callback";
 
@@ -39,6 +40,7 @@ export async function triggerEnrichmentForPlant(
   if (cached) {
     const speciesId = storeEnrichmentResult(query, cached);
     db.update(plants).set({ speciesId }).where(eq(plants.id, plant.id)).run();
+    generateOccurrencesForPlant({ ...plant, speciesId });
     return { status: "done", speciesId };
   }
 

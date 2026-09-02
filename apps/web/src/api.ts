@@ -110,6 +110,48 @@ export const api = {
         `/api/enrichment/jobs/${id}`,
       ),
   },
+  tasks: {
+    list: (params: { from?: string; to?: string; types?: string } = {}) =>
+      request<Task[]>(`/api/tasks${query(params)}`),
+    update: (id: string, status: "done" | "skipped" | "later") =>
+      request<{ ok: true }>(`/api/tasks/${id}`, {
+        method: "PATCH",
+        body: JSON.stringify({ status }),
+      }),
+  },
+  calendar: {
+    token: () => request<{ token: string }>("/api/calendar/token"),
+  },
+};
+
+export type TaskType =
+  | "water"
+  | "fertilize"
+  | "prune"
+  | "repot"
+  | "harvest"
+  | "winter_protect_in"
+  | "winter_protect_out";
+
+export interface Task {
+  id: string;
+  plantId: string;
+  type: TaskType;
+  dueDate: string;
+  status: "pending" | "done" | "skipped";
+  completedDate: string | null;
+  plantNickname: string;
+  plantPhotoPath: string | null;
+}
+
+export const TASK_LABELS: Record<TaskType, string> = {
+  water: "💧 Gießen",
+  fertilize: "🌱 Düngen",
+  prune: "✂️ Schnitt",
+  repot: "🔄 Umtopfen",
+  harvest: "🧺 Ernte",
+  winter_protect_in: "🥶 Winterschutz (reinholen)",
+  winter_protect_out: "☀️ Winterschutz (rausstellen)",
 };
 
 export const LIGHT_LABELS: Record<LightLevel, string> = {

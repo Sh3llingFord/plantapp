@@ -7,6 +7,7 @@ import { enrichmentJobs, plants, species } from "../db/schema.js";
 import { indexPlant, removeFromIndex, searchIndex } from "../search/index.js";
 import { saveUploadedPhoto } from "../uploads.js";
 import { triggerEnrichmentForPlant } from "../enrichment/trigger.js";
+import { generateOccurrencesForPlant } from "../tasks/generate.js";
 
 interface PlantsQuery {
   q?: string;
@@ -115,6 +116,9 @@ export async function plantRoutes(app: FastifyInstance) {
       triggerEnrichmentForPlant(created, request, app.log).catch((err) => {
         app.log.error({ err }, "Automatische KI-Recherche fehlgeschlagen");
       });
+    } else if (created.speciesId) {
+      // Direkt aus dem Katalog gewählt -> Pflegeprofil ist schon da, Fälligkeiten sofort anlegen.
+      generateOccurrencesForPlant(created);
     }
 
     return created;
@@ -148,6 +152,16 @@ export async function plantRoutes(app: FastifyInstance) {
 
       const updated = db.select().from(plants).where(eq(plants.id, request.params.id)).get()!;
       indexPlant(updated.id, updated.nickname, updated.freeTextSpecies, updated.notes);
+
+      const speciesJustAdded = existing.speciesId === null && updated.speciesId !== null;
+      const freeTextJustAdded = !existing.freeTextSpecies && updated.freeTextSpecies && !updated.speciesId;
+      if (speciesJustAdded) {
+        generateOccurrencesForPlant(updated);
+      } else if (freeTextJustAdded) {
+        triggerEnrichmentForPlant(updated, request, app.log).catch((err) => {
+          app.log.error({ err }, "Automatische KI-Recherche fehlgeschlagen");
+        });
+      }
 
       return updated;
     },
