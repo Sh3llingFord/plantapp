@@ -238,6 +238,9 @@ export function SpeciesDetailPage({
         ) : (
           <span aria-hidden="true">{uploading ? "…" : "🌿"}</span>
         )}
+        <span className="detail-photo__hint">
+          <span aria-hidden="true">📷</span> {entry.photoPath ? "Foto ändern" : "Foto hinzufügen"}
+        </span>
         <input
           type="file"
           accept="image/jpeg,image/png,image/webp"

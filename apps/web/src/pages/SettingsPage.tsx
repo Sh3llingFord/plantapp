@@ -191,6 +191,74 @@ export function SettingsPage({ user, onLoggedOut }: { user: User; onLoggedOut: (
         </div>
 
         <div className="section">
+          <p className="section__title">
+            <span aria-hidden="true">❓</span> Häufige Fragen
+          </p>
+          <details className="faq-item">
+            <summary>Wie lege ich eine Pflanze an?</summary>
+            <p>
+              Über „Meine Pflanzen" → „+": entweder eine Art aus dem Katalog auswählen (Pflegedaten
+              sind sofort da) oder einen Namen frei eintragen — dann recherchiert die KI im
+              Hintergrund automatisch ein Pflegeprofil dafür.
+            </p>
+          </details>
+          <details className="faq-item">
+            <summary>Woher kommen die Pflegedaten?</summary>
+            <p>
+              Katalog-Einträge sind mit echten Quellen recherchiert. Frei eingetragene Arten werden
+              per KI recherchiert; unsichere Werte bleiben leer statt geraten zu werden.
+            </p>
+          </details>
+          <details className="faq-item">
+            <summary>Wie funktionieren Aufgaben &amp; Kalender?</summary>
+            <p>
+              Aus dem Pflegeprofil jeder Pflanze werden automatisch Fälligkeiten erzeugt (Gießen,
+              Düngen, Schnitt, Umtopfen, Ernte, Aussäen, Winterschutz). Im Kalender lassen sie sich
+              als erledigt/später/übersprungen markieren; die nächste Fälligkeit entsteht dann
+              automatisch.
+            </p>
+          </details>
+          <details className="faq-item">
+            <summary>Was bedeutet der Standort-Check?</summary>
+            <p>
+              Auf der Pflanzen-Detailseite und beim Anlegen zeigt eine Ampel (🟢/🟡/🔴), ob Licht,
+              Himmelsrichtung und Innen/Außen des gewählten Standorts zur Pflanze passen. Fehlen
+              Angaben, steht dort „nicht bewertbar" statt einer Vermutung.
+            </p>
+          </details>
+          <details className="faq-item">
+            <summary>Was macht die Wetter-/Frostwarnung?</summary>
+            <p>
+              Sobald oben ein Standort gesetzt ist, ruft die App nachts die Wettervorhersage ab und
+              warnt bei drohendem Frost (mit Liste gefährdeter Außenpflanzen), Hitze und verschiebt
+              Gießaufgaben im Freien automatisch bei ausreichend Regen.
+            </p>
+          </details>
+          <details className="faq-item">
+            <summary>Was sind Beetpläne?</summary>
+            <p>
+              Im Tab „Beetpläne": ein Raster in selbst gewählter Größe anlegen und Feld für Feld mit
+              Katalog-Pflanzen belegen. „Prüfen" gleicht alle Nachbarfelder gegen die
+              Mischkultur-Daten ab und markiert gute (grün) und schlechte (rot) Nachbarschaften.
+            </p>
+          </details>
+          <details className="faq-item">
+            <summary>Was zeigt die Übersicht?</summary>
+            <p>
+              Die Startseite bündelt, was heute wichtig ist: fällige/überfällige Aufgaben, aktive
+              Wetterwarnungen, Standort-Probleme und einen Hinweis, was diesen Monat säbar ist.
+            </p>
+          </details>
+          <details className="faq-item">
+            <summary>Wie funktioniert die tägliche Zusammenfassung?</summary>
+            <p>
+              Statt einer Benachrichtigung pro fälliger Aufgabe kommt einmal täglich eine
+              gebündelte Zusammenfassung — nur innerhalb des oben eingestellten Zeitfensters.
+            </p>
+          </details>
+        </div>
+
+        <div className="section">
           <button className="btn btn--ghost" onClick={handleLogout}>
             Ausloggen
           </button>

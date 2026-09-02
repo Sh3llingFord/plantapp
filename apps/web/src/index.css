@@ -593,6 +593,22 @@ input {
   overflow: hidden;
 }
 
+.detail-photo__hint {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgb(0 0 0 / 0.55);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  pointer-events: none;
+}
+
 .detail-card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -711,4 +727,44 @@ input {
   width: 100%;
   max-height: 75vh;
   overflow-y: auto;
+}
+
+/* --- FAQ (Einstellungen) --- */
+
+.faq-item {
+  border-bottom: 1px solid var(--color-border);
+  padding: 10px 0;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::before {
+  content: "▸";
+  display: inline-block;
+  margin-right: 6px;
+  color: var(--color-primary);
+  transition: transform 0.15s ease;
+}
+
+.faq-item[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.faq-item p {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: var(--color-text-muted);
 }

@@ -118,6 +118,9 @@ export function PlantDetailPage({
         ) : (
           <span aria-hidden="true">{uploading ? "…" : "🪴"}</span>
         )}
+        <span className="detail-photo__hint">
+          <span aria-hidden="true">📷</span> {plant.photoPath ? "Foto ändern" : "Foto hinzufügen"}
+        </span>
         <input
           type="file"
           accept="image/jpeg,image/png,image/webp"
