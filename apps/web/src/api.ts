@@ -40,6 +40,7 @@ export interface Plant {
 
 export interface PlantDetail extends Plant {
   careProfile: CareProfile | null;
+  latestEnrichmentJob: { id: string; status: "queued" | "done" | "failed"; error: string | null } | null;
 }
 
 async function request<T>(url: string, init?: RequestInit): Promise<T> {

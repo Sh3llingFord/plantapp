@@ -1,11 +1,12 @@
 import { randomUUID } from "node:crypto";
 import type { FastifyInstance } from "fastify";
-import { and, eq, inArray } from "drizzle-orm";
+import { and, desc, eq, inArray } from "drizzle-orm";
 import { mergeCareProfile, type CareProfile } from "@plantapp/shared";
 import { db } from "../db/client.js";
-import { plants, species } from "../db/schema.js";
+import { enrichmentJobs, plants, species } from "../db/schema.js";
 import { indexPlant, removeFromIndex, searchIndex } from "../search/index.js";
 import { saveUploadedPhoto } from "../uploads.js";
+import { triggerEnrichmentForPlant } from "../enrichment/trigger.js";
 
 interface PlantsQuery {
   q?: string;
@@ -72,7 +73,15 @@ export async function plantRoutes(app: FastifyInstance) {
       }
     }
 
-    return { ...plant, careProfile };
+    const latestJob = db
+      .select({ id: enrichmentJobs.id, status: enrichmentJobs.status, error: enrichmentJobs.error })
+      .from(enrichmentJobs)
+      .where(eq(enrichmentJobs.plantId, plant.id))
+      .orderBy(desc(enrichmentJobs.createdAt))
+      .limit(1)
+      .get();
+
+    return { ...plant, careProfile, latestEnrichmentJob: latestJob ?? null };
   });
 
   app.post<{ Body: PlantBody }>("/api/plants", async (request, reply) => {
@@ -98,7 +107,17 @@ export async function plantRoutes(app: FastifyInstance) {
 
     indexPlant(id, nickname, freeTextSpecies ?? null, notes ?? null);
 
-    return db.select().from(plants).where(eq(plants.id, id)).get();
+    const created = db.select().from(plants).where(eq(plants.id, id)).get()!;
+
+    // Frei eingetragene Art (nicht aus dem Katalog) -> KI-Recherche automatisch
+    // anstoßen. Läuft asynchron im Hintergrund, blockiert die Antwort nicht.
+    if (!created.speciesId && created.freeTextSpecies) {
+      triggerEnrichmentForPlant(created, request, app.log).catch((err) => {
+        app.log.error({ err }, "Automatische KI-Recherche fehlgeschlagen");
+      });
+    }
+
+    return created;
   });
 
   app.patch<{ Params: { id: string }; Body: PlantBody }>(

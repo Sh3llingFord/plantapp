@@ -1,19 +1,11 @@
-import { randomUUID } from "node:crypto";
 import type { FastifyInstance } from "fastify";
 import { eq } from "drizzle-orm";
-import { CareProfileSchema, CARE_PROFILE_SCHEMA_VERSION } from "@plantapp/shared";
+import { CareProfileSchema } from "@plantapp/shared";
 import { db } from "../db/client.js";
 import { enrichmentJobs, plants } from "../db/schema.js";
-import { getCachedCareProfile, storeEnrichmentResult, PROMPT_VERSION } from "../enrichment/cache.js";
-import { signRequest, verifySignature } from "../enrichment/hmac.js";
-
-const CALLBACK_PATH = "/api/enrichment/callback";
-
-function callbackUrl(request: { protocol: string; hostname: string }): string {
-  const base = process.env.PUBLIC_BASE_URL;
-  if (base) return `${base.replace(/\/$/, "")}${CALLBACK_PATH}`;
-  return `${request.protocol}://${request.hostname}${CALLBACK_PATH}`;
-}
+import { storeEnrichmentResult } from "../enrichment/cache.js";
+import { verifySignature } from "../enrichment/hmac.js";
+import { triggerEnrichmentForPlant, CALLBACK_PATH } from "../enrichment/trigger.js";
 
 export async function enrichmentRoutes(app: FastifyInstance) {
   app.post<{ Params: { id: string } }>("/api/plants/:id/enrich", async (request, reply) => {
@@ -22,60 +14,13 @@ export async function enrichmentRoutes(app: FastifyInstance) {
     const plant = db.select().from(plants).where(eq(plants.id, request.params.id)).get();
     if (!plant) return reply.code(404).send({ error: "nicht gefunden" });
 
-    const query = plant.freeTextSpecies ?? plant.nickname;
-
-    // species_cache-Treffer: sofort verknüpfen, kein AI-Call nötig.
-    const cached = getCachedCareProfile(query);
-    if (cached) {
-      const speciesId = storeEnrichmentResult(query, cached);
-      db.update(plants).set({ speciesId }).where(eq(plants.id, plant.id)).run();
-      return { status: "done", speciesId };
+    const result = await triggerEnrichmentForPlant(plant, request, app.log);
+    if (result.status === "skipped") {
+      return reply
+        .code(400)
+        .send({ error: "kein Artname hinterlegt — erst bearbeiten und einen eintragen" });
     }
-
-    const jobId = randomUUID();
-    const now = new Date();
-    db.insert(enrichmentJobs)
-      .values({ id: jobId, query, plantId: plant.id, status: "queued", createdAt: now, updatedAt: now })
-      .run();
-
-    const webhookUrl = process.env.N8N_ENRICH_WEBHOOK_URL;
-    const secret = process.env.N8N_CALLBACK_SECRET;
-    if (!webhookUrl || !secret) {
-      // n8n ist (noch) nicht angebunden — die Pflanze bleibt trotzdem nutzbar,
-      // der Job bleibt "queued", bis n8n konfiguriert ist. Die KI darf nie ein Blocker sein.
-      return { status: "queued", jobId, note: "n8n-Webhook nicht konfiguriert" };
-    }
-
-    const payload = {
-      jobId,
-      query,
-      locale: "de",
-      hardinessZone: null,
-      callbackUrl: callbackUrl(request),
-      schemaVersion: CARE_PROFILE_SCHEMA_VERSION,
-      promptVersion: PROMPT_VERSION,
-    };
-    const rawBody = JSON.stringify(payload);
-    const { timestamp, signature } = signRequest(secret, rawBody);
-
-    try {
-      await fetch(webhookUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Plantapp-Timestamp": timestamp,
-          "X-Plantapp-Signature": signature,
-        },
-        body: rawBody,
-      });
-    } catch (err) {
-      app.log.error({ err }, "n8n-Webhook nicht erreichbar");
-      // Job bleibt "queued" — Retry passiert nicht automatisch von unserer Seite,
-      // n8n selbst retryt laut Roadmap serverseitig; der Job kann später erneut
-      // über POST /api/plants/:id/enrich angestoßen werden.
-    }
-
-    return { status: "queued", jobId };
+    return result;
   });
 
   app.get<{ Params: { id: string } }>("/api/enrichment/jobs/:id", async (request, reply) => {

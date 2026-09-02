@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { api, LIGHT_LABELS, type PlantDetail, type Location } from "../api";
 import { ToxicityBanner } from "../toxicity";
 
@@ -15,6 +15,7 @@ export function PlantDetailPage({
   const [location, setLocation] = useState<Location | null>(null);
   const [uploading, setUploading] = useState(false);
   const [enrichStatus, setEnrichStatus] = useState<string | null>(null);
+  const pollingJobId = useRef<string | null>(null);
 
   function load() {
     api.plants.get(id).then((p) => {
@@ -23,6 +24,15 @@ export function PlantDetailPage({
         api.locations.list().then((locs) => {
           setLocation(locs.find((l) => l.id === p.locationId) ?? null);
         });
+      }
+
+      const job = p.latestEnrichmentJob;
+      if (!p.careProfile && job?.status === "queued" && pollingJobId.current !== job.id) {
+        pollingJobId.current = job.id;
+        setEnrichStatus("wird automatisch recherchiert…");
+        pollJob(job.id, 30);
+      } else if (!p.careProfile && job?.status === "failed") {
+        setEnrichStatus(job.error ?? "Recherche fehlgeschlagen");
       }
     });
   }
@@ -73,6 +83,7 @@ export function PlantDetailPage({
         setEnrichStatus("Pflegeprofil gefunden ✓");
         load();
       } else if (result.jobId) {
+        pollingJobId.current = result.jobId;
         setEnrichStatus("angefragt — n8n recherchiert im Hintergrund…");
         pollJob(result.jobId, 30);
       } else {
@@ -86,6 +97,7 @@ export function PlantDetailPage({
   if (!plant) return <div className="app-content">lädt…</div>;
 
   const care = plant.careProfile;
+  const jobPending = plant.latestEnrichmentJob?.status === "queued";
 
   return (
     <div className="app-content">
@@ -153,13 +165,25 @@ export function PlantDetailPage({
       {!care && plant.freeTextSpecies && (
         <div className="detail-card">
           <p style={{ color: "var(--color-text-muted)", marginBottom: 10 }}>
-            Diese Pflanze ist nicht mit dem Katalog verknüpft, daher gibt es noch kein
-            Pflegeprofil.
+            Für <strong>{plant.freeTextSpecies}</strong> gibt es noch kein Pflegeprofil.
+            {jobPending
+              ? " Die KI-Recherche läuft automatisch im Hintergrund."
+              : " Automatische Recherche wurde beim Anlegen angestoßen."}
           </p>
-          <button className="btn btn--secondary" onClick={handleEnrich}>
-            🔎 Pflegeprofil per KI recherchieren
+          <button className="btn btn--secondary" onClick={handleEnrich} disabled={jobPending}>
+            🔎 {jobPending ? "läuft bereits…" : "Erneut recherchieren"}
           </button>
           {enrichStatus && <p className="section__status">{enrichStatus}</p>}
+        </div>
+      )}
+
+      {!care && !plant.freeTextSpecies && (
+        <div className="detail-card">
+          <p style={{ color: "var(--color-text-muted)" }}>
+            Kein Artname hinterlegt, daher gibt es kein Pflegeprofil und keine automatische
+            Recherche. "{plant.nickname}" ist nur ein Spitzname — trag unter "Bearbeiten" einen
+            botanischen oder gängigen Artnamen ein.
+          </p>
         </div>
       )}
 

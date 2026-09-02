@@ -137,10 +137,11 @@ export function PlantFormPage({ plantId, onSaved, onCancel }: Props) {
                 </div>
               )}
               <p style={{ fontSize: 12, margin: "6px 0" }}>
-                Nicht im Katalog? Freien Namen eintragen:
+                Nicht im Katalog? Botanischen oder gängigen Namen eintragen — danach wird
+                automatisch ein Pflegeprofil per KI recherchiert:
               </p>
               <input
-                placeholder="z.B. unbekannte Pflanze vom Markt"
+                placeholder="z.B. Ficus lyrata, Geigenfeige"
                 value={freeTextSpecies}
                 onChange={(e) => setFreeTextSpecies(e.target.value)}
               />
