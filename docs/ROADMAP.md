@@ -442,6 +442,12 @@ macht das bisher auf drei Tabs verteilte „was ist heute wichtig" an einem Ort 
 
 ### M9 — Härtung und Betrieb (Woche 13, bisheriges M6)
 
+> **Status:** Zurückgestellt. Backup ist auf Host-Ebene gelöst — die komplette VM inkl.
+> `/data`-Bind-Mount wird nachts extern gesichert, das deckt den Datenverlust-Fall bereits ab,
+> ohne die 14-Generationen-Rotation aus diesem Meilenstein zu brauchen. Der Rest (Offline-
+> Schreiben, Export/Import, Rate-Limits) bleibt offen, falls später Bedarf entsteht. Mit M0–M8
+> gilt die App funktional als fertig.
+
 - **Offline-Schreiben:** IndexedDB-Outbox + Background Sync, serverseitige Idempotenz-Keys
   (R4)
 - **Backup — Politur der Basis aus M1:** Der einfache nächtliche `VACUUM INTO`-Snapshot
