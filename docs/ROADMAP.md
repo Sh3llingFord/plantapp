@@ -399,6 +399,14 @@ Größter Recherche-Aufwand der Iteration — gleiche Regel wie M1: nur echte, z
 (z.B. RHS-, Missouri-Botanical-Garden-, Universitäts-Extension-Publikationen zu Mischkultur),
 unsichere Werte als recherchierte Schätzung mit „bitte prüfen"-Flag, nie erfunden.
 
+> **Status:** Umgesetzt und deployed — Schema, Aufgabentyp „Aussäen", Beetplaner-Filter im
+> Katalog und Nachbarschafts-Abgleich auf der Detailseite. Die eigentliche Recherche lief auf
+> Nutzerwunsch über die bestehende n8n/Gemini-Pipeline statt per Websuche — 12 der 13
+> Nutzpflanzen erfolgreich befüllt, `meta.confidence` markiert beide Abschnitte mit 0.6, da
+> dieser Gemini-Node keine Websuche/Grounding nutzt und entsprechend keine Quellen-URLs liefert
+> (Abweichung von der ursprünglich geplanten RHS/Extension-Zitierung). Petersilie scheiterte
+> 5/5 Versuchen an der Schema-Validierung und bleibt auf Nutzerwunsch vorerst bei `null`.
+
 - **Schema-Erweiterung `sowing`:** `indoorMonths`, `outdoorMonths`, `plantOutMonths`,
   `daysToGermination` — alle nullable, wie jeder andere Pflegeprofil-Abschnitt.
 - **Schema-Erweiterung `companionPlanting`:** `goodCompanions`/`badCompanions` (botanische
