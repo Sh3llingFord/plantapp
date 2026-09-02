@@ -133,7 +133,44 @@ export const api = {
       request<WeatherLocation>("/api/weather/location", { method: "POST", body: JSON.stringify({ query }) }),
     forecast: () => request<WeatherDay[]>("/api/weather/forecast"),
   },
+  gardenPlans: {
+    list: () => request<GardenPlan[]>("/api/garden-plans"),
+    create: (body: { name: string; rows: number; cols: number }) =>
+      request<GardenPlan>("/api/garden-plans", { method: "POST", body: JSON.stringify(body) }),
+    get: (id: string) => request<GardenPlanDetail>(`/api/garden-plans/${id}`),
+    rename: (id: string, name: string) =>
+      request<GardenPlan>(`/api/garden-plans/${id}`, { method: "PATCH", body: JSON.stringify({ name }) }),
+    setCell: (id: string, row: number, col: number, speciesId: string | null) =>
+      request<{ ok: true }>(`/api/garden-plans/${id}/cells`, {
+        method: "PUT",
+        body: JSON.stringify({ row, col, speciesId }),
+      }),
+    remove: (id: string) => request<{ ok: true }>(`/api/garden-plans/${id}`, { method: "DELETE" }),
+  },
 };
+
+export interface GardenPlan {
+  id: string;
+  userId: string;
+  name: string;
+  rows: number;
+  cols: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface GardenPlanCell {
+  row: number;
+  col: number;
+  speciesId: string;
+  speciesBotanicalName: string;
+  speciesCareProfile: CareProfile;
+  speciesPhotoPath: string | null;
+}
+
+export interface GardenPlanDetail extends GardenPlan {
+  cells: GardenPlanCell[];
+}
 
 export interface WeatherLocation {
   locationName: string | null;

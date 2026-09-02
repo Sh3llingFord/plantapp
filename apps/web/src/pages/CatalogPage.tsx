@@ -7,7 +7,13 @@ const LIGHT_FILTERS: LightLevel[] = ["full_sun", "partial_sun", "bright_indirect
 const CURRENT_MONTH = currentMonthNameDe();
 const TIER_ICON = { good: "🟢", partial: "🟡", bad: "🔴", unknown: "" } as const;
 
-export function CatalogPage({ onOpenSpecies }: { onOpenSpecies: (id: string) => void }) {
+export function CatalogPage({
+  onOpenSpecies,
+  onOpenGardenPlans,
+}: {
+  onOpenSpecies: (id: string) => void;
+  onOpenGardenPlans: () => void;
+}) {
   const [list, setList] = useState<Species[] | null>(null);
   const [q, setQ] = useState("");
   const [light, setLight] = useState<LightLevel | null>(null);
@@ -44,6 +50,10 @@ export function CatalogPage({ onOpenSpecies }: { onOpenSpecies: (id: string) => 
 
   return (
     <div className="app-content">
+      <button className="btn btn--secondary" style={{ marginBottom: 12 }} onClick={onOpenGardenPlans}>
+        🗺️ Meine Beetpläne
+      </button>
+
       <div className="search-bar">
         <span aria-hidden="true">🔍</span>
         <input

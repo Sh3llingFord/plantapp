@@ -71,6 +71,13 @@
       "when": 1788344286452,
       "tag": "0009_wonderful_black_tarantula",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "6",
+      "when": 1788348213880,
+      "tag": "0010_huge_captain_stacy",
+      "breakpoints": true
     }
   ]
 }

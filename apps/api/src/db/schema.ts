@@ -1,4 +1,4 @@
-import { sqliteTable, text, integer, real } from "drizzle-orm/sqlite-core";
+import { sqliteTable, text, integer, real, unique } from "drizzle-orm/sqlite-core";
 
 export const users = sqliteTable("users", {
   id: text("id").primaryKey(),
@@ -146,3 +146,36 @@ export const weatherCache = sqliteTable("weather_cache", {
   precipitationSumMm: real("precipitation_sum_mm").notNull(),
   fetchedAt: integer("fetched_at", { mode: "timestamp" }).notNull(),
 });
+
+// M7-Erweiterung — Beetplaner. Einziges pro-Nutzer-privates Datenmodell der App (sonst ist
+// alles geteilter Haushaltsbestand); Routen prüfen deshalb zusätzlich zur Login-Pflicht, dass
+// userId zum eingeloggten Nutzer passt.
+export const gardenPlans = sqliteTable("garden_plans", {
+  id: text("id").primaryKey(),
+  userId: text("user_id")
+    .notNull()
+    .references(() => users.id, { onDelete: "cascade" }),
+  name: text("name").notNull(),
+  rows: integer("rows").notNull(),
+  cols: integer("cols").notNull(),
+  createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
+  updatedAt: integer("updated_at", { mode: "timestamp" }).notNull(),
+});
+
+// Nur belegte Felder bekommen eine Zeile — leere Zelle = keine Row, kein Vorbefüllen nötig.
+export const gardenPlanCells = sqliteTable(
+  "garden_plan_cells",
+  {
+    id: text("id").primaryKey(),
+    planId: text("plan_id")
+      .notNull()
+      .references(() => gardenPlans.id, { onDelete: "cascade" }),
+    row: integer("row").notNull(),
+    col: integer("col").notNull(),
+    speciesId: text("species_id")
+      .notNull()
+      .references(() => species.id, { onDelete: "cascade" }),
+    createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
+  },
+  (table) => ({ uniqueCell: unique().on(table.planId, table.row, table.col) }),
+);

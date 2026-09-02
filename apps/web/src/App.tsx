@@ -9,6 +9,8 @@ import { CatalogPage } from "./pages/CatalogPage";
 import { SpeciesDetailPage } from "./pages/SpeciesDetailPage";
 import { SettingsPage } from "./pages/SettingsPage";
 import { CalendarPage } from "./pages/CalendarPage";
+import { GardenPlansPage } from "./pages/GardenPlansPage";
+import { GardenPlanEditorPage } from "./pages/GardenPlanEditorPage";
 
 interface User {
   username: string;
@@ -18,12 +20,16 @@ type View =
   | { name: "list" }
   | { name: "plant-detail"; id: string }
   | { name: "plant-form"; id: string | null }
-  | { name: "species-detail"; id: string };
+  | { name: "species-detail"; id: string }
+  | { name: "garden-plans" }
+  | { name: "garden-plan-editor"; id: string };
 
 function titleFor(tab: Tab, view: View): string {
   if (view.name === "plant-form") return view.id ? "Pflanze bearbeiten" : "Neue Pflanze";
   if (view.name === "plant-detail") return "Pflanze";
   if (view.name === "species-detail") return "Katalog";
+  if (view.name === "garden-plans") return "Meine Beetpläne";
+  if (view.name === "garden-plan-editor") return "Beetplan";
   if (tab === "plants") return "Meine Pflanzen";
   if (tab === "calendar") return "Kalender";
   if (tab === "catalog") return "Katalog";
@@ -42,6 +48,8 @@ function AppShell({ user, onLoggedOut }: { user: User; onLoggedOut: () => void }
   function handleBack() {
     if (view.name === "plant-form" && view.id) {
       setView({ name: "plant-detail", id: view.id });
+    } else if (view.name === "garden-plan-editor") {
+      setView({ name: "garden-plans" });
     } else {
       setView({ name: "list" });
     }
@@ -70,7 +78,10 @@ function AppShell({ user, onLoggedOut }: { user: User; onLoggedOut: () => void }
       )}
 
       {tab === "catalog" && view.name === "list" && (
-        <CatalogPage onOpenSpecies={(id) => setView({ name: "species-detail", id })} />
+        <CatalogPage
+          onOpenSpecies={(id) => setView({ name: "species-detail", id })}
+          onOpenGardenPlans={() => setView({ name: "garden-plans" })}
+        />
       )}
       {tab === "catalog" && view.name === "species-detail" && (
         <SpeciesDetailPage
@@ -80,6 +91,12 @@ function AppShell({ user, onLoggedOut }: { user: User; onLoggedOut: () => void }
             setView({ name: "plant-detail", id: plantId });
           }}
         />
+      )}
+      {tab === "catalog" && view.name === "garden-plans" && (
+        <GardenPlansPage onOpenPlan={(id) => setView({ name: "garden-plan-editor", id })} />
+      )}
+      {tab === "catalog" && view.name === "garden-plan-editor" && (
+        <GardenPlanEditorPage id={view.id} onDeleted={() => setView({ name: "garden-plans" })} />
       )}
 
       {tab === "calendar" && <CalendarPage />}

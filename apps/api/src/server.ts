@@ -16,6 +16,7 @@ import { taskRoutes } from "./routes/tasks.js";
 import { calendarRoutes } from "./routes/calendar.js";
 import { settingsRoutes } from "./routes/settings.js";
 import { weatherRoutes } from "./routes/weather.js";
+import { gardenPlanRoutes } from "./routes/garden-plans.js";
 import { startBackupSchedule } from "./backup.js";
 import { startTaskSchedule } from "./tasks/schedule.js";
 import { startDigestSchedule } from "./push/schedule.js";
@@ -72,6 +73,7 @@ await app.register(taskRoutes);
 await app.register(calendarRoutes);
 await app.register(settingsRoutes);
 await app.register(weatherRoutes);
+await app.register(gardenPlanRoutes);
 
 await app.register(fastifyStatic, {
   root: uploadsDir,
