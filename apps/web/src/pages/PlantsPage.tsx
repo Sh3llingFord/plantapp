@@ -66,7 +66,10 @@ export function PlantsPage({ onOpenPlant }: { onOpenPlant: (id: string) => void 
                 </span>
               )}
               <div className="list-item__body">
-                <div className="list-item__title">{plant.nickname}</div>
+                <div className="list-item__title" style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                  {plant.color && <span className="color-dot" style={{ background: plant.color }} />}
+                  {plant.nickname}
+                </div>
                 {(plant.speciesBotanicalName || plant.freeTextSpecies) && (
                   <div className="list-item__subtitle">
                     {plant.speciesBotanicalName ?? plant.freeTextSpecies}

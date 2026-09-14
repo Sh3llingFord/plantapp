@@ -63,6 +63,9 @@ export const plants = sqliteTable("plants", {
   // Partielles CareProfile-JSON: überschreibt einzelne Felder des Katalog-Pflegeprofils
   // für genau diese eine Pflanze (z.B. abweichender Standort/Gießrhythmus).
   careProfileOverrides: text("care_profile_overrides", { mode: "json" }),
+  // Frei wählbare Farbmarkierung (Hex, z.B. "#e57373") zum Organisieren der eigenen Sammlung —
+  // rein manuell, keine Ableitung aus dem Pflegeprofil (das hat mit bloom.color etwas anderes).
+  color: text("color"),
   createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
 });
 

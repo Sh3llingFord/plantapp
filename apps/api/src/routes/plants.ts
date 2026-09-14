@@ -22,6 +22,13 @@ interface PlantBody {
   purchaseDate?: string | null; // ISO date
   notes?: string | null;
   careProfileOverrides?: Partial<CareProfile> | null;
+  color?: string | null; // Hex, z.B. "#e57373" — rein manuelle Organisations-Markierung
+}
+
+const HEX_COLOR_RE = /^#[0-9a-fA-F]{6}$/;
+
+function isValidColor(color: string | null | undefined): boolean {
+  return color === undefined || color === null || HEX_COLOR_RE.test(color);
 }
 
 export async function plantRoutes(app: FastifyInstance) {
@@ -47,6 +54,7 @@ export async function plantRoutes(app: FastifyInstance) {
         purchaseDate: plants.purchaseDate,
         notes: plants.notes,
         photoPath: plants.photoPath,
+        color: plants.color,
         createdAt: plants.createdAt,
         speciesBotanicalName: species.botanicalName,
         speciesCareProfile: species.careProfile,
@@ -88,9 +96,10 @@ export async function plantRoutes(app: FastifyInstance) {
   app.post<{ Body: PlantBody }>("/api/plants", async (request, reply) => {
     if (!request.user) return reply.code(401).send({ error: "nicht eingeloggt" });
 
-    const { nickname, speciesId, freeTextSpecies, locationId, purchaseDate, notes } =
+    const { nickname, speciesId, freeTextSpecies, locationId, purchaseDate, notes, color } =
       request.body;
     if (!nickname) return reply.code(400).send({ error: "nickname erforderlich" });
+    if (!isValidColor(color)) return reply.code(400).send({ error: "color muss ein Hex-Code sein, z.B. #e57373" });
 
     const id = randomUUID();
     db.insert(plants)
@@ -102,6 +111,7 @@ export async function plantRoutes(app: FastifyInstance) {
         locationId: locationId ?? null,
         purchaseDate: purchaseDate ? new Date(purchaseDate) : null,
         notes: notes ?? null,
+        color: color ?? null,
         createdAt: new Date(),
       })
       .run();
@@ -132,8 +142,9 @@ export async function plantRoutes(app: FastifyInstance) {
       const existing = db.select().from(plants).where(eq(plants.id, request.params.id)).get();
       if (!existing) return reply.code(404).send({ error: "nicht gefunden" });
 
-      const { nickname, speciesId, freeTextSpecies, locationId, purchaseDate, notes, careProfileOverrides } =
+      const { nickname, speciesId, freeTextSpecies, locationId, purchaseDate, notes, careProfileOverrides, color } =
         request.body;
+      if (!isValidColor(color)) return reply.code(400).send({ error: "color muss ein Hex-Code sein, z.B. #e57373" });
 
       db.update(plants)
         .set({
@@ -146,6 +157,7 @@ export async function plantRoutes(app: FastifyInstance) {
             : {}),
           ...(notes !== undefined ? { notes } : {}),
           ...(careProfileOverrides !== undefined ? { careProfileOverrides } : {}),
+          ...(color !== undefined ? { color } : {}),
         })
         .where(eq(plants.id, request.params.id))
         .run();

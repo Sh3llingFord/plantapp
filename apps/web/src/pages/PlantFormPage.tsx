@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { api, type Location, type Species } from "../api";
+import { api, PLANT_COLORS, type Location, type Species } from "../api";
 import { locationOptionPrefix } from "../location-match";
 
 interface Props {
@@ -19,6 +19,7 @@ export function PlantFormPage({ plantId, onSaved, onCancel }: Props) {
   const [newLocationName, setNewLocationName] = useState("");
   const [purchaseDate, setPurchaseDate] = useState("");
   const [notes, setNotes] = useState("");
+  const [color, setColor] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -34,6 +35,7 @@ export function PlantFormPage({ plantId, onSaved, onCancel }: Props) {
       setLocationId(p.locationId ?? "");
       setPurchaseDate(p.purchaseDate ? p.purchaseDate.slice(0, 10) : "");
       setNotes(p.notes ?? "");
+      setColor(p.color ?? null);
       if (p.speciesId) api.species.get(p.speciesId).then(setSelectedSpecies);
     });
   }, [plantId]);
@@ -73,6 +75,7 @@ export function PlantFormPage({ plantId, onSaved, onCancel }: Props) {
         locationId: locationId || null,
         purchaseDate: purchaseDate || null,
         notes: notes.trim() || null,
+        color,
       };
       const saved = plantId ? await api.plants.update(plantId, body) : await api.plants.create(body);
       onSaved(saved.id);
@@ -192,6 +195,32 @@ export function PlantFormPage({ plantId, onSaved, onCancel }: Props) {
             value={purchaseDate}
             onChange={(e) => setPurchaseDate(e.target.value)}
           />
+        </div>
+
+        <div className="field">
+          <label>Farbmarkierung</label>
+          <div className="color-swatch-row">
+            <button
+              type="button"
+              className={`color-swatch color-swatch--none ${color === null ? "color-swatch--selected" : ""}`}
+              onClick={() => setColor(null)}
+              aria-label="Keine Farbe"
+              title="Keine Farbe"
+            >
+              ✕
+            </button>
+            {PLANT_COLORS.map((c) => (
+              <button
+                key={c}
+                type="button"
+                className={`color-swatch ${color === c ? "color-swatch--selected" : ""}`}
+                style={{ background: c }}
+                onClick={() => setColor(c)}
+                aria-label={`Farbe ${c}`}
+                title={c}
+              />
+            ))}
+          </div>
         </div>
 
         <div className="field">

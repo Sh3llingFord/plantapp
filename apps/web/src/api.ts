@@ -33,6 +33,7 @@ export interface Plant {
   notes: string | null;
   photoPath: string | null;
   careProfileOverrides?: Partial<CareProfile> | null;
+  color: string | null;
   createdAt: string;
   speciesBotanicalName?: string | null;
   speciesCareProfile?: CareProfile | null;
@@ -239,3 +240,17 @@ export const LIGHT_LABELS: Record<LightLevel, string> = {
   bright_indirect: "Hell, indirekt",
   shade: "Schatten",
 };
+
+// Rein manuelle Organisations-Farbe pro Pflanze, unabhängig vom Pflegeprofil.
+export const PLANT_COLORS = [
+  "#e57373", // rot
+  "#f0983e", // orange
+  "#f6c445", // gelb
+  "#81c784", // grün
+  "#4db6ac", // türkis
+  "#64b5f6", // blau
+  "#9575cd", // lila
+  "#f06292", // pink
+  "#a1887f", // braun
+  "#90a4ae", // grau
+];

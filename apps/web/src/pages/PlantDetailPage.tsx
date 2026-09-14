@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { api, LIGHT_LABELS, type PlantDetail, type Location, type Plant } from "../api";
-import { ToxicityBanner } from "../toxicity";
+import { api, type PlantDetail, type Location, type Plant } from "../api";
 import { LocationMatchCard } from "../location-match";
 import { CompanionCard } from "../companion";
+import { CareProfileView } from "../care-profile-view";
 
 export function PlantDetailPage({
   id,
@@ -130,29 +130,27 @@ export function PlantDetailPage({
         />
       </label>
 
-      <div>
+      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+        {plant.color && <span className="color-dot" style={{ background: plant.color, width: 16, height: 16 }} />}
         <h2 style={{ margin: "0 0 4px" }}>{plant.nickname}</h2>
-        {(plant.speciesBotanicalName || plant.freeTextSpecies) && (
-          <p style={{ fontStyle: "italic" }}>{plant.speciesBotanicalName ?? plant.freeTextSpecies}</p>
-        )}
       </div>
+      {(plant.speciesBotanicalName || plant.freeTextSpecies) && (
+        <p style={{ fontStyle: "italic", marginTop: 0 }}>{plant.speciesBotanicalName ?? plant.freeTextSpecies}</p>
+      )}
 
-      <ToxicityBanner toxicity={care?.toxicity} />
-
-      <div className="detail-card">
-        <dl className="kv-list">
-          {location && <div className="kv-row"><dt>Standort</dt><dd>{location.name}</dd></div>}
-          {plant.purchaseDate && (
-            <div className="kv-row">
-              <dt>Gekauft am</dt>
-              <dd>{new Date(plant.purchaseDate).toLocaleDateString("de-DE")}</dd>
-            </div>
-          )}
-          {care?.placement?.light && (
-            <div className="kv-row"><dt>Licht</dt><dd>{LIGHT_LABELS[care.placement.light]}</dd></div>
-          )}
-        </dl>
-      </div>
+      {(location || plant.purchaseDate) && (
+        <div className="detail-card">
+          <dl className="kv-list">
+            {location && <div className="kv-row"><dt>Standort</dt><dd>{location.name}</dd></div>}
+            {plant.purchaseDate && (
+              <div className="kv-row">
+                <dt>Gekauft am</dt>
+                <dd>{new Date(plant.purchaseDate).toLocaleDateString("de-DE")}</dd>
+              </div>
+            )}
+          </dl>
+        </div>
+      )}
 
       <LocationMatchCard care={care} location={location} />
 
@@ -167,14 +165,7 @@ export function PlantDetailPage({
         </div>
       )}
 
-      {care?.water && (
-        <div className="detail-card">
-          <p className="section__title">
-            <span aria-hidden="true">💧</span> Gießen
-          </p>
-          <p>{care.water.amount}</p>
-        </div>
-      )}
+      {care && <CareProfileView profile={care} />}
 
       {!care && plant.freeTextSpecies && (
         <div className="detail-card">

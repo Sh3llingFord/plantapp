@@ -78,6 +78,13 @@
       "when": 1788348213880,
       "tag": "0010_huge_captain_stacy",
       "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "6",
+      "when": 1789362302400,
+      "tag": "0011_mature_cammi",
+      "breakpoints": true
     }
   ]
 }
