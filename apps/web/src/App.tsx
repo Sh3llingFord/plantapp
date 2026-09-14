@@ -25,6 +25,13 @@ type View =
   | { name: "species-detail"; id: string }
   | { name: "garden-plan-editor"; id: string };
 
+interface NavState {
+  tab: Tab;
+  view: View;
+}
+
+const INITIAL_STATE: NavState = { tab: "home", view: { name: "list" } };
+
 function titleFor(tab: Tab, view: View): string {
   if (view.name === "plant-form") return view.id ? "Pflanze bearbeiten" : "Neue Pflanze";
   if (view.name === "plant-detail") return "Pflanze";
@@ -49,20 +56,47 @@ function AppShell({
   showWelcome: boolean;
   onCloseWelcome: () => void;
 }) {
-  const [tab, setTab] = useState<Tab>("home");
-  const [view, setView] = useState<View>({ name: "list" });
+  const [tab, setTab] = useState<Tab>(INITIAL_STATE.tab);
+  const [view, setView] = useState<View>(INITIAL_STATE.view);
+
+  // Android/PWA: ohne History-API-Anbindung landet der Hardware-/Gesten-Zurück-Button
+  // sofort außerhalb der App, statt nur einen Schritt in der eigenen Navigation
+  // zurückzugehen — jede Drilldown-Navigation bekommt deshalb einen echten
+  // Verlaufseintrag, "zurück" ruft nur noch window.history.back() auf.
+  useEffect(() => {
+    window.history.replaceState(INITIAL_STATE, "");
+
+    function handlePopState(event: PopStateEvent) {
+      const state = (event.state as NavState | null) ?? INITIAL_STATE;
+      setTab(state.tab);
+      setView(state.view);
+    }
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
+  /** Neuer Bildschirm, der auf den Verlaufs-Stack gelegt wird ("vorwärts"). */
+  function navigate(nextTab: Tab, nextView: View) {
+    window.history.pushState({ tab: nextTab, view: nextView } satisfies NavState, "");
+    setTab(nextTab);
+    setView(nextView);
+  }
+
+  /** Abschluss eines Formulars/einer Aktion — ersetzt den aktuellen Eintrag,
+   * statt den Verlauf um einen nicht mehr sinnvoll anspringbaren Schritt
+   * (z.B. ein bereits abgeschicktes Formular) zu verlängern. */
+  function replaceNav(nextTab: Tab, nextView: View) {
+    window.history.replaceState({ tab: nextTab, view: nextView } satisfies NavState, "");
+    setTab(nextTab);
+    setView(nextView);
+  }
 
   function handleTabChange(next: Tab) {
-    setTab(next);
-    setView({ name: "list" });
+    navigate(next, { name: "list" });
   }
 
   function handleBack() {
-    if (view.name === "plant-form" && view.id) {
-      setView({ name: "plant-detail", id: view.id });
-    } else {
-      setView({ name: "list" });
-    }
+    window.history.back();
   }
 
   return (
@@ -72,41 +106,38 @@ function AppShell({
       {tab === "home" && <DashboardPage />}
 
       {tab === "plants" && view.name === "list" && (
-        <PlantsPage onOpenPlant={(id) => setView({ name: "plant-detail", id })} />
+        <PlantsPage onOpenPlant={(id) => navigate("plants", { name: "plant-detail", id })} />
       )}
       {tab === "plants" && view.name === "plant-detail" && (
         <PlantDetailPage
           id={view.id}
-          onEdit={() => setView({ name: "plant-form", id: view.id })}
-          onDeleted={() => setView({ name: "list" })}
+          onEdit={() => navigate("plants", { name: "plant-form", id: view.id })}
+          onDeleted={() => replaceNav("plants", { name: "list" })}
         />
       )}
       {tab === "plants" && view.name === "plant-form" && (
         <PlantFormPage
           plantId={view.id}
-          onSaved={(id) => setView({ name: "plant-detail", id })}
-          onCancel={() => setView(view.id ? { name: "plant-detail", id: view.id } : { name: "list" })}
+          onSaved={(id) => replaceNav("plants", { name: "plant-detail", id })}
+          onCancel={() => replaceNav("plants", view.id ? { name: "plant-detail", id: view.id } : { name: "list" })}
         />
       )}
 
       {tab === "catalog" && view.name === "list" && (
-        <CatalogPage onOpenSpecies={(id) => setView({ name: "species-detail", id })} />
+        <CatalogPage onOpenSpecies={(id) => navigate("catalog", { name: "species-detail", id })} />
       )}
       {tab === "catalog" && view.name === "species-detail" && (
         <SpeciesDetailPage
           id={view.id}
-          onAddedToMyPlants={(plantId) => {
-            setTab("plants");
-            setView({ name: "plant-detail", id: plantId });
-          }}
+          onAddedToMyPlants={(plantId) => navigate("plants", { name: "plant-detail", id: plantId })}
         />
       )}
 
       {tab === "garden" && view.name === "list" && (
-        <GardenPlansPage onOpenPlan={(id) => setView({ name: "garden-plan-editor", id })} />
+        <GardenPlansPage onOpenPlan={(id) => navigate("garden", { name: "garden-plan-editor", id })} />
       )}
       {tab === "garden" && view.name === "garden-plan-editor" && (
-        <GardenPlanEditorPage id={view.id} onDeleted={() => setView({ name: "list" })} />
+        <GardenPlanEditorPage id={view.id} onDeleted={() => replaceNav("garden", { name: "list" })} />
       )}
 
       {tab === "calendar" && <CalendarPage />}
@@ -117,7 +148,7 @@ function AppShell({
         <button
           className="fab"
           aria-label="Neue Pflanze"
-          onClick={() => setView({ name: "plant-form", id: null })}
+          onClick={() => navigate("plants", { name: "plant-form", id: null })}
         >
           +
         </button>
