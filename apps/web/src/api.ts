@@ -254,4 +254,17 @@ export const PLANT_COLORS = [
   "#a1887f", // braun
   "#90a4ae", // grau
   "#ffffff", // weiß
+  "rainbow", // bunt — Sonderwert, kein Hex-Code, siehe plantColorBackground()
 ];
+
+/** "rainbow" ist kein Hex-Code, sondern ein Sonderwert für "bunt" — dafür einen
+ * Farbverlauf statt einer Flächenfarbe rendern. */
+export function plantColorBackground(color: string): string {
+  return color === "rainbow"
+    ? "conic-gradient(from 180deg, #e57373, #f0983e, #f6c445, #81c784, #4db6ac, #64b5f6, #9575cd, #f06292, #e57373)"
+    : color;
+}
+
+export function plantColorLabel(color: string): string {
+  return color === "rainbow" ? "bunt" : color;
+}

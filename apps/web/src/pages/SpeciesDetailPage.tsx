@@ -65,7 +65,6 @@ export function SpeciesDetailPage({
         <input
           type="file"
           accept="image/jpeg,image/png,image/webp"
-          capture="environment"
           style={{ display: "none" }}
           onChange={handlePhotoChange}
         />

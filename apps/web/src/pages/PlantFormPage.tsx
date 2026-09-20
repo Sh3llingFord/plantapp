@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { api, PLANT_COLORS, type Location, type Species } from "../api";
+import { api, PLANT_COLORS, plantColorBackground, plantColorLabel, type Location, type Species } from "../api";
 import { locationOptionPrefix } from "../location-match";
 
 interface Props {
@@ -214,10 +214,10 @@ export function PlantFormPage({ plantId, onSaved, onCancel }: Props) {
                 key={c}
                 type="button"
                 className={`color-swatch ${color === c ? "color-swatch--selected" : ""}`}
-                style={{ background: c }}
+                style={{ background: plantColorBackground(c) }}
                 onClick={() => setColor(c)}
-                aria-label={`Farbe ${c}`}
-                title={c}
+                aria-label={`Farbe ${plantColorLabel(c)}`}
+                title={plantColorLabel(c)}
               />
             ))}
           </div>

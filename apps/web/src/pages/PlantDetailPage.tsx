@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { api, type PlantDetail, type Location, type Plant } from "../api";
+import { api, plantColorBackground, type PlantDetail, type Location, type Plant } from "../api";
 import { LocationMatchCard } from "../location-match";
 import { CompanionCard } from "../companion";
 import { CareProfileView } from "../care-profile-view";
@@ -124,14 +124,13 @@ export function PlantDetailPage({
         <input
           type="file"
           accept="image/jpeg,image/png,image/webp"
-          capture="environment"
           style={{ display: "none" }}
           onChange={handlePhotoChange}
         />
       </label>
 
       <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-        {plant.color && <span className="color-dot" style={{ background: plant.color, width: 16, height: 16 }} />}
+        {plant.color && <span className="color-dot" style={{ background: plantColorBackground(plant.color), width: 16, height: 16 }} />}
         <h2 style={{ margin: "0 0 4px" }}>{plant.nickname}</h2>
       </div>
       {(plant.speciesBotanicalName || plant.freeTextSpecies) && (

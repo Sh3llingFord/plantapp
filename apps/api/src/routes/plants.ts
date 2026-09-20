@@ -28,7 +28,7 @@ interface PlantBody {
 const HEX_COLOR_RE = /^#[0-9a-fA-F]{6}$/;
 
 function isValidColor(color: string | null | undefined): boolean {
-  return color === undefined || color === null || HEX_COLOR_RE.test(color);
+  return color === undefined || color === null || color === "rainbow" || HEX_COLOR_RE.test(color);
 }
 
 export async function plantRoutes(app: FastifyInstance) {

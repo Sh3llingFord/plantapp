@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { api, type Plant, type Location } from "../api";
+import { api, plantColorBackground, type Plant, type Location } from "../api";
 import { ToxicityBadges } from "../toxicity";
 import { LocationMatchBadge } from "../location-match";
 
@@ -67,7 +67,7 @@ export function PlantsPage({ onOpenPlant }: { onOpenPlant: (id: string) => void 
               )}
               <div className="list-item__body">
                 <div className="list-item__title" style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                  {plant.color && <span className="color-dot" style={{ background: plant.color }} />}
+                  {plant.color && <span className="color-dot" style={{ background: plantColorBackground(plant.color) }} />}
                   {plant.nickname}
                 </div>
                 {(plant.speciesBotanicalName || plant.freeTextSpecies) && (
