@@ -253,4 +253,5 @@ export const PLANT_COLORS = [
   "#f06292", // pink
   "#a1887f", // braun
   "#90a4ae", // grau
+  "#ffffff", // weiß
 ];
