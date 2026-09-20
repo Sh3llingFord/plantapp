@@ -17,6 +17,7 @@ export function PlantDetailPage({
   const [location, setLocation] = useState<Location | null>(null);
   const [neighborPlants, setNeighborPlants] = useState<Plant[]>([]);
   const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
   const [enrichStatus, setEnrichStatus] = useState<string | null>(null);
   const pollingJobId = useRef<string | null>(null);
 
@@ -50,9 +51,12 @@ export function PlantDetailPage({
     const file = e.target.files?.[0];
     if (!file) return;
     setUploading(true);
+    setUploadError(null);
     try {
       await api.plants.uploadPhoto(id, file);
       load();
+    } catch (err) {
+      setUploadError(err instanceof Error ? err.message : "Foto-Upload fehlgeschlagen");
     } finally {
       setUploading(false);
     }
@@ -123,11 +127,12 @@ export function PlantDetailPage({
         </span>
         <input
           type="file"
-          accept="image/jpeg,image/png,image/webp"
+          accept="image/*"
           style={{ display: "none" }}
           onChange={handlePhotoChange}
         />
       </label>
+      {uploadError && <p className="alert alert--error">{uploadError}</p>}
 
       <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
         {plant.color && <span className="color-dot" style={{ background: plantColorBackground(plant.color), width: 16, height: 16 }} />}

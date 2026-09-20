@@ -79,7 +79,10 @@ export const api = {
       const form = new FormData();
       form.append("file", file);
       const res = await fetch(`/api/species/${id}/photo`, { method: "POST", body: form });
-      if (!res.ok) throw new Error("Foto-Upload fehlgeschlagen");
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error ?? "Foto-Upload fehlgeschlagen");
+      }
       return res.json() as Promise<{ photoPath: string }>;
     },
   },
@@ -96,7 +99,10 @@ export const api = {
       const form = new FormData();
       form.append("file", file);
       const res = await fetch(`/api/plants/${id}/photo`, { method: "POST", body: form });
-      if (!res.ok) throw new Error("Foto-Upload fehlgeschlagen");
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error ?? "Foto-Upload fehlgeschlagen");
+      }
       return res.json() as Promise<{ photoPath: string }>;
     },
     enrich: (id: string) =>

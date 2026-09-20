@@ -11,6 +11,7 @@ export function SpeciesDetailPage({
 }) {
   const [entry, setEntry] = useState<Species | null>(null);
   const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
   const [adding, setAdding] = useState(false);
 
   function load() {
@@ -23,9 +24,12 @@ export function SpeciesDetailPage({
     const file = e.target.files?.[0];
     if (!file) return;
     setUploading(true);
+    setUploadError(null);
     try {
       await api.species.uploadPhoto(id, file);
       load();
+    } catch (err) {
+      setUploadError(err instanceof Error ? err.message : "Foto-Upload fehlgeschlagen");
     } finally {
       setUploading(false);
     }
@@ -64,11 +68,12 @@ export function SpeciesDetailPage({
         </span>
         <input
           type="file"
-          accept="image/jpeg,image/png,image/webp"
+          accept="image/*"
           style={{ display: "none" }}
           onChange={handlePhotoChange}
         />
       </label>
+      {uploadError && <p className="alert alert--error">{uploadError}</p>}
       <div>
         <h2 style={{ margin: "0 0 4px" }}>
           {careProfile.identity.commonNamesDe?.[0] ?? entry.botanicalName}

@@ -196,7 +196,7 @@ export async function plantRoutes(app: FastifyInstance) {
     if (!file) return reply.code(400).send({ error: "keine Datei erhalten" });
 
     const photoPath = await saveUploadedPhoto(file, request.params.id);
-    if (!photoPath) return reply.code(400).send({ error: "nur JPEG/PNG/WebP erlaubt" });
+    if (!photoPath) return reply.code(400).send({ error: "Bild konnte nicht verarbeitet werden (Format nicht unterstützt oder Datei beschädigt)" });
 
     db.update(plants).set({ photoPath }).where(eq(plants.id, request.params.id)).run();
 
